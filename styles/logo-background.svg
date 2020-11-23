@@ -1,0 +1,17 @@
+<svg id="logo-background" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="360" height="120" viewBox="0 0 360 120">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffc"/>
+      <stop offset="0.548" stop-color="#ffc"/>
+      <stop offset="1" stop-color="#ffc" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="gray"/>
+      <stop offset="0.498" stop-color="gray"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect id="Rectangle_30" data-name="Rectangle 30" width="360" height="72" transform="translate(0 48)" fill="url(#linear-gradient)"/>
+  <rect id="soya" width="360" height="105" fill="url(#radial-gradient)"/>
+  <path id="Path_98" data-name="Path 98" d="M0,0V58.457L178.637,96.425h2.725L360,58.457V0Z" transform="translate(0 0)" fill="#ff0"/>
+</svg>
