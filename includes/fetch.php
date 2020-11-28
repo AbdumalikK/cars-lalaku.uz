@@ -4,16 +4,15 @@ include 'config.php';
 
 if(isset($_POST['view'])){
 
-// $con = mysqli_connect("localhost", "root", "", "notif");
+if($_POST["view"] != '')
 
-// if($_POST["view"] != '')
+{
+   $update_query = "UPDATE documents SET status = 1 WHERE status=0";
+   mysqli_query($connect, $update_query);
+}
 
-// {
-//    $update_query = "UPDATE notifications SET status = 1 WHERE status=0";
-//    mysqli_query($connect, $update_query);
-// }
 
-$query = "SELECT * FROM notifications ORDER BY user_id DESC LIMIT 5";
+$query = "SELECT * FROM documents ORDER BY id DESC LIMIT 5";
 $result = mysqli_query($connect, $query);
 $output = '';
 
@@ -40,7 +39,7 @@ $output = '';
 //     $output .= '<li><a href="#" class="text-bold text-italic">No Noti Found</a></li>';
 // }
 
-$status_query = "SELECT * FROM notifications WHERE status = 0";
+$status_query = "SELECT * FROM documents WHERE status = 0";
 $result_query = mysqli_query($connect, $status_query);
 $count = mysqli_num_rows($result_query);
 
