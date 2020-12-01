@@ -106,7 +106,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                </a>
                 </div>
               </div>
             </div>
@@ -187,7 +189,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                </a>
                 </div>
               </div>
             </div>
@@ -260,7 +264,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -333,7 +339,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -406,7 +414,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -479,7 +489,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -552,7 +564,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -625,7 +639,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -698,7 +714,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -771,7 +789,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -844,7 +864,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -918,7 +940,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -994,7 +1018,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1067,7 +1093,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1140,7 +1168,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1213,7 +1243,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1293,7 +1325,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1363,7 +1397,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1435,7 +1471,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1507,7 +1545,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1579,7 +1619,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1651,7 +1693,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1723,7 +1767,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1795,7 +1841,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                 <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1867,7 +1915,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -1939,7 +1989,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -2011,7 +2063,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                 <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -2083,7 +2137,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -2155,7 +2211,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -2227,7 +2285,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
@@ -2299,7 +2359,9 @@ if ($result->num_rows > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
+                  <a href="tel:'.$row["d_number"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
+                  </a>
                 </div>
               </div>
             </div>
