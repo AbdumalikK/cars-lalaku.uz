@@ -4,10 +4,6 @@ if (isset($_GET['id'])) {
     $sql = "SELECT * FROM car WHERE id = $id";
     $result = mysqli_query($connect, $sql);
 
-    // if(count($result) == 1){
-    //     $n = mysqli_fetch_array($result);
-    //     $
-    // }
 }
 
 while ($car = mysqli_fetch_assoc($result)) {
