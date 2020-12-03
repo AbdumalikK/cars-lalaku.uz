@@ -80,7 +80,7 @@ if ($result->num_rows > 0) {
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
-              <h5 class="content-p mb-0 ml-0">'.$row["driver_name" ]." ".$row["driver_surname"].'</h5>
+              <h5 class="content-p mb-0 ml-0">'.$row["driver_name"]." ".$row["driver_surname"].'</h5>
           
               
             </div>

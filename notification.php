@@ -1,6 +1,6 @@
 <?php
-include 'includes/config.php';
-include 'includes/header.php'; 
+include_once 'includes/config.php';
+include_once 'includes/header.php'; 
 ?>
 
 <!-- Reminder and made tasks -->
@@ -44,18 +44,13 @@ include 'includes/header.php';
 
 
 <?php 
-  $sql = "SELECT * FROM documents WHERE item_status = 0";
+  $sql = "SELECT persons.driver_name, persons.driver_surname, persons.d_phone_1, documents.tex_pass_date, documents.ins_date, documents.gas_date, documents.renta_date, documents.trust_date FROM persons
+	 LEFT JOIN documents ON documents.id = persons.id
+	 WHERE documents.item_status = 0
+	";
   $result = mysqli_query($connect, $sql);
-
-while ($notif = mysqli_fetch_assoc($result)) {
-
-$expires = $notif['tex_pass_date'];
-$now = strtotime("now");
-
-$date_diff = (strtotime($expires) - $now) / 86400;
-
- ?>
-
+	
+function RenderItem($title, $date_diff, $notif_id, $notif_driver_name, $notif_driver_surname, $notif_phone) { ?>
 
 			<div class="content-bordered">
 			<div class="row">
@@ -63,10 +58,21 @@ $date_diff = (strtotime($expires) - $now) / 86400;
 						<div class="info">
 							<span class="badge badge-pill badge-content-img d-inline-block content-img-size">D</span>
 							<h5 class="d-inline-block content-border ml-1 mb-0">
-								<a href="action/update.php?id='<?php echo $notif['id']; ?>'"><?php echo $notif['title']; ?></a>
+								<a href="action/update.php?id=<?php echo $notif_id ?>">
+									<?php echo $title; ?>
+								</a>
 							</h5>
-							<p class="content-who text-dark"><?php echo $notif['object']; ?></p>
-							<h5 class="content-p mb-2"><?php echo $notif['surname_name']; ?></h5>
+							<p class="content-who text-dark">haydovchi</p>
+							<h5 class="content-p mb-2">
+								<?php 
+								echo $notif_driver_name; 
+								if(!$notif_driver_surname){
+									echo "";
+								} else {
+									echo $notif_driver_surname;
+								}
+								?>
+								</h5>
 					
 							
 						</div>
@@ -79,21 +85,83 @@ $date_diff = (strtotime($expires) - $now) / 86400;
 								<div class="col-6 px-0">
 							<div class="d-inline-block br-3"></div>
 							<p class="mb-0 font-8">telefon</p>
-							<h5 class="mb-0 font-12"><?php echo $notif['phone'] ?></h5>
+							<h5 class="mb-0 font-12"><?php echo $notif_phone; ?></h5>
 								</div>
 
 								<div class="col-6 px-0 align-self-lg-end text-align-end">
-							<h4 class="content-day"><?php echo round($date_diff) ?></h4><p class="d-inline mr-3 content-day-color">k</p>
+							<h4 class="content-day"><?php echo round($date_diff); ?></h4><p class="d-inline mr-3 content-day-color">k</p>
 
-								<img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">	
+								<a href="tel:<?php echo $notif_phone ?>">
+									<img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">	</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 <?php } ?>
+
+<?php
+while ($notif = mysqli_fetch_assoc($result)) {
+
+$notif_id = $notif['id'];
+$notif_driver_name = $notif['driver_name'];
+$notif_driver_surname = $notif['driver_surname'];
+$notif_phone = $notif['d_phone_1'];
+
+$now = strtotime("now");
+
+$date_list = array("Tex"=>$notif['tex_pass_date'], "Ins"=>$notif['ins_date'], "Gas"=>$notif['gas_date'], "Rent"=>$notif['renta_date'], "Trust"=>$notif['trust_date']);
+
+$listDates = [];
+
+foreach ($date_list as $date) {
+
+$title = [];
+
+if ($date) {
+	array_push($listDates, $date);
+	switch ($date) {
+		case $listDates[0]:
+			array_push($title, "Tex.pasport");
+			$date_diff = (strtotime($date) - $now) / 86400;
+			// RenderItem($title, $date_diff);
+			break;
+		case $listDates[1]:
+			array_push($title, "Sug'urta");
+			$date_diff = (strtotime($date) - $now) / 86400;
+			// RenderItem($title, $date_diff);
+			break;
+		case $listDates[2]:
+			array_push($title, "Gaz akt");
+			$date_diff = (strtotime($date) - $now) / 86400;
+			// RenderItem($title, $date_diff);
+			break;
+		case $listDates[3]:
+			array_push($title, "Ijara shartnomasi");
+			$date_diff = (strtotime($date) - $now) / 86400;
+			// RenderItem($title, $date_diff);
+			break;
+		case $listDates[4]:
+			array_push($title, "Ishonchnoma");
+			$date_diff = (strtotime($date) - $now) / 86400;
+			// RenderItem($title, $date_diff);
+			break;
+		
+		default:
+			$title = "Nomalum";
+			break;
+	}
+
+RenderItem($title[0], $date_diff, $notif_id, $notif_driver_name, $notif_driver_surname, $notif_phone);
+}
+
+
+}
+
+
+} ?> <!-- end while -->
+
 
 	</div>
 </div>
