@@ -67,29 +67,29 @@
 
 <?php
 include_once '../includes/config.php';
-include '../sections/upload-manager.php';
-include '../sections/update/sql_query_update.php';
+include_once '../sections/upload-manager.php';
+include_once '../sections/update/sql_query_update.php';
 ?>
 
  <!-- Add information section -->
     <div class="container mx-lg-auto my-4">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data">
 		<!-- Car -->
-        <?php include '../sections/update/car.php'?>
+        <?php include_once '../sections/update/car.php'?>
 		<!-- Documents -->
-        <?php include '../sections/update/documents.php'?>
+        <?php include_once '../sections/update/documents.php'?>
 		<!-- Companies -->
-        <?php include '../sections/update/companies.php'?>
+        <?php include_once '../sections/update/companies.php'?>
 		<!-- Persons -->
-        <?php include '../sections/update/persons.php'?>
+        <?php include_once '../sections/update/persons.php'?>
         <!-- Purchase -->
-        <?php include '../sections/update/purchase.php'?>
+        <?php include_once '../sections/update/purchase.php'?>
 		<!-- Sell -->
-        <?php include '../sections/update/sell.php'?>
+        <?php include_once '../sections/update/sell.php'?>
         <!-- Status -->
-        <?php include '../sections/update/status.php'?>
+        <?php include_once '../sections/update/status.php'?>
         <!-- Fine -->
-        <?php include '../sections/update/fine.php' ?>
+        <?php include_once '../sections/update/fine.php' ?>
         <div class="col-12 p-0">
         <input type="submit" name="update" value="Yangilash" class="btn btn-save my-3">
         </div>

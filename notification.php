@@ -160,7 +160,10 @@ RenderItem($title[0], $date_diff, $notif_id, $notif_driver_name, $notif_driver_s
 }
 
 
-} ?> <!-- end while -->
+} 
+
+
+?> 
 
 
 	</div>
