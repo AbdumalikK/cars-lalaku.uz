@@ -60,7 +60,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -143,7 +143,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -218,7 +218,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -293,7 +293,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -368,7 +368,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -443,7 +443,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -518,7 +518,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -593,7 +593,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -668,7 +668,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -743,7 +743,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -818,7 +818,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -894,7 +894,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -972,7 +972,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -1047,7 +1047,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -1122,7 +1122,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 
@@ -1197,7 +1197,7 @@ if ($result->num_rows > 0) {
 
   }
 } else {
-  echo "0 natija".$mysqli -> error;
+  echo "0 natija";
 }
 // $connect->close();
 

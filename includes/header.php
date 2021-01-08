@@ -7,16 +7,16 @@
     <title>LaLaKoo Cars</title>
     <!-- Styles css-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/css/style.css">
-    <link rel="stylesheet" href="../styles/css/search.css">
-    <link rel="stylesheet" href="../styles/css/image.css">
+    <link rel="stylesheet" href="styles/css/style.css">
+    <link rel="stylesheet" href="styles/css/search.css">
+    <link rel="stylesheet" href="styles/css/image.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="../styles/css/dark-mode.css">
+    <!-- <link rel="stylesheet" href="styles/css/dark-mode.css"> -->
     <!-- Fonts -->
-    <link rel="stylesheet" href="../styles/fonts/18VAGROUNDEDMBOLD_0.TTF">
-    <link rel="stylesheet" href="../styles/fonts/TITILLIUM-BOLD.OTF">
-    <link rel="stylesheet" href="../styles/fonts/TITILLIUM-REGULAR.OTF">
-    <link rel="stylesheet" href="../styles/fonts/TITILLIUM-THIN.OTF">
+    <link rel="stylesheet" href="styles/fonts/18VAGROUNDEDMBOLD_0.TTF">
+    <link rel="stylesheet" href="styles/fonts/TITILLIUM-BOLD.OTF">
+    <link rel="stylesheet" href="styles/fonts/TITILLIUM-REGULAR.OTF">
+    <link rel="stylesheet" href="styles/fonts/TITILLIUM-THIN.OTF">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!-- JS Files -->
 
@@ -26,20 +26,20 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
-    <script src="../styles/js/darkmode-js.min.js"></script>
+    <script src="styles/js/darkmode-js.min.js"></script>
     
-    <script src="../styles/js/doc-js/FileSaver.js"></script>
-    <script src="../styles/js/doc-js/jquery.wordexport.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+    <script src="styles/js/doc-js/FileSaver.js"></script>
+    <script src="styles/js/doc-js/jquery.wordexport.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script> -->
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-	<script src="../styles/js/loader.js"></script>
-    <script src="../styles/js/app.js"></script>
+	<script src="styles/js/loader.js"></script>
+    <script src="styles/js/app.js"></script>
 </head>
 <body onload="loader()">
 
 <!-- Container -->
 <div id="loader">
-<p id="loadText">LaLaKu <img src="../styles/loader-logo.svg" width="50" height="50" alt=""></p>
+<p id="loadText">LaLaKu <img src="styles/loader-logo.svg" width="50" height="50" alt=""></p>
 </div>
 
 <div class="container-fluid container-lg mx-lg-auto m-0">
@@ -53,11 +53,11 @@
                     
 
                     <a href="./index.php"><img class="pos-top" src="./styles/logo.svg" alt="logo"></a>
-                <div class="text-center custom-control custom-switch dayNight">
+                <!-- <div class="text-center custom-control custom-switch dayNight">
                     <input type="checkbox" class="custom-control-input ml-5" id="darkSwitch" />
                     <label class="custom-control-label" for="darkSwitch">Tungi rejim</label>
                  </div>
-                <script src="./styles/js/dark-mode-switch.min.js"></script>
+                <script src="./styles/js/dark-mode-switch.min.js"></script> -->
 
              
 
@@ -196,7 +196,7 @@ setInterval(function(){
         <!-- Modellar, Mintaqalar -->
                         <!-- Models -->
                         <div class="col-12 px-2 m-0">
-                                     <div id="models" class="toggle m-0">
+                                     <div id="models" style="display: none;" class="toggle m-0">
                                     <div class="col-12 px-0 m-0">
                                 <div class="col-10 offset-1 content-border mt-2 mb-3">
                                 </div>
@@ -386,7 +386,7 @@ setInterval(function(){
 
 
                                     <!-- Provinces -->
-                                     <div id="provinces" class="toggle m-0">
+                                     <div id="provinces" style="display: none;" class="toggle m-0">
                                 <div class="col-12 px-2 m-0">
                                 <div class="col-10 offset-1 content-border mt-2 mb-3">
                                 </div>
@@ -587,7 +587,7 @@ setInterval(function(){
                 <!-- Modellar toggle -->
                 <div class="row">
                     <div class="col-12">
-                <div id="year" class="toggle m-0">
+                <div id="year" style="display: none;" class="toggle m-0">
                 Hozircha bo`sh...
                 </div>
                     </div>
@@ -597,7 +597,7 @@ setInterval(function(){
                 <!-- Mintaqalar toggle -->
                  <div class="row">
                     <div class="col-12">
-                <div id="owner" class="toggle m-0">
+                <div id="owner" style="display: none;" class="toggle m-0">
                Hozircha bo`sh...
                 </div>
                 </div>
@@ -610,7 +610,7 @@ setInterval(function(){
                     <!-- Categories -->
                      <div class="row">
                         <div class="col-12">
-                                     <div id="gps" class="toggle m-0">
+                                     <div id="gps" style="display: none;" class="toggle m-0">
                                     Hozircha bo`sh...
                                      </div>
                         </div>
@@ -619,7 +619,7 @@ setInterval(function(){
                      
                      <div class="row">
                         <div class="col-12">
-                                     <div id="bought" class="toggle m-0">
+                                     <div id="bought" style="display: none;" class="toggle m-0">
                                      Hozircha bo`sh...
                                      </div>
                         </div>
@@ -628,7 +628,7 @@ setInterval(function(){
                      
                      <div class="row">
                         <div class="col-12">
-                                     <div id="sold" class="toggle m-0">
+                                     <div id="sold" style="display: none;" class="toggle m-0">
                                      Hozircha bo`sh...
                                      </div>
                         </div>
@@ -637,7 +637,7 @@ setInterval(function(){
                      
                      <div class="row">
                         <div class="col-12">
-                                     <div id="fine" class="toggle m-0">
+                                     <div id="fine" style="display: none;" class="toggle m-0">
                                     Hozircha bo`sh...
                                      </div>
                         </div>

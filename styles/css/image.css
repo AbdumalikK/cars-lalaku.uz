@@ -41,6 +41,14 @@
   left: 7px;
 }
 
+.top-3 {
+  top: 3px;
+}
+
+.top-66 {
+  top: 66px;
+}
+
 .left-85 {
   left: 85px;
 }
@@ -51,6 +59,10 @@
 
 .top-77 {
   top: 77px;
+}
+
+.top-80 {
+  top: 80px;
 }
 
 .top-21 {
@@ -78,7 +90,6 @@ span.img-download {
   padding: 5px 6px 10px 6px;
 }
 
-/*# sourceMappingURL=image.css.map */
 @-webkit-keyframes focus-in-expand {
   0% {
     letter-spacing: -0.5em;
@@ -112,7 +123,7 @@ span.img-download {
   height: 100%;
   width: 100%;
   background-color: white;
-  z-index: 1;
+  z-index: 2;
 }
 
 #loadText {
@@ -125,7 +136,5 @@ span.img-download {
   animation: focus-in-expand 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   z-index: 1;
 }
-
-/*# sourceMappingURL=image.css.map */
 
 /*# sourceMappingURL=image.css.map */

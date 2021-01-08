@@ -123,10 +123,6 @@ while ($fine = mysqli_fetch_assoc($result)) {
                                                   </div> -->
 
 
-                                               <div class="col-12 p-0">
-                                                   <button class="btn btn-save mt-3">Tuzatish</button>
-                                               </div>
-                            
                                             </div>
                                             <!-- end collapse-->
                                           </div>

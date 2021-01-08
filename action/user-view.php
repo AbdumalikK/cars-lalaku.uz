@@ -12,22 +12,22 @@
     <link rel="stylesheet" href="../styles/css/search.css">
     <link rel="stylesheet" href="../styles/css/image.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="../styles/css/dark-mode.css">
+    <!-- <link rel="stylesheet" href="../styles/css/dark-mode.css"> -->
     <!-- Fonts -->
     <link rel="stylesheet" href="../styles/fonts/18VAGROUNDEDMBOLD_0.TTF">
     <link rel="stylesheet" href="../styles/fonts/TITILLIUM-BOLD.OTF">
     <link rel="stylesheet" href="../styles/fonts/TITILLIUM-REGULAR.OTF">
     <link rel="stylesheet" href="../styles/fonts/TITILLIUM-THIN.OTF">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <!-- JS Files -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="../styles/js/darkmode-js.min.js"></script>
+    <!-- <script src="../styles/js/darkmode-js.min.js"></script> -->
     
     <script src="../styles/js/doc-js/FileSaver.js"></script>
     <script src="../styles/js/doc-js/jquery.wordexport.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script> -->
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="../styles/js/loader.js"></script>
     <script src="../styles/js/app.js"></script>
@@ -51,11 +51,11 @@
                     
 
                     <a href="../index.php"><img class="pos-top" src="../styles/logo.svg" alt="logo"></a>
-                <div class="text-center custom-control custom-switch dayNight">
+                <!-- <div class="text-center custom-control custom-switch dayNight">
                     <input type="checkbox" class="custom-control-input ml-5" id="darkSwitch" />
                     <label class="custom-control-label" for="darkSwitch">Tungi rejim</label>
                  </div>
-                <script src="../styles/js/dark-mode-switch.min.js"></script>
+                <script src="../styles/js/dark-mode-switch.min.js"></script> -->
 <?php 
 if(isset($_SESSION["loggedin"])) {
     echo '<a class="notification" href="./notification.php">
@@ -99,7 +99,7 @@ if(isset($_SESSION["loggedin"])) {
         <!-- Modellar, Mintaqalar -->
                         <!-- Models -->
                         <div class="col-12 px-0 m-0">
-                                     <div id="models" class="toggle m-0">
+                                     <div id="models" style="display: none;" class="toggle m-0">
                                     <div class="col-12 px-2 m-0">
                                 <div class="col-10 offset-1 content-border mt-2 mb-3">
                                 </div>
@@ -289,7 +289,7 @@ if(isset($_SESSION["loggedin"])) {
 
 
                                     <!-- Provinces -->
-                                     <div id="provinces" class="toggle m-0">
+                                     <div id="provinces" style="display: none;" class="toggle m-0">
                                 <div class="col-12 px-2 m-0">
                                 <div class="col-10 offset-1 content-border mt-2 mb-3">
                                 </div>
@@ -490,7 +490,7 @@ if(isset($_SESSION["loggedin"])) {
                 <!-- Modellar toggle -->
                 <div class="row">
                     <div class="col-12">
-                <div id="year" class="toggle m-0">
+                <div id="year" style="display: none;" class="toggle m-0">
                 Hozircha bo`sh...
                 </div>
                     </div>
@@ -500,7 +500,7 @@ if(isset($_SESSION["loggedin"])) {
                 <!-- Mintaqalar toggle -->
                  <div class="row">
                     <div class="col-12">
-                <div id="owner" class="toggle m-0">
+                <div id="owner" style="display: none;" class="toggle m-0">
                Hozircha bo`sh...
                 </div>
                 </div>
@@ -513,7 +513,7 @@ if(isset($_SESSION["loggedin"])) {
                     <!-- Categories -->
                      <div class="row">
                         <div class="col-12">
-                                     <div id="gps" class="toggle m-0">
+                                     <div id="gps" style="display: none;" class="toggle m-0">
                                     Hozircha bo`sh...
                                      </div>
                         </div>
@@ -522,7 +522,7 @@ if(isset($_SESSION["loggedin"])) {
                      
                      <div class="row">
                         <div class="col-12">
-                                     <div id="bought" class="toggle m-0">
+                                     <div id="bought" style="display: none;" class="toggle m-0">
                                      Hozircha bo`sh...
                                      </div>
                         </div>
@@ -531,7 +531,7 @@ if(isset($_SESSION["loggedin"])) {
                      
                      <div class="row">
                         <div class="col-12">
-                                     <div id="sold" class="toggle m-0">
+                                     <div id="sold" style="display: none;" class="toggle m-0">
                                      Hozircha bo`sh...
                                      </div>
                         </div>
@@ -540,7 +540,7 @@ if(isset($_SESSION["loggedin"])) {
                      
                      <div class="row">
                         <div class="col-12">
-                                     <div id="fine" class="toggle m-0">
+                                     <div id="fine" style="display: none;" class="toggle m-0">
                                     Hozircha bo`sh...
                                      </div>
                         </div>
@@ -561,17 +561,17 @@ if(isset($_SESSION["loggedin"])) {
         <div class="container mt-4 p-2 text-center">
             <div class="row">
                 <div class="col-3">
-                    <button class="btn btn-docs" onclick="getPDF()" id=""><img src="../../styles/icons/pdf.svg" alt=""></button>
+                    <button class="btn btn-docs" onclick="getPDF()" id=""><img src="../styles/icons/pdf.svg" alt="pdf"></button>
                 </div>
                 <div class="col-3">
-                    <button class="btn btn-docs" onclick="exportHTML()" id="doc-click"><img src="../../styles/icons/doc.svg" alt=""></button>
+                    <button class="btn btn-docs" onclick="exportHTML()" id="doc-click"><img src="../styles/icons/doc.svg" alt="doc"></button>
                 </div>
                 <div class="col-3">
                     <!-- onclick="exportToExcel();" -->
-                    <button name="export_excel" class="btn btn-docs" id="btnExport"><img src="../../styles/icons/exl.svg" alt=""></button>
+                    <button name="export_excel" class="btn btn-docs" id="btnExport"><img src="../styles/icons/exl.svg" alt="exl"></button>
                 </div>
                 <div class="col-3">
-                    <button class="btn btn-docs" onclick="downloadimage()" id=""><img src="../../styles/icons/jpg.svg" alt=""></button>
+                    <button class="btn btn-docs" onclick="downloadimage()" id=""><img src="../styles/icons/jpg.svg" alt="jpg"></button>
                 </div>
             </div>
         </div>
@@ -599,6 +599,14 @@ if(isset($_SESSION["loggedin"])) {
             </div>
             </div>
             </div>
+            
+            <?php $id = $_GET['id']; ?>
+                        <div class="col-12 p-0">
+                            <a href="update.php?id=<?php echo $id; ?>">
+                                <button class="btn btn-save mt-3">Tuzatish</button>
+                            </a>
+                        </div>
             </div>
+
         </div>
               

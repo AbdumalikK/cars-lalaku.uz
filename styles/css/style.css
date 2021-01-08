@@ -191,6 +191,10 @@
   .logo-press {
     margin-top: -122px;
   }
+
+  .pos-top {
+    top: 50px;
+  }
 }
 .dayNight {
   margin-top: 20px;
@@ -585,11 +589,8 @@ input:checked + .btn-purchase-title {
   color: rgba(59, 59, 59, 0.6) !important;
 }
 
-.toggle {
-  display: none;
+.hr {
+  border-top: 1px;
 }
-
-/*# sourceMappingURL=style.css.map */
-/*# sourceMappingURL=style.css.map */
 
 /*# sourceMappingURL=style.css.map */
