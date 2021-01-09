@@ -353,7 +353,7 @@
   width: 100%;
   height: 100%;
   margin: 0;
-  opacity: 1;
+  opacity: 0;
 }
 
 .custom-file-input::before {
@@ -591,6 +591,18 @@ input:checked + .btn-purchase-title {
 
 .hr {
   border-top: 1px;
+}
+
+.bageGreen {
+  background-color: green !important;
+}
+
+.bageYellow {
+  background-color: yellow !important;
+}
+
+.bageRed {
+  background-color: red !important;
 }
 
 /*# sourceMappingURL=style.css.map */

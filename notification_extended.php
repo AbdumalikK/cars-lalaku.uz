@@ -1,31 +1,31 @@
-<?php
-include_once 'includes/config.php';
-include_once 'includes/header.php'; 
+<?php 
+include 'includes/config.php';
+include 'includes/header.php'; 
 ?>
 
 <!-- Reminder and made tasks -->
 <div class="container-lg mx-lg-auto text-center mt-4 bg-yellow">
 	<div class="row">
 		<div class="col-6">
-			<a class="text-decoration-none" href="notification.php"><div class="reminder tasks-border ml-4">
+			<a class="text-decoration-none" href="notification.php"><div class="reminder ml-4">
 					<h2 class="m-0 pt-2">
 						<?php 
 						$totalNotif = mysqli_query($connect, "SELECT count(*) FROM documents WHERE item_status = 0"); 
 						$totalCount = $totalNotif->fetch_row()[0];
 						echo $totalCount;
 						?> 
-						</h2>
+					</h2>
 					<p class="m-0">Eslatma</p>
 				</div></a>
 		</div>
 		<div class="col-6">
-			<a class="text-decoration-none" href="notification_extended.php"><div class="finished ml-4">
+			<a class="text-decoration-none" href="notification2.php"><div class="finished tasks-border ml-4">
 					<h2 class="m-0 pt-2">
-					<?php 
+						<?php 
 						$totalNotif = mysqli_query($connect, "SELECT count(*) FROM documents WHERE item_status = 1"); 
 						$totalCount = $totalNotif->fetch_row()[0];
 						echo $totalCount;
-					?> 
+						?> 
 					</h2>
 					<p class="m-0">Qilinganlari</p>
 				</div></a>
@@ -48,11 +48,10 @@ include_once 'includes/header.php';
 <div class="container-lg mx-lg-auto py-3 mb-4 bg-white content-minus">
 	<div class="content">
 
-
-<?php 
+	<?php 
   $sql = "SELECT persons.id, persons.driver_name, persons.driver_surname, persons.d_phone_1, documents.tex_pass_date, documents.ins_date, documents.gas_date, documents.renta_date, documents.trust_date FROM persons
 	 LEFT JOIN documents ON documents.id = persons.id
-	 WHERE documents.item_status = 0
+	 WHERE documents.item_status = 1
 	";
   $result = mysqli_query($connect, $sql);
 	
@@ -159,15 +158,11 @@ if ($date) {
 
 	$day = round($date_diff);
 
-	if($day <= 30 && $day >= 20) {
+	if($day >= 30) {
 		$bageColor = "bageGreen";
 		RenderItem($title[0], $day, $notif_id, $notif_driver_name, $notif_driver_surname, $notif_phone, $bageColor);
-	} else if($day <= 20 && $day >= 10) {
-		$bageColor = "bageYellow";
-		RenderItem($title[0], $day, $notif_id, $notif_driver_name, $notif_driver_surname, $notif_phone, $bageColor);
-	} else if($day <= 10 && $day >= 0) {
-		$bageColor = "bageRed";
-		RenderItem($title[0], $day, $notif_id, $notif_driver_name, $notif_driver_surname, $notif_phone, $bageColor);
+	} else {
+		echo "Yo'q";
 	}
 
 }
@@ -181,8 +176,9 @@ if ($date) {
 
 ?> 
 
-
 	</div>
 </div>
 <!-- end -->
+
+
 <?php include 'includes/footer.php'; ?>
