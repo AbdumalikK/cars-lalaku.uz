@@ -5,21 +5,15 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>LaLaKoo Cars</title>
     <!-- Styles css-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/source/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/css/style.css">
     <link rel="stylesheet" href="../styles/css/image.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <!-- <link rel="stylesheet" href="../styles/css/dark-mode.css"> -->
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <!-- JS Files -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    
-    <script src="../styles/js/loader.js"></script>
 </head>
-<body onload="loader()">
+<body>
 
 <div id="loader">
-<p id="loadText">LaLaKu <img src="../styles/loader-logo.svg" width="50" height="50" alt=""></p>
+<p id="loadText">LaLaKu <img src="../styles/loader-logo.svg" width="50" height="50" alt="is loading..."></p>
 </div>
 
 

@@ -1,3 +1,18 @@
+// Toggle open/close
+function toggle(id) {
+    document.querySelectorAll(".toggle").forEach(function(div) {
+      if (div.id == id) {
+        // Toggle specified DIV
+        $(".allCars").css("display", "none");
+        div.style.display = div.style.display == "none" ? "block" : "none";
+      } else {
+        // Hide other DIVs
+        div.style.display = "none";
+      }
+    });
+  }
+
+
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -502,18 +517,3 @@ function downloadimage() {
                 link.click();
             });
         }
-
-
-// Toggle open/close
-    function toggle(id) {
-      document.querySelectorAll(".toggle").forEach(function(div) {
-        if (div.id == id) {
-          // Toggle specified DIV
-          $(".allCars").css("display", "none");
-          div.style.display = div.style.display == "none" ? "block" : "none";
-        } else {
-          // Hide other DIVs
-          div.style.display = "none";
-        }
-      });
-    }

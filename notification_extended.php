@@ -51,11 +51,13 @@ include 'includes/header.php';
 	<?php 
   $sql = "SELECT persons.id, persons.driver_name, persons.driver_surname, persons.d_phone_1, documents.tex_pass_date, documents.ins_date, documents.gas_date, documents.renta_date, documents.trust_date FROM persons
 	 LEFT JOIN documents ON documents.id = persons.id
-	 WHERE documents.item_status = 1
+	 /*WHERE documents.item_status = 1*/
 	";
   $result = mysqli_query($connect, $sql);
 	
-function RenderItem($title, $date_diff, $notif_id, $notif_driver_name, $notif_driver_surname, $notif_phone, $bageColor) { ?>
+function RenderItem($title, $date_diff, $notif_id, $notif_driver_name, $notif_driver_surname, $notif_phone, $bageColor, $connect) { 
+	$addStatus = "UPDATE documents SET item_status = 1 WHERE id = '$notif_id'";
+	mysqli_query($connect, $addStatus); ?>
 
 			<div class="content-bordered">
 			<div class="row">
@@ -158,11 +160,9 @@ if ($date) {
 
 	$day = round($date_diff);
 
-	if($day >= 30) {
+	if($day > 30) {
 		$bageColor = "bageGreen";
-		RenderItem($title[0], $day, $notif_id, $notif_driver_name, $notif_driver_surname, $notif_phone, $bageColor);
-	} else {
-		echo "Yo'q";
+		RenderItem($title[0], $day, $notif_id, $notif_driver_name, $notif_driver_surname, $notif_phone, $bageColor, $connect);
 	}
 
 }

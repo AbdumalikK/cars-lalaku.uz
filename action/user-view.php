@@ -1,5 +1,4 @@
 <?php include '../includes/config.php' ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +6,11 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>LaLaKoo Cars</title>
     <!-- Styles css-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/source/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/css/style.css">
-    <link rel="stylesheet" href="../styles/css/search.css">
+    <!-- <link rel="stylesheet" href="../styles/css/search.css"> -->
     <link rel="stylesheet" href="../styles/css/image.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <!-- <link rel="stylesheet" href="../styles/css/dark-mode.css"> -->
+    <!-- <link rel="stylesheet" href="styles/source/all.min.css"> -->
     <!-- Fonts -->
     <link rel="stylesheet" href="../styles/fonts/18VAGROUNDEDMBOLD_0.TTF">
     <link rel="stylesheet" href="../styles/fonts/TITILLIUM-BOLD.OTF">
@@ -20,24 +18,20 @@
     <link rel="stylesheet" href="../styles/fonts/TITILLIUM-THIN.OTF">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <!-- JS Files -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <!-- <script src="../styles/js/darkmode-js.min.js"></script> -->
-    
+    <script src="styles/source/jquery.min.js"></script>
+    <script src="styles/source/popper.min.js"></script>
+    <script src="styles/source/bootstrap.min.js"></script>
     <script src="../styles/js/doc-js/FileSaver.js"></script>
     <script src="../styles/js/doc-js/jquery.wordexport.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script> -->
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-    <script src="../styles/js/loader.js"></script>
+    <script src="styles/source/html2canvas.js"></script>
     <script src="../styles/js/app.js"></script>
 </head>
-<body onload="loader()">
+<body>
 
 
 <!-- Container -->
-<div id="loader">
-<p id="loadText">LaLaKu <img src="../styles/loader-logo.svg" width="50" height="50" alt=""></p>
+<div class="loader">
+<p id="loadText">LaLaKu <img src="../styles/loader-logo.svg" width="50" height="50" alt="is loading..."></p>
 </div>
 
 <div class="container-fluid container-lg mx-lg-auto m-0">
@@ -51,11 +45,6 @@
                     
 
                     <a href="../index.php"><img class="pos-top" src="../styles/logo.svg" alt="logo"></a>
-                <!-- <div class="text-center custom-control custom-switch dayNight">
-                    <input type="checkbox" class="custom-control-input ml-5" id="darkSwitch" />
-                    <label class="custom-control-label" for="darkSwitch">Tungi rejim</label>
-                 </div>
-                <script src="../styles/js/dark-mode-switch.min.js"></script> -->
 <?php 
 if(isset($_SESSION["loggedin"])) {
     echo '<a class="notification" href="./notification.php">
@@ -550,12 +539,6 @@ if(isset($_SESSION["loggedin"])) {
             <!-- end -->
 
 </div>
-   <!--  <script>
-        new Darkmode().showWidget();
-    </script> -->
-
-
-
     
     <!-- Add information section -->
         <div class="container mt-4 p-2 text-center">
@@ -609,4 +592,4 @@ if(isset($_SESSION["loggedin"])) {
             </div>
 
         </div>
-              
+<?php include "includes/footer.php"; ?>

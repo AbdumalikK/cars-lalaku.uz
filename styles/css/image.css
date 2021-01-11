@@ -90,19 +90,6 @@ span.img-download {
   padding: 5px 6px 10px 6px;
 }
 
-@-webkit-keyframes focus-in-expand {
-  0% {
-    letter-spacing: -0.5em;
-    -webkit-filter: blur(12px);
-    filter: blur(12px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-    opacity: 1;
-  }
-}
 @keyframes focus-in-expand {
   0% {
     letter-spacing: -0.5em;
@@ -116,25 +103,34 @@ span.img-download {
     opacity: 1;
   }
 }
-#loader {
-  position: absolute;
+.loader {
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 99;
   height: 100%;
   width: 100%;
   background-color: white;
-  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.loader.hidden {
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 #loadText {
-  display: block;
   font-size: 50px;
-  text-align: center;
-  margin: 0 auto;
-  padding-top: 300px;
   -webkit-animation: focus-in-expand 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: focus-in-expand 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  z-index: 1;
 }
 
 /*# sourceMappingURL=image.css.map */

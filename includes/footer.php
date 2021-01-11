@@ -6,4 +6,6 @@
 		</div>
 		</div>
 
-
+<script src="styles/js/loader.js"></script>
+</body>
+</html>
