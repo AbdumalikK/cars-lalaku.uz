@@ -19,7 +19,7 @@ include 'includes/header.php';
 				</div></a>
 		</div>
 		<div class="col-6">
-			<a class="text-decoration-none" href="notification2.php"><div class="finished tasks-border ml-4">
+			<a class="text-decoration-none" href="notification_extended.php"><div class="finished tasks-border ml-4">
 					<h2 class="m-0 pt-2">
 						<?php 
 						$totalNotif = mysqli_query($connect, "SELECT count(*) FROM documents WHERE item_status = 1"); 

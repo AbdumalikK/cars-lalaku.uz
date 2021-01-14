@@ -43,61 +43,15 @@
 
 <?php 
 if(isset($_SESSION["loggedin"])) {
+    $totalNotif = mysqli_query($connect, "SELECT count(*) FROM documents WHERE item_status = 0"); 
+    $totalCount = $totalNotif->fetch_row()[0];
+    
     echo '<a class="notification"  href="./notification.php">
         <img src="styles/icons/notification.svg" alt="Bildirishnoma">
-        <span class="badge badge-pill badge-danger ntf count"></span>
-    </a>';
-} else {
-
+        <span class="badge badge-pill badge-danger ntf count">'.$totalCount.'</span>
+        </a>';
 }
  ?>
-
-  <script>
-
-$(document).ready(function(){
-
-// updating the view with notifications using ajax
-function load_unseen_notification(view = '') {
- $.ajax({
-  url:"includes/fetch.php",
-  method:"POST",
-  data:{view:view},
-  dataType:"json",
-  success:function(data)
-  {
-
-   if(data.unseen_notification > 0)
-   {
-    $('.count').html(data.unseen_notification);
-   }
-
-  }
-
- });
-
-}
-
-load_unseen_notification();
-
-// load new notifications
-
-$(document).on('click', '.notification', function(){
-
- $('.count').html('');
-
- load_unseen_notification('yes');
-
-});
-
-setInterval(function(){
-
- load_unseen_notification();;
-
-}, 5000);
-
-});
-
-</script>
         <a href="./search.php">
             <img class="search" src="styles/icons/search.svg" alt="Qidirish">
         </a>

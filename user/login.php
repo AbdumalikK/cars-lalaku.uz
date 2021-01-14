@@ -93,32 +93,38 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="../styles/source/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/css/image.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
+        .wrapper{ width: 350px; padding: 20px; margin: 0 auto; }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
+<div class="loader">
+    <p id="loadText">LaLaKu <img src="../styles/loader-logo.svg" width="50" height="50" alt="is loading..."></p>
+</div>
+
+    <div class="wrapper text-center">
+        <h2>Kirish</h2>
+        <p>Bildirishnomani ko'rish uchun Ism va Parolingizni kiriting.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
+                <label>Ism</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
+                <label>Parol</label>
                 <input type="password" name="password" class="form-control">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <input type="submit" class="btn btn-success" value="Kirish">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            <!-- <p>Don't have an account? <a href="register.php">Sign up now</a>.</p> -->
         </form>
     </div>    
+<script src="../styles/js/loader.js"></script>
 </body>
 </html>
