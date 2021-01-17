@@ -10,11 +10,9 @@ $(document).ready(function() {
            $.ajax({
                type: "POST",
                url: "../../search_ajax.php",
-               data: {
-                   search: name
-               },
-               success: function(html) {
-                   $("#display").html(html).show();
+               data: name,
+               success: function(data) {
+                   $("#display").html(data).show();
                }
 
            });
