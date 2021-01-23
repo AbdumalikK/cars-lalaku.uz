@@ -14,6 +14,14 @@ if(in_array($_SERVER['REMOTE_ADDR'], $localWhiteList)){
 	$DB_USERNAME = 'root';
 	$DB_PASSWORD = 'root';
 	$DB_NAME = 'lalaku-cars';
+	// try {
+	// 	$connect = new PDO("mysql:host=$DB_SERVER;dbname=lalaku-cars", $DB_USERNAME, $DB_PASSWORD);
+	// 	// set the PDO error mode to exception
+	// 	$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	// 	echo "Connected successfully";
+	//   } catch(PDOException $e) {
+	// 	echo "Connection failed: " . $e->getMessage();
+	//   }
 } else {
 	// server connect
 	$currentUrl = 'http://' . $_SERVER['SERVER_PROTOCOL'] . $_SERVER['REQUEST_URI'];
@@ -23,13 +31,22 @@ if(in_array($_SERVER['REMOTE_ADDR'], $localWhiteList)){
 	$DB_USERNAME = 'root';
 	$DB_PASSWORD = '';
 	$DB_NAME = 'lalaku-cars';
+	// try {
+	// 	$connect = new PDO("mysql:host=$DB_SERVER;dbname=lalaku-cars", $DB_USERNAME, $DB_PASSWORD);
+	// 	// set the PDO error mode to exception
+	// 	$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	// 	echo "Connected successfully";
+	//   } catch(PDOException $e) {
+	// 	echo "Connection failed: " . $e->getMessage();
+	//   }
+
 }
 
 
 
-$connect = mysqli_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
+$connect = new mysqli($DB_SERVER, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
 // $connect = new PDO("mysql:host=$DB_SERVER;dbname=$DB_NAME",$DB_USERNAME ,$DB_PASSWORD);
 
-if (!$connect) {
-	echo "Bazaga ulanmadi: ".mysql_error();
+if ($connect->connect_error) {
+	die("Bazaga ulanmadi: " . $connect->connect_error);
 }
