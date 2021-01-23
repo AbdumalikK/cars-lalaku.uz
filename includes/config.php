@@ -5,14 +5,14 @@
 // define(DB_PASSWORD, 'root');
 // define(DB_NAME, 'lalaku-cars');
 
-$localWhiteList = array('127.0.0.1', '');
+$localWhiteList = array('127.0.0.1', 'lalaku-cars.uz');
 $protocol = strtolower(substr($_SERVER['SERVER_PROTOCOL'],0,strpos($_SERVER["SERVER_PROTOCOL"],'/'))).'://';
 
 if(in_array($_SERVER['REMOTE_ADDR'], $localWhiteList)){
 	// local connect
 	$DB_SERVER = 'localhost';
 	$DB_USERNAME = 'root';
-	$DB_PASSWORD = '';
+	$DB_PASSWORD = 'root';
 	$DB_NAME = 'lalaku-cars';
 } else {
 	// server connect
