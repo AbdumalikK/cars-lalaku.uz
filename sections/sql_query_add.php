@@ -111,7 +111,7 @@ $sts_sell = $_POST['sts_sell'];
 
 <!-- Car insert to database -->
 <?php
-$send = "INSERT INTO car (
+$send = $connect->prepare("INSERT INTO car (
 mark, 
 model, 
 carcase, 
@@ -124,27 +124,32 @@ foto_3,
 foto_4, 
 video_1, 
 sts_sell
-) VALUES (
-'$car_mark', 
-'$car_model', 
-'$car_carcase', 
-'$car_manufacture_year', 
-'$car_fuel', 
-'$car_engine', 
-'$car_number', 
-'$car_gps', 
-'$res1', 
-'$res2', 
-'$res3', 
-'$res4', 
-'$resVideo', 
-'$sts_sell')";
+) VALUES ()");
 
-if ($connect->query($send) === TRUE) {
+$send->bind_param('s', $car_mark,
+$car_model,
+$car_carcase,
+$car_manufacture_year,
+$car_fuel,
+$car_engine,
+$car_number,
+$car_gps,
+$res1,
+$res2,
+$res3,
+$res4,
+$resVideo,
+$sts_sell);
+
+// $send->execute();
+
+if ($send->execute() === TRUE) {
     echo "1";
 } else {
     echo "Error: " .$send. "<br>" . $connect->error;
 }
+$send->close();
+$connect->close();
 ?>
 
 <!-- Documents insert to database -->
