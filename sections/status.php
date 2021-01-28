@@ -22,11 +22,9 @@
                                               <input type="text" name="status" class="choose-option-add mt-3 wd100" placeholder="Holati" required>
                                           </div>
                                           <div class="col-6 p-0 text-center">
-                                              <span class="add-date">DD/MM/YYYY</span>
                                               <input type="date" name="status_start_date" class="choose-option-add mt-3" placeholder="Qachondan" required>
                                           </div>
                                           <div class="col-6 p-0 text-center">
-                                             <span class="add-date">DD/MM/YYYY</span>
                                               <input type="date" ame="status_stop_date" class="choose-option-add mt-3" placeholder="Qachongacha" required>
                                           </div>
                                           <div class="col-12 p-0">

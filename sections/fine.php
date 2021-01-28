@@ -69,11 +69,9 @@
 
 
                                         <div class="col-6 p-0">
-                                            <span class="add-date">DD/MM/YYYY</span>
                                             <input type="date" name="fine_start" class="choose-option-add mt-3" placeholder="Qachondan">
                                         </div>
                                            <div class="col-6 p-0">
-                                                <span class="add-date">DD/MM/YYYY</span>
                                                <input type="date" name="fine_stop" class="choose-option-add mt-3 mx-5" placeholder="Qachongacha">
                                            </div>
 
@@ -99,11 +97,9 @@
 
 
                                         <div class="col-6 p-0">
-                                            <span class="add-date">DD/MM/YYYY</span>
                                             <input type="date" class="choose-option-add mt-3" placeholder="Qachondan">
                                         </div>
                                            <div class="col-6 p-0">
-                                                <span class="add-date">DD/MM/YYYY</span>
                                                <input type="date" class="choose-option-add mt-3 mx-5" placeholder="Qachongacha">
                                            </div>
 

@@ -124,9 +124,9 @@ foto_3,
 foto_4, 
 video_1, 
 sts_sell
-) VALUES ()");
+) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-$send->bind_param('s', $car_mark,
+$send->bind_param("sssisiiisssssi",$car_mark,
 $car_model,
 $car_carcase,
 $car_manufacture_year,
@@ -141,8 +141,6 @@ $res4,
 $resVideo,
 $sts_sell);
 
-// $send->execute();
-
 if ($send->execute() === TRUE) {
     echo "1";
 } else {
@@ -154,7 +152,7 @@ $connect->close();
 
 <!-- Documents insert to database -->
 <?php
-$sendDoc = "INSERT INTO documents (
+$sendDoc = $connect->prepare("INSERT INTO documents (
 owner_name,
 owner_surname,
 owner_fathername,
@@ -184,63 +182,65 @@ trust_type,
 trust_date,
 foto_11,
 foto_12
-) VALUES (
-'$doc_owner_name',
-'$doc_owner_surname',
-'$doc_owner_fathername',
-'$doc_date',
-'$res5',
-'$res6',
-'$tex_passport',
-'$tex_date',
-'$res7',
-'$res8',
-'$insurance_type',
-'$insurance_expire_date',
-'$insurance_photo1',
-'$insurance_photo2',
-'$gas_akt',
-'$gas_check_date',
-'$res9',
-'$res10',
-'$rental_deal_number',
-'$rental_expire_date',
-'$res11',
-'$res12',
-'$warrant_name',
-'$warrant_surname',
-'$warrant_fathername',
-'$warrant_type',
-'$warrant_expire_date',
-'$res13',
-'$res14')";
+) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-if ($connect->query($sendDoc) === TRUE) {
-    echo "1";
-} else {
-    echo "Error: " .$sendDoc. "<br>" . $connect->error;
-}
-?>
+$sendDoc->bind_param($doc_owner_name,
+$doc_owner_surname,
+$doc_owner_fathername,
+$doc_dat,
+$res5,
+$res6,
+$tex_passport,
+$tex_date,
+$res7,
+$res8,
+$insurance_type,
+$insurance_expire_date,
+$insurance_photo1,
+$insurance_photo2,
+$gas_akt,
+$gas_check_date,
+$res9,
+$res10,
+$rental_deal_number,
+$rental_expire_date,
+$res11,
+$res12,
+$warrant_name,
+$warrant_surname,
+$warrant_fathername,
+$warrant_type,
+$warrant_expire_date,
+$res13,
+$res14);
 
-<?php
-$send = "INSERT INTO region (corp, province, city, given_date
-) VALUES (
-'$prov_company',
-'$prov_region',
-'$prov_city',
-'$prov_given_date'
-)";
-
-if ($connect->query($send) === TRUE) {
+if ($sendDoc->execute() === TRUE) {
     echo "1";
 } else {
     echo "Error: " .$send. "<br>" . $connect->error;
 }
+$send->close();
+$connect->close();
+?>
+
+<?php
+$send = prepare("INSERT INTO region (corp, province, city, given_date
+) VALUES (?,?,?,?)");
+
+$send->bind_param($prov_company, $prov_region, $prov_city, $prov_given_date);
+
+if ($send->execute() === TRUE) {
+    echo "1";
+} else {
+    echo "Error: " .$send. "<br>" . $connect->error;
+}
+$send->close();
+$connect->close();
 ?>
 
 
 <?php
-$send = "INSERT INTO persons (
+$send = prepare("INSERT INTO persons (
 driver_name, 
 driver_surname, 
 driver_fathername, 
@@ -255,33 +255,35 @@ respons_fathername,
 r_given_date, 
 r_phone_1, 
 r_phone_2
-) VALUES (
-'$person_name',
-'$person_surname',
-'$person_fathername',
-'$person_given_date',
-'$person_tel1',
-'$person_tel2',
-'$res15',
-'$res16',
-'$respons_name',
-'$respons_surname',
-'$respons_father',
-'$respons_given_date',
-'$respons_tel1',
-'$respons_tel2'
-)";
+) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-if ($connect->query($send) === TRUE) {
+$send->bind_param($person_name,
+$person_surname,
+$person_fathername,
+$person_given_date,
+$person_tel1,
+$person_tel2,
+$res15,
+$res16,
+$respons_name,
+$respons_surname,
+$respons_father,
+$respons_given_date,
+$respons_tel1,
+$respons_tel2);
+
+if ($send->execute() === TRUE) {
     echo "1";
 } else {
     echo "Error: " .$send. "<br>" . $connect->error;
 }
+$send->close();
+$connect->close();
 ?>
 
 
 <?php
-$send = "INSERT INTO purchase (
+$send = prepare("INSERT INTO purchase (
 buyer_name, 
 buyer_surname,
 buyer_fathername,
@@ -289,26 +291,28 @@ buy_date,
 phone,
 price,
 comment
-) VALUES (
-'$purchase_name',
-'$purchase_surname',
-'$purchase_fathername',
-'$purchase_date',
-'$purchase_tel',
-'$purchase_price',
-'$purchase_comment'
-)";
+) VALUES (?,?,?,?,?,?,?)");
 
-if ($connect->query($send) === TRUE) {
+$send->bind_param($purchase_name,
+$purchase_surname,
+$purchase_fathername,
+$purchase_date,
+$purchase_tel,
+$purchase_price,
+$purchase_comment);
+
+if ($send->execute() === TRUE) {
     echo "1";
 } else {
     echo "Error: " .$send. "<br>" . $connect->error;
 }
+$send->close();
+$connect->close();
 ?>
 
 
 <?php
-$send = "INSERT INTO sale (
+$send = prepare("INSERT INTO sale (
 respons_name,
 respons_surname,
 respons_fathername,
@@ -318,66 +322,68 @@ sold_price,
 start_date,
 sold_date,
 comment
-) VALUES (
-'$sale_respons_name',
-'$sale_respons_surname',
-'$sale_respons_fathername',
-'$sale_phone',
-'$sale_price',
-'$sold_price',
-'$sale_date',
-'$sold_date',
-'$sale_comment'
-)";
+) VALUES (?,?,?,?,?,?,?,?,?)");
 
-if ($connect->query($send) === TRUE) {
+$send->bind_param($sale_respons_name,
+$sale_respons_surname,
+$sale_respons_fathername,
+$sale_phone,
+$sale_price,
+$sold_price,
+$sale_date,
+$sold_date,
+$sale_comment);
+
+if ($send->execute() === TRUE) {
     echo "1";
 } else {
     echo "Error: " .$send. "<br>" . $connect->error;
 }
+$send->close();
+$connect->close();
 ?>
 
 <?php
-$send = "INSERT INTO status (
+$send = prepare("INSERT INTO status (
 status,
 start_date,
 stop_date,
 price,
 comment
-) VALUES (
-'$status',
-'$status_start_date',
-'$status_stop_date',
-'$status_price',
-'$status_comment'
-)";
+) VALUES (?,?,?,?,?)");
 
-if ($connect->query($send) === TRUE) {
+$send->bind_param($status,
+$status_start_date,
+$status_stop_date,
+$status_price,
+$status_comment);
+
+if ($send->execute() === TRUE) {
     echo "1";
 } else {
     echo "Error: " .$send. "<br>" . $connect->error;
 }
+$send->close();
+$connect->close();
 ?>
 
 <?php
-$send = "INSERT INTO fine (
+$send = prepare("INSERT INTO fine (
 fine_type,
 fine_start,
 fine_stop,
 fine_price,
 fine_comment
-) VALUES (
-'$fine',
-'$fine_start',
-'$fine_stop',
-'$fine_price',
-'$fine_comment'
-)";
+) VALUES (?,?,?,?,?)");
 
-if ($connect->query($send) === TRUE) {
+$send->bind_param($fin, $fine_start, $fine_stop, $fine_price, $fine_comment);
+
+if ($send->execute() === TRUE) {
     echo "1";
 } else {
     echo "Error: " .$send. "<br>" . $connect->error;
 }
+$send->close();
+$connect->close();
 
 }

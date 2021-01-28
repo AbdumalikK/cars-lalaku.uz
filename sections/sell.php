@@ -25,14 +25,12 @@
                                         <input type="text" name="sale_respons_fathername" class="choose-option-add mt-3 mx-1" placeholder="Javobgar otasining ismi">
                                         <input type="text" name="sale_price" class="choose-option-add mt-3 mx-1" placeholder="Qo`yilgan narx">
 
-                                        <span class="add-date">DD/MM/YYYY</span>
                                         <input type="date" name="sale_date" class="choose-option-add mt-3 mx-1" placeholder="Savdoga qo`yilgan sana">
                                     </div>
                                     <div class="col-6 px-0">
                                         <input type="text" name="sale_respons_surname" class="choose-option-add mx-3" placeholder="Javobgar familiyasi">
                                         <input type="text" name="sale_phone" class="choose-option-add mt-3 mx-3" placeholder="Telefon 1">
                                         <input type="text" name="sold_price" class="choose-option-add mt-3 mx-3" placeholder="Sotilgan narx">
-                                        <span class="add-date">DD/MM/YYYY</span>
                                         <input type="date" name="sold_date" class="choose-option-add mt-3 mx-3" placeholder="Sotilgan sana">
                                     </div>
 

@@ -67,14 +67,14 @@ include_once '../sections/sql_query_add.php';
                     <?php include '../sections/companies.php'?>
             <!-- Persons -->
                     <?php include '../sections/persons.php'?>
-                    <!-- Purchase -->
-                    <?php include '../sections/purchase.php'?>
+            <!-- Purchase -->
+                    <?php //include '../sections/purchase.php'?>
             <!-- Sell -->
-                    <?php include '../sections/sell.php'?>
-                    <!-- Status -->
-                    <?php include '../sections/status.php'?>
+                    <?php //include '../sections/sell.php'?>
             <!-- Status -->
-                    <?php include '../sections/fine.php'?>
+                    <?php //include '../sections/status.php'?>
+            <!-- Status -->
+                    <?php //include '../sections/fine.php'?>
                     <div class="col-12 p-0">
                     <input type="submit" name="submit" value="Saqlash" class="btn btn-save my-3">
                     </div>

@@ -1,7 +1,7 @@
     <div class="row">
             <!-- Shaxslar-section -->
             <div class="col-12" data-toggle="collapse" data-target="#person">
-                <div class="content-border content-border-top">
+                <div class="content-border">
                     <button class="btn-nav font-titillium-bd p-2">Shaxslar</button>
                     <img class="float-right mt-3" src="../styles/icons/arrow.svg"></button>
                 </div>
@@ -27,7 +27,6 @@
                                              <input class="choose-option-add" name="person_name" placeholder="Haydovchi ismi" id="marka" required>
                                              <input class="choose-option-add mt-3" name="person_fathername " placeholder="Otasining ismi" id="marka" required>
                                              <div class="wrap">
-                                                 <span class="add-date-second bottom30">DD/MM/YYYY</span>
                                                  <input type="date" name="person_given_date" class="choose-option-add mt-3" placeholder="Berilgan sanasi" required>
                                              </div>
                                                  
@@ -56,7 +55,6 @@
                                         <input class="choose-option-add" name="respons_name" placeholder="Javobgar shaxs ismi" id="marka" required>
                                          <input class="choose-option-add mt-3" name="respons_fathername" placeholder="Otasining ismi" id="marka" required>
                                           <div class="wrap">
-                                              <span class="add-date-second bottom30">DD/MM/YYYY</span>
                                               <input type="date" name="respons_given_date" class="choose-option-add mt-3" placeholder="Berilgan sanasi" required>
                                           </div>
                                               

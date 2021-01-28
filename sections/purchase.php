@@ -21,7 +21,6 @@
                                     <div class="col-6 px-0">
                                         <input type="text" name="purchase_name" class="choose-option-add mx-1" placeholder="Sotib oluvchi ismi">
                                         <input type="text" name="purchase_fathername" class="choose-option-add mx-1 mt-3" placeholder="Sotib oluvchi otasining ismi">
-                                        <span class="add-date">DD/MM/YYYY</span>
                                         <input type="date" name="purchase_date" class="choose-option-add mt-3 mx-1" placeholder="Harid qilingan sana">
                                     </div>
                                     <div class="col-6 px-0">

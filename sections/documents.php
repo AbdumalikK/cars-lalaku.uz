@@ -25,7 +25,6 @@
                                         <input type="text" name="doc-owner-name" class="choose-option-add mt-4 mb-2" placeholder="Ismi" required>
                                         <input type="text" name="doc-owner-fathername" class="choose-option-add mt-2 mb-2" placeholder="Otasining ismi" required>
 
-                                    	<span class="add-date mb-2">DD/MM/YYYY</span>
                                         <input type="date" name="doc-date" class="choose-option-add mt-2 mb-2" placeholder="Egalik huquqi sanasi" required>
                                     </div>
                                     <div class="col-6 px-0">
@@ -64,7 +63,6 @@
                           	<div class="row mb-2">
                           	    <div class="col-6 px-0">
                           	    	 <input type="text" name="tex_passport" class="choose-option-add" placeholder="Tex passporti" required>
-                                    <span class="add-date">DD/MM/YYYY</span>
                           	        <input type="date" name="tex_date" class="choose-option-add mt-4" placeholder="Egalik huquqi sanasi" required>
                           	    </div>
                           	    <div class="col-6 px-0">
@@ -112,7 +110,6 @@
                                               }
                                               ?>
                                     </select>
-                                    	<span class="add-date pt-1">DD/MM/YYYY</span>
                                     	<input type="date" name="insurance_expire_date" class="choose-option-add mt-4" placeholder="Sug`urta muddati" required>
                           	    </div>
                           	    <div class="col-6 px-0">
@@ -161,7 +158,6 @@
                                         }
                                         ?>
                                     </select>
-                                    	<span class="add-date pt-1">DD/MM/YYYY</span>
                                     	<input type="date" name="gas_check_date" class="choose-option-add mt-4" placeholder="Qayta tekshiruv muddati">
                           	    </div>
                           	    <div class="col-6 px-0">
@@ -199,7 +195,6 @@
                           	<div class="row mb-2">
                           	    <div class="col-6 px-0">
                           	    		<input type="text" name="rental_deal_number" class="choose-option-add mt-4" placeholder="Ijara shartnomasi raqami">
-                                    	<span class="add-date pt-1">DD/MM/YYYY</span>
                                     	<input type="date" name="rental_expire_date" class="choose-option-add mt-4" placeholder="Ijara shartnomasi muddati">
                           	    </div>
                           	    <div class="col-6 px-0">
@@ -249,7 +244,6 @@
                                         }
                                         ?>
                                           </select>
-                                    	<span class="add-date">DD/MM/YYYY</span>
                                     	<input type="date" name="warrant_expire_date" class="choose-option-add mt-3" placeholder="Ishonchnoma muddati">
                           	    </div>
                           	    <div class="col-6 px-0 mt-1">

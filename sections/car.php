@@ -1,6 +1,6 @@
 <div class="row">
             <!-- Avtomobil-section -->
-            <div class="col-12" data-toggle="collapse" data-target="#car">
+            <div class="col-12 pt-3" data-toggle="collapse" data-target="#car">
                 <div class="content-border-top">
                     <button class="btn-nav font-titillium-bd p-2">Avtomobil</button>
                     <img class="float-right mt-3" src="../styles/icons/arrow.svg"></button>

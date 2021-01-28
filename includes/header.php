@@ -42,15 +42,15 @@
              
 
 <?php 
-// if(isset($_SESSION["loggedin"])) {
-//     $totalNotif = $connect->prepare("SELECT count(*) FROM documents WHERE item_status = 0"); 
-//     $totalCount = $totalNotif->fetch_row()[0];
+if(isset($_SESSION["loggedin"])) {
+    $totalNotif = $connect->prepare("SELECT count(*) FROM documents WHERE item_status = 0"); 
+    $totalCount = $totalNotif->fetch_row()[0];
     
-//     echo '<a class="notification"  href="./notification.php">
-//         <img src="styles/icons/notification.svg" alt="Bildirishnoma">
-//         <span class="badge badge-pill badge-danger ntf count">'.$totalCount.'</span>
-//         </a>';
-// }
+    echo '<a class="notification"  href="./notification.php">
+        <img src="styles/icons/notification.svg" alt="Bildirishnoma">
+        <span class="badge badge-pill badge-danger ntf count">'.$totalCount.'</span>
+        </a>';
+}
  ?>
         <a href="./search.php">
             <img class="search" src="styles/icons/search.svg" alt="Qidirish">

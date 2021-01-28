@@ -1,7 +1,7 @@
 <div class="row">
             <!-- Mintaqa-Tashkilot-section -->
             <div class="col-12" data-toggle="collapse" data-target="#companies">
-                <div class="content-border content-border-top">
+                <div class="content-border">
                     <button class="btn-nav font-titillium-bd p-2">Mintaqa / Tashkilot</button>
                     <img class="float-right mt-3" src="../styles/icons/arrow.svg"></button>
                 </div>
@@ -33,7 +33,6 @@
                                         }
                                         ?>
                                         </select>
-                                        <span class="add-date mb-2">DD/MM/YYYY</span>
                                     	<input type="date" name="prov_given_date" class="choose-option-add mt-3" placeholder="Berilgan sanasi" required>
                                     </div>
                                     <div class="col-6 px-0">

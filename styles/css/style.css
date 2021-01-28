@@ -605,5 +605,8 @@ input:checked + .btn-purchase-title {
 .bageRed {
   background-color: red !important;
 }
-
+.content-border-bottom {
+  border-bottom: 1px solid rgba(112, 112, 112, 0.6)!important;
+  padding-bottom: 7px!important;
+}
 /*# sourceMappingURL=style.css.map */
