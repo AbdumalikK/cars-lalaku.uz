@@ -58,7 +58,7 @@ include_once '../sections/sql_query_add.php';
 
     <!-- Add information section -->
     <div class="container mx-lg-auto my-4 nav-fixed-margin">
-		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data">
+		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data">
             <!-- Car -->
                     <?php include '../sections/car.php'?>
             <!-- Documents -->

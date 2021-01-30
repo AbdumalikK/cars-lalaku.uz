@@ -289,7 +289,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('buxoro')">Buxoro <div class="province-number">
                                                     <?php 
-                                                    $BuxoroCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Buxoro'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Buxoro'");
                                                     $stmt->execute();
                                                     $BuxoroCount = $stmt->get_result();
 
@@ -299,7 +299,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('jizzax')">Jizzax <div class="province-number">
                                                      <?php 
-                                                    $JizzaxCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Jizzax'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Jizzax'");
                                                     $stmt->execute();
                                                     $JizzaxCount = $stmt->get_result();
 
@@ -309,7 +309,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('qashqadaryo')">Qashqadaryo <div class="province-number">
                                                      <?php 
-                                                    $QashqadaryoCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Qashqadaryo'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Qashqadaryo'");
                                                     $stmt->execute();
                                                     $QashqadaryoCount = $stmt->get_result();
 
@@ -319,7 +319,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('toshkentv')">Toshkent v. <div class="province-number">
                                                      <?php 
-                                                    $ToshkentCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Toshkent v.'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Toshkent v.'");
                                                     $stmt->execute();
                                                     $ToshkentCount = $stmt->get_result();
 
@@ -332,7 +332,7 @@ if(isset($_SESSION["loggedin"])) {
                                             <div class="col-4 px-2 pt-0">
                                                 <button class="province-btn d-block" onclick="toggle('namangan')">Namangan <div class="province-number">
                                                      <?php 
-                                                    $NamanganCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Namangan'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Namangan'");
                                                     $stmt->execute();
                                                     $NamanganCount = $stmt->get_result();
 
@@ -342,7 +342,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('samarqand')">Samarqand <div class="province-number">
                                                      <?php 
-                                                    $SamarqandCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Samarqand'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Samarqand'");
                                                     $stmt->execute();
                                                     $SamarqandCount = $stmt->get_result();
 
@@ -352,7 +352,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('surxondaryo')">Surxondaryo <div class="province-number">
                                                      <?php 
-                                                    $SurxondaryoCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Surxondaryo'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Surxondaryo'");
                                                     $stmt->execute();
                                                     $SurxondaryoCount = $stmt->get_result();
 
@@ -362,7 +362,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('sirdaryo')">Sirdaryo <div class="province-number">
                                                      <?php 
-                                                    $SirdaryoCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Sirdaryo'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Sirdaryo'");
                                                     $stmt->execute();
                                                     $SirdaryoCount = $stmt->get_result();
 
@@ -372,7 +372,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('toshkentsh')">Toshkent sh. <div class="province-number">
                                                      <?php 
-                                                    $ToshkentShCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Toshkent sh.'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Toshkent sh.'");
                                                     $stmt->execute();
                                                     $ToshkentShCount = $stmt->get_result();
 
@@ -384,7 +384,7 @@ if(isset($_SESSION["loggedin"])) {
                                             <div class="col-4 pl-2 pr-0 pt-0">
                                                 <button class="province-btn d-block" onclick="toggle('fargona')">Farg'ona <div class="province-number">
                                                      <?php 
-                                                    $FargonaCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Farg`ona'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Farg`ona'");
                                                     $stmt->execute();
                                                     $FargonaCount = $stmt->get_result();
 
@@ -394,7 +394,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('xorazm')">Xorazm <div class="province-number">
                                                      <?php 
-                                                    $XorazmCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Xorazm'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Xorazm'");
                                                     $stmt->execute();
                                                     $XorazmCount = $stmt->get_result();
 
@@ -404,7 +404,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('navoiy')">Navoiy <div class="province-number">
                                                      <?php 
-                                                    $NavoiyCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Navoiy'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Navoiy'");
                                                     $stmt->execute();
                                                     $NavoiyCount = $stmt->get_result();
 
@@ -414,7 +414,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('qoraqalpoq')">Qoraqalpoq <div class="province-number">
                                                      <?php 
-                                                    $QoraqalpoqCount = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Qoraqalpoq'");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Qoraqalpoq'");
                                                     $stmt->execute();
                                                     $QoraqalpoqCount = $stmt->get_result();
 
@@ -424,7 +424,7 @@ if(isset($_SESSION["loggedin"])) {
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('ozbekiston')">O`zbekiston <div class="province-number">
                                                      <?php 
-                                                    $OzbekistonCount = $connect->prepare("SELECT count(*) FROM car");
+                                                    $stmt = $connect->prepare("SELECT count(*) FROM car");
                                                     $stmt->execute();
                                                     $OzbekistonCount = $stmt->get_result();
 
