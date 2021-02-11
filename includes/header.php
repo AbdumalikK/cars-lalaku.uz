@@ -38,21 +38,21 @@
             <div class="col-md p-0">
                 <div class="logo">
                   <img class="logo-press" src="./styles/logo-background.svg">
-                    <a href="./index.php"><img class="pos-top" src="./styles/logo.svg" alt="logo"></a>
+                    <a href="./index"><img class="pos-top" src="./styles/logo.svg" alt="logo"></a>
              
 
 <?php 
 if(isset($_SESSION["loggedin"])) {
     $totalNotif = $connect->prepare("SELECT count(*) FROM documents WHERE item_status = 0"); 
-    $totalCount = $totalNotif->fetch_row()[0];
+    $totalCount = $totalNotif->fetchColumn();
     
-    echo '<a class="notification"  href="./notification.php">
+    echo '<a class="notification"  href="./notification">
         <img src="styles/icons/notification.svg" alt="Bildirishnoma">
         <span class="badge badge-pill badge-danger ntf count">'.$totalCount.'</span>
         </a>';
 }
  ?>
-        <a href="./search.php">
+        <a href="./search">
             <img class="search" src="styles/icons/search.svg" alt="Qidirish">
         </a>
             </div>
@@ -91,52 +91,53 @@ if(isset($_SESSION["loggedin"])) {
                                             <div class="col-4 pl-0 pr-2 pt-0">
                                                 <button onclick="toggle('matiz')" class="province-btn d-block">Matiz <div class="province-number">
                                                  <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) = 'matiz'");
+                                                    $sql = "SELECT count(*) FROM car WHERE lower(model) = 'matiz'";
+                                                    $stmt = $connect->prepare($sql);
                                                     $stmt->execute();
-                                                    $matiz = $stmt->get_result();
+                                                    // $matiz = $stmt->fetch();
 
-                                                    $matizAmount = $matiz->fetch_row()[0];
+                                                    $matizAmount = $stmt->fetchColumn();
                                                     echo '('.$matizAmount.')';
                                                     ?>   
                                                 </div></button>
                                                 <button onclick="toggle('matizBest')" class="province-btn d-block mt-3">Matiz Best <div class="province-number">
                                                     <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'matiz (be%'");
+                                                    $sql2 = "SELECT count(*) FROM car WHERE lower(model) like 'matiz (be%'";
+                                                    $stmt = $connect->prepare($sql2);
                                                     $stmt->execute();
-                                                    $MatizBest = $stmt->get_result();
                                                 
 
-                                                    $matizBestAmount = $MatizBest->fetch_row()[0];
+                                                    $matizBestAmount = $stmt->fetchColumn();
                                                     echo '('.$matizBestAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('damas')" class="province-btn d-block mt-3">Damas <div class="province-number">
                                                     <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'damas'");
+                                                    $sql3 = "SELECT count(*) FROM car WHERE lower(model) like 'damas'";
+                                                    $stmt = $connect->prepare($sql3);
                                                     $stmt->execute();
-                                                    $damas = $stmt->get_result();
 
-                                                    $damasAmount = $damas->fetch_row()[0];
+                                                    $damasAmount = $stmt->fetchColumn();
                                                     echo '('.$damasAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('labo')" class="province-btn d-block mt-3">D.Labo <div class="province-number">
                                                     <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'damas%labo%'");
+                                                    $sql4 = "SELECT count(*) FROM car WHERE lower(model) like 'damas%labo%'";
+                                                    $stmt = $connect->prepare($sql4);
                                                     $stmt->execute();
-                                                    $labo = $stmt->get_result();
 
-                                                    $laboAmount = $labo->fetch_row()[0];
+                                                    $laboAmount = $stmt->fetchColumn();
                                                     echo '('.$laboAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('van')" class="province-btn d-block mt-3">D.Van <div class="province-number">
                                                     <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'damas%van%'");
+                                                    $sql5 = "SELECT count(*) FROM car WHERE lower(model) like 'damas%van%'";
+                                                    $stmt = $connect->prepare($sql5);
                                                     $stmt->execute();
-                                                    $van = $stmt->get_result();
 
-                                                    $vanAmount = $van->fetch_row()[0];
+                                                    $vanAmount = $stmt->fetchColumn();
                                                     echo '('.$vanAmount.')';
                                                     ?> 
                                                 </div></button>
@@ -144,52 +145,52 @@ if(isset($_SESSION["loggedin"])) {
                                             </div>
                                             <div class="col-4 px-2 pt-0">
                                                 <button onclick="toggle('spark')" class="province-btn d-block">Spark <div class="province-number">
-                                                    <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'spark%'");
+                                                    <?php
+                                                    $sql6 = "SELECT count(*) FROM car WHERE lower(model) like 'spark%'"; 
+                                                    $stmt = $connect->prepare($sql6);
                                                     $stmt->execute();
-                                                    $spark = $stmt->get_result();
 
-                                                    $sparkAmount = $spark->fetch_row()[0];
+                                                    $sparkAmount = $stmt->fetchColumn();
                                                     echo '('.$sparkAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('nexia')" class="province-btn d-block mt-3">Nexia 1 <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'nexia%1%'");
+                                                    $sql7 = "SELECT count(*) FROM car WHERE lower(model) like 'nexia%1%'";
+                                                    $stmt = $connect->prepare($sql7);
                                                     $stmt->execute();
-                                                    $nexia = $stmt->get_result();
 
-                                                    $nexiaAmount = $nexia->fetch_row()[0];
+                                                    $nexiaAmount = $stmt->fetchColumn();
                                                     echo '('.$nexiaAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('nexia2')" class="province-btn d-block mt-3">Nexia 2 <div class="province-number">
                                                     <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'nexia%2%'");
+                                                    $sql8 = "SELECT count(*) FROM car WHERE lower(model) like 'nexia%2%'";
+                                                    $stmt = $connect->prepare($sql8);
                                                     $stmt->execute();
-                                                    $nexia2 = $stmt->get_result();
 
-                                                    $nexia2Amount = $nexia2->fetch_row()[0];
+                                                    $nexia2Amount = $stmt->fetchColumn();
                                                     echo '('.$nexia2Amount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('nexia3')" class="province-btn d-block mt-3">Nexia 3 <div class="province-number">
                                                     <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'nexia%3%'");
+                                                    $sql9 = "SELECT count(*) FROM car WHERE lower(model) like 'nexia%3%'";
+                                                    $stmt = $connect->prepare($sql9);
                                                     $stmt->execute();
-                                                    $nexia3 = $stmt->get_result();
 
-                                                    $nexia3Amount = $nexia3->fetch_row()[0];
+                                                    $nexia3Amount = $stmt->fetchColumn();
                                                     echo '('.$nexia3Amount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('cobalt')" class="province-btn d-block mt-3">Cobalt <div class="province-number">
                                                     <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'cobalt%'");
+                                                    $sql10 = "SELECT count(*) FROM car WHERE lower(model) like 'cobalt%'";
+                                                    $stmt = $connect->prepare($sql10);
                                                     $stmt->execute();
-                                                    $cobalt = $stmt->get_result();
 
-                                                    $cobaltAmount = $cobalt->fetch_row()[0];
+                                                    $cobaltAmount = $stmt->fetchColumn();
                                                     echo '('.$cobaltAmount.')';
                                                     ?> 
                                                 </div></button>
@@ -197,51 +198,51 @@ if(isset($_SESSION["loggedin"])) {
                                             <div class="col-4 pl-2 pr-0 pt-0">
                                                 <button onclick="toggle('lacetti')" class="province-btn d-block">Lacetti <div class="province-number">
                                                     <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'lacetti%'");
+                                                    $sql11 = "SELECT count(*) FROM car WHERE lower(model) like 'lacetti%'";
+                                                    $stmt = $connect->prepare($sql11);
                                                     $stmt->execute();
-                                                    $lacetti = $stmt->get_result();
 
-                                                    $lacettiAmount = $lacetti->fetch_row()[0];
+                                                    $lacettiAmount = $stmt->fetchColumn();
                                                     echo '('.$lacettiAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('gentra')" class="province-btn d-block mt-3">Gentra <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'gentra%'");
+                                                    $sql12 = "SELECT count(*) FROM car WHERE lower(model) like 'gentra%'";
+                                                    $stmt = $connect->prepare($sql12);
                                                     $stmt->execute();
-                                                    $gentra = $stmt->get_result();
 
-                                                    $gentraAmount = $gentra->fetch_row()[0];
+                                                    $gentraAmount = $stmt->fetchColumn();
                                                     echo '('.$gentraAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('malibu')" class="province-btn d-block mt-3">Malibu 1 <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'malibu%1%'");
+                                                    $sql13 = "SELECT count(*) FROM car WHERE lower(model) like 'malibu%1%'";
+                                                    $stmt = $connect->prepare($sql13);
                                                     $stmt->execute();
-                                                    $malibu = $stmt->get_result();
 
-                                                    $malibuAmount = $malibu->fetch_row()[0];
+                                                    $malibuAmount = $stmt->fetchColumn();
                                                     echo '('.$malibuAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('malibu2')" class="province-btn d-block mt-3">Malibu 2 <div class="province-number">
-                                                     <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'malibu%2%'");
+                                                     <?php
+                                                    $sql14 = "SELECT count(*) FROM car WHERE lower(model) like 'malibu%2%'"; 
+                                                    $stmt = $connect->prepare($sql14);
                                                     $stmt->execute();
-                                                    $malibu2 = $stmt->get_result();
 
-                                                    $malibu2Amount = $malibu2->fetch_row()[0];
+                                                    $malibu2Amount = $stmt->fetchColumn();
                                                     echo '('.$malibu2Amount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('captiva')" class="province-btn d-block mt-3">Captiva <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE lower(model) like 'captiva%'");
+                                                    $sql15 = "SELECT count(*) FROM car WHERE lower(model) like 'captiva%'";
+                                                    $stmt = $connect->prepare($sql15);
                                                     $stmt->execute();
-                                                    $captiva = $stmt->get_result();
 
-                                                    $captivaAmount = $captiva->fetch_row()[0];
+                                                    $captivaAmount = $stmt->fetchColumn();
                                                     echo '('.$captivaAmount.')';
                                                     ?> 
                                                 </div></button>
@@ -278,52 +279,53 @@ if(isset($_SESSION["loggedin"])) {
                                         
                                             <div class="col-4 pl-0 pr-2 pt-0">
                                                 <button class="province-btn d-block" onclick="toggle('andijon')">Andijon <div class="province-number">
-                                                    <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Andijon'");
+                                                    <?php
+                                                    $sql = "SELECT count(*) FROM car WHERE region = 'Andijon'"; 
+                                                    $stmt = $connect->prepare($sql);
                                                     $stmt->execute();
-                                                    $andijonCount = $stmt->get_result();
 
-                                                    $andijonAmountCars = $andijonCount->fetch_row()[0];
+                                                    $andijonAmountCars = $stmt->fetchColumn();
                                                     echo '('.$andijonAmountCars.')';
                                                     ?>
-                                                </div></button>
+                                                </div>
+                                                </button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('buxoro')">Buxoro <div class="province-number">
                                                     <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Buxoro'");
+                                                    $sql1 = "SELECT count(*) FROM car WHERE region = 'Buxoro'";
+                                                    $stmt = $connect->prepare($sql1);
                                                     $stmt->execute();
-                                                    $BuxoroCount = $stmt->get_result();
 
-                                                    $BuxoroAmountCars = $BuxoroCount->fetch_row()[0];
+                                                    $BuxoroAmountCars = $stmt->fetchColumn();
                                                     echo '('.$BuxoroAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('jizzax')">Jizzax <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Jizzax'");
+                                                    $sql2 = "SELECT count(*) FROM car WHERE region = 'Jizzax'";
+                                                    $stmt = $connect->prepare($sql2);
                                                     $stmt->execute();
-                                                    $JizzaxCount = $stmt->get_result();
 
-                                                    $JizzaxAmountCars = $JizzaxCount->fetch_row()[0];
+                                                    $JizzaxAmountCars = $stmt->fetchColumn();
                                                     echo '('.$JizzaxAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('qashqadaryo')">Qashqadaryo <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Qashqadaryo'");
+                                                    $sql3 = "SELECT count(*) FROM car WHERE region = 'Qashqadaryo'";
+                                                    $stmt = $connect->prepare($sql3);
                                                     $stmt->execute();
-                                                    $QashqadaryoCount = $stmt->get_result();
 
-                                                    $QashqadaryoAmountCars = $QashqadaryoCount->fetch_row()[0];
+                                                    $QashqadaryoAmountCars = $stmt->fetchColumn();
                                                     echo '('.$QashqadaryoAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('toshkentv')">Toshkent v. <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Toshkent v.'");
+                                                    $sql4 = "SELECT count(*) FROM car WHERE region = 'Toshkent v.'";
+                                                    $stmt = $connect->prepare($sql4);
                                                     $stmt->execute();
-                                                    $ToshkentCount = $stmt->get_result();
 
-                                                    $ToshkentAmountCars = $ToshkentCount->fetch_row()[0];
+                                                    $ToshkentAmountCars = $stmt->fetchColumn();
                                                     echo '('.$ToshkentAmountCars.')';
                                                     ?>
                                                 </div></button>
@@ -332,51 +334,51 @@ if(isset($_SESSION["loggedin"])) {
                                             <div class="col-4 px-2 pt-0">
                                                 <button class="province-btn d-block" onclick="toggle('namangan')">Namangan <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Namangan'");
+                                                    $sql5 = "SELECT count(*) FROM car WHERE region = 'Namangan'";
+                                                    $stmt = $connect->prepare($sql5);
                                                     $stmt->execute();
-                                                    $NamanganCount = $stmt->get_result();
 
-                                                    $NamanganAmountCars = $NamanganCount->fetch_row()[0];
+                                                    $NamanganAmountCars = $stmt->fetchColumn();
                                                     echo '('.$NamanganAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('samarqand')">Samarqand <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Samarqand'");
+                                                    $sql6 = "SELECT count(*) FROM car WHERE region = 'Samarqand'";
+                                                    $stmt = $connect->prepare($sql6);
                                                     $stmt->execute();
-                                                    $SamarqandCount = $stmt->get_result();
 
-                                                    $SamarqandAmountCars = $SamarqandCount->fetch_row()[0];
+                                                    $SamarqandAmountCars = $stmt->fetchColumn();
                                                     echo '('.$SamarqandAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('surxondaryo')">Surxondaryo <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Surxondaryo'");
+                                                    $sql7 = "SELECT count(*) FROM car WHERE region = 'Surxondaryo'";
+                                                    $stmt = $connect->prepare($sql7);
                                                     $stmt->execute();
-                                                    $SurxondaryoCount = $stmt->get_result();
 
-                                                    $SurxondaryoAmountCars = $SurxondaryoCount->fetch_row()[0];
+                                                    $SurxondaryoAmountCars = $stmt->fetchColumn();
                                                     echo '('.$SurxondaryoAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('sirdaryo')">Sirdaryo <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Sirdaryo'");
+                                                    $sql8 = "SELECT count(*) FROM car WHERE region = 'Sirdaryo'";
+                                                    $stmt = $connect->prepare($sql8);
                                                     $stmt->execute();
-                                                    $SirdaryoCount = $stmt->get_result();
 
-                                                    $SirdaryoAmountCars = $SirdaryoCount->fetch_row()[0];
+                                                    $SirdaryoAmountCars = $stmt->fetchColumn();
                                                     echo '('.$SirdaryoAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('toshkentsh')">Toshkent sh. <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Toshkent sh.'");
+                                                    $sql9 = "SELECT count(*) FROM car WHERE region = 'Toshkent sh.'";
+                                                    $stmt = $connect->prepare($sql9);
                                                     $stmt->execute();
-                                                    $ToshkentShCount = $stmt->get_result();
 
-                                                    $ToshkentShAmountCars = $ToshkentShCount->fetch_row()[0];
+                                                    $ToshkentShAmountCars = $stmt->fetchColumn();
                                                     echo '('.$ToshkentShAmountCars.')';
                                                     ?>
                                                 </div></button>
@@ -384,51 +386,51 @@ if(isset($_SESSION["loggedin"])) {
                                             <div class="col-4 pl-2 pr-0 pt-0">
                                                 <button class="province-btn d-block" onclick="toggle('fargona')">Farg'ona <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Farg`ona'");
+                                                    $sql10 = "SELECT count(*) FROM car WHERE region = 'Farg`ona'";
+                                                    $stmt = $connect->prepare($sql10);
                                                     $stmt->execute();
-                                                    $FargonaCount = $stmt->get_result();
 
-                                                    $FargonaAmountCars = $FargonaCount->fetch_row()[0];
+                                                    $FargonaAmountCars = $stmt->fetchColumn();
                                                     echo '('.$FargonaAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('xorazm')">Xorazm <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Xorazm'");
+                                                    $sql11 = "SELECT count(*) FROM car WHERE region = 'Xorazm'";
+                                                    $stmt = $connect->prepare($sql11);
                                                     $stmt->execute();
-                                                    $XorazmCount = $stmt->get_result();
 
-                                                    $XorazmAmountCars = $XorazmCount->fetch_row()[0];
+                                                    $XorazmAmountCars = $stmt->fetchColumn();
                                                     echo '('.$XorazmAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('navoiy')">Navoiy <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Navoiy'");
+                                                    $sql12 = "SELECT count(*) FROM car WHERE region = 'Navoiy'";
+                                                    $stmt = $connect->prepare($sql12);
                                                     $stmt->execute();
-                                                    $NavoiyCount = $stmt->get_result();
 
-                                                    $NavoiyAmountCars = $NavoiyCount->fetch_row()[0];
+                                                    $NavoiyAmountCars = $stmt->fetchColumn();
                                                     echo '('.$NavoiyAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('qoraqalpoq')">Qoraqalpoq <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car WHERE region = 'Qoraqalpoq'");
+                                                    $sql13 = "SELECT count(*) FROM car WHERE region = 'Qoraqalpoq'";
+                                                    $stmt = $connect->prepare($sql13);
                                                     $stmt->execute();
-                                                    $QoraqalpoqCount = $stmt->get_result();
 
-                                                    $QoraqalpoqAmountCars = $QoraqalpoqCount->fetch_row()[0];
+                                                    $QoraqalpoqAmountCars = $stmt->fetchColumn();
                                                     echo '('.$QoraqalpoqAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('ozbekiston')">O`zbekiston <div class="province-number">
                                                      <?php 
-                                                    $stmt = $connect->prepare("SELECT count(*) FROM car");
+                                                    $sql14 = "SELECT count(*) FROM car";
+                                                    $stmt = $connect->prepare($sql14);
                                                     $stmt->execute();
-                                                    $OzbekistonCount = $stmt->get_result();
 
-                                                    $OzbekistonAmountCars = $OzbekistonCount->fetch_row()[0];
+                                                    $OzbekistonAmountCars = $stmt->fetchColumn();
                                                     echo '('.$OzbekistonAmountCars.')';
                                                     ?>
                                                 </div></button>

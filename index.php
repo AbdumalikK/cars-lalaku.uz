@@ -7,14 +7,14 @@ include_once 'includes/header.php';
  		<div class="col-3 br-blue text-center">
       <h3 class="font-weight-bold">
       <?php 
+  $sql = "SELECT count(id) FROM car";
+  $stmt = $connect->prepare($sql);
+  $stmt->execute();
 
-  $res = mysqli_query(
-  $connect,
-  "SELECT count(id) FROM car"
-);
-if (!$res)
+
+if (!$stmt)
   die(mysqli_error($link));
-$amountCars = $res->fetch_row()[0];
+$amountCars = $stmt->fetchColumn();
       echo $amountCars; 
       ?>
     </h3>
@@ -24,26 +24,25 @@ $amountCars = $res->fetch_row()[0];
     </h3><p class="font-titillium-regular">Aktiv</p></div>
  		<div class="col-3 br-blue text-center"><h3 class="font-weight-bold">
       <?php 
-  $res = mysqli_query(
-  $connect,
-  "SELECT count(driver_name) FROM persons WHERE driver_name = (NULL)"
-);
-if (!$res)
+      $sql = "SELECT count(driver_name) FROM persons WHERE driver_name = (NULL)";
+      $stmt = $connect->prepare($sql);
+      $stmt->execute();
+  
+if (!$stmt)
   die(mysqli_error($link));
-$activCars = $res->fetch_row()[0];
+$activCars = $stmt->fetchColumn();
       echo $activCars; 
       ?>  
     </h3><p class="font-titillium-regular">Passiv</p></div>
  		<div class="col-3 px12 text-center"><h3 class="font-weight-bold">
       <?php 
- 
-  $res = mysqli_query(
-  $connect,
-  "SELECT count(driver_name) FROM persons"
-);
-if (!$res)
+ $sql = "SELECT count(driver_name) FROM persons";
+ $stmt = $connect->prepare($sql);
+ $stmt->execute();
+
+if (!$stmt)
   die(mysqli_error($link));
-$activCars = $res->fetch_row()[0];
+$activCars = $stmt->fetchColumn();
       echo $activCars; 
       ?>  
     </h3><p class="font-titillium-regular">Istemolda</p></div>

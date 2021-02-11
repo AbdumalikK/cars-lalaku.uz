@@ -1,15 +1,16 @@
 <!-- Mixed cars -->
-                <div class="col-12">
-                <div id="" class="allCars m-0">
+<div class="col-12">
+<div id="" class="allCars m-0">
  <?php 
 $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_number
 FROM car as c
 INNER JOIN persons p ON c.id=p.id";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -81,18 +82,19 @@ if ($result->num_rows > 0) {
 
 
 <!-- Matiz toggle -->
-                <div class="col-12">
-                <div id="matiz" class="toggle m-0">
+<div class="col-12">
+<div id="matiz" class="toggle m-0">
  <?php 
 $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_number
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) = 'matiz'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -161,13 +163,13 @@ if ($result->num_rows > 0) {
  <?php 
 $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_number
 FROM car as c
-INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'matiz (be%'
-";
-$result = $connect->query($sql);
+INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'matiz (be%'";
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -238,11 +240,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) = 'damas'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -313,11 +316,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'damas%labo%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -388,11 +392,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'damas%van%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -463,11 +468,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'spark%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -538,11 +544,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'nexia%1%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -613,11 +620,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'nexia%2%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -688,11 +696,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'nexia%3%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -763,11 +772,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'cobalt%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -839,11 +849,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'lacetti%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -917,11 +928,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'gentra%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -992,11 +1004,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'malibu%1%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -1067,11 +1080,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'malibu%2%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -1142,11 +1156,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE lower(model) like 'captiva%'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">

@@ -4,15 +4,61 @@
                 <div id="andijon" class="toggle m-0">
 
 <?php 
+
+
+if(!isset($_GET[''])) {
+
+  if($_GET['Andijon']) {
+    $province = $_GET['Andijon'];
+  } else if($_GET['Buxoro']) {
+    $province = $_GET['Buxoro'];
+  } else if($_GET['Jizzax']) {
+    $province = $_GET['Jizzax'];
+  } else if($_GET['Qashqadaryo']) {
+    $province = $_GET['Qashqadaryo'];
+  } else if($_GET['Toshkent v.']) {
+    $province = $_GET['Toshkent v.'];
+  } else if($_GET['Namangan']) {
+    $province = $_GET['Namangan'];
+  } else if($_GET['Samarqand']) {
+    $province = $_GET['Samarqand'];
+  } else if($_GET['Surxondaryo']) {
+    $province = $_GET['Surxondaryo'];
+  } else if($_GET['Sirdaryo']) {
+    $province = $_GET['Sirdaryo'];
+  } else if($_GET['Toshkent sh.']) {
+    $province = $_GET['Toshkent sh.'];
+  } else if($_GET['Farg`ona']) {
+    $province = $_GET['Farg`ona'];
+  } else if($_GET['Xorazm']) {
+    $province = $_GET['Xorazm'];
+  } else if($_GET['Navoiy']) {
+    $province = $_GET['Navoiy'];
+  } else if($_GET['Qoraqalpoq']) {
+    $province = $_GET['Qoraqalpoq'];
+  }  else if($_GET['ozbekiston']) {
+    $province = $_GET['ozbekiston'];
+  }
+
+}
+
+
+
+
+
+
+
+
 $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_number
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Andijon'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -80,11 +126,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Buxoro'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -154,11 +201,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Jizzax'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -228,11 +276,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Qashqadaryo'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -302,11 +351,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Toshkent v.'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -376,11 +426,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Namangan'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -450,11 +501,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Samarqand'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -524,11 +576,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Surxondaryo'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -598,11 +651,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Sirdaryo'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -672,11 +726,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Toshkent sh.'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -746,11 +801,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Farg`ona'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -820,11 +876,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Xorazm'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -894,11 +951,12 @@ $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Navoiy'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -960,19 +1018,20 @@ if ($result->num_rows > 0) {
   <!-- end --> 
 
   <!-- Qoraqalpoq toggle -->
-                <div class="col-12">
-                <div id="qoraqalpoq" class="toggle m-0">
+<div class="col-12">
+<div id="qoraqalpoq" class="toggle m-0">
               
 <?php 
 $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_number
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE region = 'Qoraqalpoq'
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
@@ -1034,19 +1093,20 @@ if ($result->num_rows > 0) {
   <!-- end -->
 
   <!-- O`zbekiston toggle -->
-                <div class="col-12">
-                <div id="ozbekiston" class="toggle m-0">
+<div class="col-12">
+<div id="ozbekiston" class="toggle m-0">
               
 <?php 
 $sql = "SELECT c.id, c.model, p.driver_name, p.driver_surname, p.d_phone_1, c.d_number
 FROM car as c
 INNER JOIN persons p ON c.id=p.id WHERE c.id = p.id
 ";
-$result = $connect->query($sql);
+$stmt = $connect->prepare($sql);
+$stmt->execute();
 
 
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+if ($stmt->fetchColumn() > 0) {
+  while ($row = $stmt->fetch()) {
     echo '
 <div class="content mt-4">
 <div class="content-bordered">
