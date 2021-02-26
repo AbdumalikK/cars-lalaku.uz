@@ -101,12 +101,13 @@
                           	    	<select class="choose-option-add" name="insurance_type" id="marka" required>
                                             <option value="Tanlanmadi" name="insurance_type" selected>Sug`urta turi</option>
                                              <?php
-                                              $sql = "SELECT * FROM documents";
-                                              $results = mysqli_query($connect, $sql);
+                                              $sql = "SELECT * FROM insurance_type";
+											  $stmt = $connect->prepare($sql);
+											  $stmt->execute($parameter);
 
-                                              while ($rows = $results->fetch_assoc())
+                                              while ($rows = $stmt->fetch())
                                               {
-                                                  echo '<option value='.$rows['insurance_type'].'>'.$rows['insurance_type'].'</option>';
+                                                  echo '<option value='.$rows['name'].'>'.$rows['name'].'</option>';
                                               }
                                               ?>
                                     </select>
@@ -146,19 +147,8 @@
                           	<!-- Gaz akti contenti -->
                           	<div class="row mb-2">
                           	    <div class="col-6 px-0">
-                          	    	<select class="choose-option-add" name="gas_akt" id="marka">
-                                            <option value="Tanlanmadi" selected>Gaz akti</option>
-                                              <?php
-                                        $sql = "SELECT * FROM documents";
-                                        $results = mysqli_query($connect, $sql);
-
-                                        while ($rows = $results->fetch_assoc())
-                                        {
-                                            echo '<option value='.$rows['gas_akt'].'>'.$rows['gas_akt'].'</option>';
-                                        }
-                                        ?>
-                                    </select>
-                                    	<input type="date" name="gas_check_date" class="choose-option-add mt-4" placeholder="Qayta tekshiruv muddati">
+									<input type="date" name="gas_akt" class="choose-option-add">
+                                    <input type="date" name="gas_check_date" class="choose-option-add mt-4">
                           	    </div>
                           	    <div class="col-6 px-0">
                           	        <div class="flex">
@@ -235,14 +225,15 @@
                           	    	      <select class="choose-option-add mt-3" name="warrant_type" id="marka">
                                             <option value="Tanlanmadi" selected>Ishonchnoma turi</option>
                                                  <?php
-                                        $sql = "SELECT * FROM documents";
-                                        $results = mysqli_query($connect, $sql);
+													$sql = "SELECT * FROM trust_type";
+													$stmt = $connect->prepare($sql);
+													$stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
-                                        {
-                                            echo '<option value='.$rows['trust_type'].'>'.$rows['trust_type'].'</option>';
-                                        }
-                                        ?>
+													while ($rows = $stmt->fetch())
+													{
+														echo '<option value='.$rows['name'].'>'.$rows['name'].'</option>';
+													}
+												  ?>
                                           </select>
                                     	<input type="date" name="warrant_expire_date" class="choose-option-add mt-3" placeholder="Ishonchnoma muddati">
                           	    </div>

@@ -25,9 +25,10 @@
                                             <option value="Tanlanmadi" selected>Tashkilot</option>
                                            <?php
                                         $sql = "SELECT * FROM companies";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['company'].'>'.$rows['company'].'</option>';
                                         }
@@ -40,9 +41,10 @@
                                             <option value="Tanlanmadi" selected>Viloyat</option>
                                             <?php
                                         $sql = "SELECT * FROM provinces";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['province'].'>'.$rows['province'].'</option>';
                                         }

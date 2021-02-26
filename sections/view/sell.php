@@ -2,14 +2,60 @@
 <?php 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM sale WHERE id = $id";
-    $result = mysqli_query($connect, $sql);
+
+    $sql = "SELECT * FROM sale WHERE id = :id";
+    $parameter = array(":id" => $id);
+    $stmt = $connect->prepare($sql);
+    $stmt->execute($parameter);
 }
 
-while ($sale = mysqli_fetch_assoc($result)) {
+while ($sale = $stmt->fetch()) {
 
-?>
- <div class="row">
+                            $sale_show = '<!-- row contenti -->
+                                <div class="row">
+                                    <div class="col-6 px-0">
+                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Javobgar</p>
+                                        <h5 class="view-user ml-3">
+                                            '.$sale['response_name'].' '.$sale['response_surname'].' '.$sale['response_fathername'].'
+                                        </h5>
+
+                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Qo`yilgan narx</p>
+                                        <h5 class="view-user ml-3">
+                                            '.$sale['start_price'].'
+                                        </h5>
+                                        
+                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Savdoga qo`yilgan sana</p>
+                                        <h5 class="view-user ml-3">
+                                            '.$sale['start_date'].'
+                                        </h5>
+                                    </div>
+                                    <div class="col-6 px-0">
+                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Telefon 1</p>
+                                        <h5 class="view-user ml-3">
+                                            '.$sale['phone'].'
+                                        </h5>
+                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Sotilgan narx</p>
+                                        <h5 class="view-user ml-3">
+                                            '.$sale['sold_price'].'
+                                        </h5>
+                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Sotilgan sana</p>
+                                        <h5 class="view-user ml-3">
+                                            '.$sale['sold_date'].'
+                                        </h5>
+                                    </div>
+
+                                    <div class="col-12 mt-3 px-0">
+                                        <p class="user-info-titles wd89 content-border m-0 p-0 pb-2 ml-3 mt-3">Komment</p>
+                                        <h5 class="view-user ml-3 mt-1">
+                                            '.$sale['comment'].'
+                                        </h5>
+                                    </div>
+                                </div>
+                                <!-- end row -->';
+                      
+} ?>
+
+<div class="row">
             <!-- Sotuv-section -->
             <div class="col-12" data-toggle="collapse" data-target="#sell">
                 <div class="content-border-top">
@@ -29,47 +75,7 @@ while ($sale = mysqli_fetch_assoc($result)) {
                         </div>
                         <!-- collapse show -->
                         <div class="col-12 mb-2">
-                                <!-- row contenti -->
-                                <div class="row">
-                                    <div class="col-6 px-0">
-                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Javobgar</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $sale['response_name'], ' ', $sale['response_surname'], ' ', $sale['response_fathername']; ?>
-                                        </h5>
-
-                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Qo`yilgan narx</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $sale['start_price']; ?>
-                                        </h5>
-                                        
-                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Savdoga qo`yilgan sana</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $sale['start_date']; ?>
-                                        </h5>
-                                    </div>
-                                    <div class="col-6 px-0">
-                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Telefon 1</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $sale['phone']; ?>
-                                        </h5>
-                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Sotilgan narx</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $sale['sold_price']; ?>
-                                        </h5>
-                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Sotilgan sana</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $sale['sold_date']; ?>
-                                        </h5>
-                                    </div>
-
-                                    <div class="col-12 mt-3 px-0">
-                                        <p class="user-info-titles wd89 content-border m-0 p-0 pb-2 ml-3 mt-3">Komment</p>
-                                        <h5 class="view-user ml-3 mt-1">
-                                    <?php echo $sale['comment']; ?>
-                                        </h5>
-                                    </div>
-                                </div>
-                                <!-- end row -->
+                            <?php echo $sale_show; ?>
                         </div>
                     </div>
                     <!-- end col-12 -->
@@ -81,4 +87,3 @@ while ($sale = mysqli_fetch_assoc($result)) {
 
         </div>
         <!-- end row -->
-<?php } ?>

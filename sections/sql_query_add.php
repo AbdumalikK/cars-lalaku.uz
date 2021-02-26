@@ -105,12 +105,10 @@ $fine_stop = $_POST['fine_stop'];
 $fine_price = $_POST['fine_price'];
 $fine_comment = $_POST['fine_comment'];
 $sts_sell = $_POST['sts_sell'];
-?>
 
-<?php //include '../sections/upload-manager.php'; ?>
+//include '../sections/upload-manager.php';
 
-<!-- Car insert to database -->
-<?php
+// Car insert to database -->
 $send = "INSERT INTO car (
 mark, 
 model, 
@@ -125,31 +123,38 @@ foto_4,
 video_1, 
 sts_sell
 ) VALUES (
-'$car_mark', 
-'$car_model', 
-'$car_carcase', 
-'$car_manufacture_year', 
-'$car_fuel', 
-'$car_engine', 
-'$car_number', 
-'$car_gps', 
-'$res1', 
-'$res2', 
-'$res3', 
-'$res4', 
-'$resVideo', 
-'$sts_sell')";
+:mark, 
+:model, 
+:carcase, 
+:manuf_year, 
+:fuel, engine, 
+:d_number, gps, 
+:foto_1, 
+:foto_2, 
+:foto_3, 
+:foto_4, 
+:video_1, 
+:sts_sell)";
 
-if ($connect->query($send) === TRUE) {
-    echo "1";
-    header("Location: sent.php", false);
-} else {
-    echo "Error: " .$send. "<br>" . $connect->error;
-}
-?>
+$parameters = array(':mark' => $car_mark,
+':model' => $car_model,':carcase' => $car_carcase,
+':manuf_year' => $car_manufacture_year,
+':fuel' => $car_fuel,':engine' => $car_engine,
+':d_number' => $car_number,':gps' => $car_gps,
+':foto_1' => $res1,':foto_2' => $res2,':foto_3' => $res3,
+':foto_4' => $res4,':video_1' => $resVideo,':sts_sell' => $sts_sell);
 
-<!-- Documents insert to database -->
-<?php
+$stmt = $connect->prepare($send);
+$stmt->execute($parameters);
+
+// if ($connect->query($send) === TRUE) {
+//     echo "1";
+//     header("Location: sent.php", false);
+// } else {
+//     echo "Error: " .$send. "<br>" . $connect->error;
+// }
+
+// Documents insert to database -->
 $sendDoc = "INSERT INTO documents (
 owner_name,
 owner_surname,
@@ -181,61 +186,95 @@ trust_date,
 foto_11,
 foto_12
 ) VALUES (
-'$doc_owner_name',
-'$doc_owner_surname',
-'$doc_owner_fathername',
-'$doc_date',
-'$res5',
-'$res6',
-'$tex_passport',
-'$tex_date',
-'$res7',
-'$res8',
-'$insurance_type',
-'$insurance_expire_date',
-'$insurance_photo1',
-'$insurance_photo2',
-'$gas_akt',
-'$gas_check_date',
-'$res9',
-'$res10',
-'$rental_deal_number',
-'$rental_expire_date',
-'$res11',
-'$res12',
-'$warrant_name',
-'$warrant_surname',
-'$warrant_fathername',
-'$warrant_type',
-'$warrant_expire_date',
-'$res13',
-'$res14')";
+:owner_name,
+:owner_surnam,
+:owner_fathername,
+:owner_date,
+:foto_1,
+:foto_2,
+:tex_passport,
+:tex_pass_date,
+:foto_3,
+:foto_4,
+:insurance_type,
+:ins_date,
+:foto_5,
+:foto_6,
+:gas_akt,
+:gas_date,
+:foto_7,
+:foto_8,
+:renta,
+:renta_date,
+:foto_9,
+:foto_10,
+:trust_nam,
+:trust_surname,
+:trust_fathername,
+:trust_type,
+:trust_date,
+:foto_11,
+:foto_12)";
 
-if ($connect->query($sendDoc) === TRUE) {
-    echo "1";
-} else {
-    echo "Error: " .$sendDoc. "<br>" . $connect->error;
-}
-?>
+$parameters = array(
+':owner_name' => $doc_owner_name,
+':owner_surname' => $doc_owner_surname,
+':owner_fathername' => $doc_owner_fathername,
+':owner_date' => $doc_date,
+':foto_1' => $res5,
+':foto_2' => $res6,
+':tex_passport' => $tex_passport,
+':tex_pass_date' => $tex_date,
+':foto_3' => $res7,
+':foto_4' => $res8,
+':insurance_type' => $insurance_type,
+':ins_date' => $insurance_expire_date,
+':foto_5' => $insurance_photo1,
+':foto_6' => $insurance_photo2,
+':gas_akt' => $gas_akt,
+':gas_date' => $gas_check_date,
+':foto_7' => $res9,
+':foto_8' => $res10,
+':renta' => $rental_deal_number,
+':renta_date' => $rental_expire_date,
+':foto_9' => $res11,
+':foto_10' => $res12,
+':trust_name' => $warrant_name,
+':trust_surname' => $warrant_surname,
+':trust_fathername' => $warrant_fathername,
+':trust_type' => $warrant_type,
+':trust_date' => $warrant_expire_date,
+':foto_11' => $res13,
+':foto_12' => $res1
+);
 
-<?php
+$stmt = $connect->prepare($sendDoc);
+$stmt->execute($parameters);
+// if ($connect->query($sendDoc) === TRUE) {
+//     echo "1";
+// } else {
+//     echo "Error: " .$sendDoc. "<br>" . $connect->error;
+// }
+
 $send = "INSERT INTO region (corp, province, city, given_date
 ) VALUES (
-'$prov_company',
-'$prov_region',
-'$prov_city',
-'$prov_given_date'
+:corp,
+:province,
+:city,
+:given_date
 )";
 
-if ($connect->query($send) === TRUE) {
-    echo "1";
-} else {
-    echo "Error: " .$send. "<br>" . $connect->error;
-}
-?>
+$parameters = array(':corp' => $prov_company, ':province' => $prov_region, ':city' => $prov_city, ':given_date' => $prov_given_date);
 
+$stmt = $connect->prepare($send);
+$stmt->execute($parameters);
 
-<?php
+// if ($connect->query($send) === TRUE) {
+//     echo "1";
+// } else {
+//     echo "Error: " .$send. "<br>" . $connect->error;
+// }
+
 $send = "INSERT INTO persons (
 driver_name, 
 driver_surname, 
@@ -252,31 +291,48 @@ r_given_date,
 r_phone_1, 
 r_phone_2
 ) VALUES (
-'$person_name',
-'$person_surname',
-'$person_fathername',
-'$person_given_date',
-'$person_tel1',
-'$person_tel2',
-'$res15',
-'$res16',
-'$respons_name',
-'$respons_surname',
-'$respons_father',
-'$respons_given_date',
-'$respons_tel1',
-'$respons_tel2'
+:driver_name,
+:driver_surname,
+:driver_fathername,
+:d_given_date,
+:d_phone_1,
+:d_phone_2,
+:foto_1,
+:foto_2,
+:respons_name,
+:respons_surname,
+:respons_fathername,
+:r_given_date,
+:r_phone_1,
+:r_phone_2
 )";
 
-if ($connect->query($send) === TRUE) {
-    echo "1";
-} else {
-    echo "Error: " .$send. "<br>" . $connect->error;
-}
-?>
+$parameters = array(
+':driver_name' => $person_name, 
+':driver_surname' => $person_surname, 
+':driver_fathername' => $person_fathername, 
+':d_given_date' => $person_given_date, 
+':d_phone_1' => $person_tel1, 
+':d_phone_2' => $person_tel2, 
+':foto_1' => $res15, 
+':foto_2' => $res16, 
+':respons_name' => $respons_name, 
+':respons_surname' => $respons_surname, 
+':respons_fathername' => $respons_father, 
+':r_given_date' => $respons_given_date, 
+':r_phone_1' => $respons_tel1, 
+':r_phone_2' => $respons_tel2
+);
 
+$stmt = $connect->prepare($send);
+$stmt->execute($parameters);
 
-<?php
+// if ($connect->query($send) === TRUE) {
+//     echo "1";
+// } else {
+//     echo "Error: " .$send. "<br>" . $connect->error;
+// }
+
 $send = "INSERT INTO purchase (
 buyer_name, 
 buyer_surname,
@@ -286,24 +342,34 @@ phone,
 price,
 comment
 ) VALUES (
-'$purchase_name',
-'$purchase_surname',
-'$purchase_fathername',
-'$purchase_date',
-'$purchase_tel',
-'$purchase_price',
-'$purchase_comment'
+:buyer_name,
+:buyer_surname,
+:buyer_fathername,
+:buy_date,
+:phone,
+:price,
+:comment
 )";
 
-if ($connect->query($send) === TRUE) {
-    echo "1";
-} else {
-    echo "Error: " .$send. "<br>" . $connect->error;
-}
-?>
+$parameters = array(
+':buyer_name' => $purchase_name, 
+':buyer_surname' => $purchase_surname,
+':buyer_fathername' => $purchase_fathername,
+':buy_date' => $purchase_date,
+':phone' => $purchase_tel,
+':price' => $purchase_price,
+':comment' => $purchase_comment
+);
 
+$stmt = $connect->prepare($send);
+$stmt->execute($parameters);
 
-<?php
+// if ($connect->query($send) === TRUE) {
+//     echo "1";
+// } else {
+//     echo "Error: " .$send. "<br>" . $connect->error;
+// }
+
 $send = "INSERT INTO sale (
 respons_name,
 respons_surname,
@@ -315,25 +381,38 @@ start_date,
 sold_date,
 comment
 ) VALUES (
-'$sale_respons_name',
-'$sale_respons_surname',
-'$sale_respons_fathername',
-'$sale_phone',
-'$sale_price',
-'$sold_price',
-'$sale_date',
-'$sold_date',
-'$sale_comment'
+:respons_name,
+:respons_surname,
+:respons_fathername,
+:phone,
+:start_price,
+:sold_price,
+:start_date,
+:sold_date,
+:comment
 )";
 
-if ($connect->query($send) === TRUE) {
-    echo "1";
-} else {
-    echo "Error: " .$send. "<br>" . $connect->error;
-}
-?>
+$parameters = array(
+':respons_name' => $sale_respons_name,
+':respons_surname' => $sale_respons_surname,
+':respons_fathername' => $sale_respons_fathername,
+':phone' => $sale_phone,
+':start_price' => $sale_price,
+':sold_price' => $sold_price,
+':start_date' => $sale_date,
+':sold_date' => $sold_date,
+':comment' => $sale_comment
+);
 
-<?php
+$stmt = $connect->prepare($send);
+$stmt->execute($parameters);
+
+// if ($connect->query($send) === TRUE) {
+//     echo "1";
+// } else {
+//     echo "Error: " .$send. "<br>" . $connect->error;
+// }
+
 $send = "INSERT INTO status (
 status,
 start_date,
@@ -341,21 +420,30 @@ stop_date,
 price,
 comment
 ) VALUES (
-'$status',
-'$status_start_date',
-'$status_stop_date',
-'$status_price',
-'$status_comment'
+:status,
+:start_date,
+:stop_date,
+:price,
+:comment
 )";
 
-if ($connect->query($send) === TRUE) {
-    echo "1";
-} else {
-    echo "Error: " .$send. "<br>" . $connect->error;
-}
-?>
+$parameters = array(
+':status' => $status,
+':start_date' => $status_start_date,
+':stop_date' => $status_stop_date,
+':price' => $status_price,
+':comment' => $status_comment
+);
 
-<?php
+$stmt = $connect->prepare($send);
+$stmt->execute($parameters);
+
+// if ($connect->query($send) === TRUE) {
+//     echo "1";
+// } else {
+//     echo "Error: " .$send. "<br>" . $connect->error;
+// }
+
 $send = "INSERT INTO fine (
 fine_type,
 fine_start,
@@ -363,17 +451,28 @@ fine_stop,
 fine_price,
 fine_comment
 ) VALUES (
-'$fine',
-'$fine_start',
-'$fine_stop',
-'$fine_price',
-'$fine_comment'
+:fine_type,
+:fine_start,
+:fine_stop,
+:fine_price,
+:fine_comment
 )";
 
-if ($connect->query($send) === TRUE) {
-    echo "1";
-} else {
-    echo "Error: " .$send. "<br>" . $connect->error;
-}
+$parameters = array(
+':fine_type' => $fine,
+':fine_start' => $fine_start,
+':fine_stop' => $fine_stop,
+':fine_price' => $fine_price,
+':fine_comment' => $fine_comment
+);
+
+$stmt = $connect->prepare($send);
+$stmt->execute($parameters);
+
+// if ($connect->query($send) === TRUE) {
+//     echo "1";
+// } else {
+//     echo "Error: " .$send. "<br>" . $connect->error;
+// }
 
 }

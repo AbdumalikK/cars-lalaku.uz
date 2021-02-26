@@ -6,32 +6,37 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>LaLaKoo Cars</title>
     <!-- Styles css-->
-    <link rel="stylesheet" href="styles/source/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/css/style.css">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/source/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/css/style.css">
     <!-- <link rel="stylesheet" href="../styles/css/search.css"> -->
-    <link rel="stylesheet" href="../styles/css/image.css">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/css/image.css">
     <!-- <link rel="stylesheet" href="styles/source/all.min.css"> -->
     <!-- Fonts -->
-    <link rel="stylesheet" href="../styles/fonts/18VAGROUNDEDMBOLD_0.TTF">
-    <link rel="stylesheet" href="../styles/fonts/TITILLIUM-BOLD.OTF">
-    <link rel="stylesheet" href="../styles/fonts/TITILLIUM-REGULAR.OTF">
-    <link rel="stylesheet" href="../styles/fonts/TITILLIUM-THIN.OTF">
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/fonts/18VAGROUNDEDMBOLD_0.TTF">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/fonts/TITILLIUM-BOLD.OTF">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/fonts/TITILLIUM-REGULAR.OTF">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/fonts/TITILLIUM-THIN.OTF">
+    <link rel="icon" href="<?php echo $homeurl; ?>favicon.ico" type="image/x-icon">
     <!-- JS Files -->
-    <script src="styles/source/jquery.min.js"></script>
-    <script src="styles/source/popper.min.js"></script>
-    <script src="styles/source/bootstrap.min.js"></script>
-    <script src="../styles/js/doc-js/FileSaver.js"></script>
-    <script src="../styles/js/doc-js/jquery.wordexport.js"></script>
-    <script src="styles/source/html2canvas.js"></script>
-    <script src="../styles/js/app.js"></script>
+    <!-- <script src="<?php echo $homeurl; ?>styles/source/jquery.min.js"></script> -->
+    <!-- <script src="<?php echo $homeurl; ?>styles/source/popper.min.js"></script>
+    <script src="<?php echo $homeurl; ?>styles/source/bootstrap.min.js"></script>
+    <script src="<?php echo $homeurl; ?>styles/js/doc-js/FileSaver.js"></script>
+    <script src="<?php echo $homeurl; ?>styles/js/doc-js/jquery.wordexport.js"></script>
+    <script src="<?php echo $homeurl; ?>styles/source/html2canvas.js"></script>
+    <script src="<?php echo $homeurl; ?>styles/js/app.js"></script> -->
+    <style>
+    .hideToggle {
+        display: none;
+    }
+    </style>
 </head>
 <body>
 
 
 <!-- Container -->
 <div class="loader">
-<p id="loadText">LaLaKu <img src="../styles/loader-logo.svg" width="50" height="50" alt="is loading..."></p>
+<p id="loadText">LaLaKu <img src="<?php echo $homeurl; ?>styles/loader-logo.svg" width="50" height="50" alt="is loading..."></p>
 </div>
 
 <div class="container-fluid container-lg mx-lg-auto m-0">
@@ -41,14 +46,14 @@
             <div class="col-md p-0">
 
                 <div class="logo">
-                  <img class="logo-press" src="../styles/logo-background.svg">
+                  <img class="logo-press" src="<?php echo $homeurl; ?>styles/logo-background.svg">
                     
 
-                    <a href="../index.php"><img class="pos-top" src="../styles/logo.svg" alt="logo"></a>
+                    <a href="<?php echo $homeurl; ?>index"><img class="pos-top" src="<?php echo $homeurl; ?>styles/logo.svg" alt="logo"></a>
 <?php 
 if(isset($_SESSION["loggedin"])) {
-    echo '<a class="notification" href="./notification.php">
-        <img src="styles/icons/notification.svg" alt="Bildirishnoma"><span class="badge badge-pill badge-danger ntf">10</span>
+    echo '<a class="notification" href="./notification">
+        <img src="'.$homeurl.'styles/icons/notification.svg" alt="Bildirishnoma"><span class="badge badge-pill badge-danger ntf">10</span>
     </a>';
 } else {
 
@@ -56,8 +61,8 @@ if(isset($_SESSION["loggedin"])) {
  ?>
 
 
-                <a href="./search.php">
-                    <img class="search" src="../styles/icons/search.svg" alt="Qidirish">
+                <a href="./search">
+                    <img class="search" src="<?php echo $homeurl; ?>styles/icons/search.svg" alt="Qidirish">
                 </a>
 
                 </div>
@@ -72,13 +77,13 @@ if(isset($_SESSION["loggedin"])) {
             <div class="row minus m-min">
                 <!-- Modellar -->
                 <div class="col-6 mb-lg-3 mb-2">
-                    <button class="btn-nav font-titillium-bd" onclick="toggle('models')">Modellar <img src="../styles/icons/arrow.svg">
+                    <button class="btn-nav font-titillium-bd" onclick="toggle('models')">Modellar <img src="<?php echo $homeurl; ?>styles/icons/arrow.svg">
                     </button>
                 </div>
                 <!-- end -->
                 <!-- Mintaqalar -->
                 <div class="col-6 mb-lg-3 mb-2 text-right">
-                    <button class="btn-nav font-titillium-bd" onclick="toggle('provinces')">Mintaqalar <img src="../styles/icons/arrow.svg"></button> 
+                    <button class="btn-nav font-titillium-bd" onclick="toggle('provinces')">Mintaqalar <img src="<?php echo $homeurl; ?>styles/icons/arrow.svg"></button> 
                 </div>
                 <!-- end -->
             </div>
@@ -87,9 +92,9 @@ if(isset($_SESSION["loggedin"])) {
 
         <!-- Modellar, Mintaqalar -->
                         <!-- Models -->
-                        <div class="col-12 px-0 m-0">
+                        <div class="col-12 px-2 m-0">
                                      <div id="models" style="display: none;" class="toggle m-0">
-                                    <div class="col-12 px-2 m-0">
+                                    <div class="col-12 px-0 m-0">
                                 <div class="col-10 offset-1 content-border mt-2 mb-3">
                                 </div>
                                     <div class="col-12">
@@ -98,54 +103,53 @@ if(isset($_SESSION["loggedin"])) {
                                             <div class="col-4 pl-0 pr-2 pt-0">
                                                 <button onclick="toggle('matiz')" class="province-btn d-block">Matiz <div class="province-number">
                                                  <?php 
-                                                    $matiz = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) = 'matiz'");
+                                                    $sql = "SELECT count(*) FROM car WHERE lower(model) = 'matiz'";
+                                                    $stmt = $connect->prepare($sql);
+                                                    $stmt->execute();
+                                                    // $matiz = $stmt->fetch();
 
-                                                    if (!$matiz)
-                                                        die(mysqli_error($matizError));
-
-                                                    $matizAmount = $matiz->fetch_row()[0];
+                                                    $matizAmount = $stmt->fetchColumn();
                                                     echo '('.$matizAmount.')';
                                                     ?>   
                                                 </div></button>
                                                 <button onclick="toggle('matizBest')" class="province-btn d-block mt-3">Matiz Best <div class="province-number">
                                                     <?php 
-                                                    $matizBest = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'matiz (be%'");
+                                                    $sql2 = "SELECT count(*) FROM car WHERE lower(model) like 'matiz (be%'";
+                                                    $stmt = $connect->prepare($sql2);
+                                                    $stmt->execute();
+                                                
 
-                                                    if (!$matizBest)
-                                                        die(mysqli_error($matizBestError));
-
-                                                    $matizBestAmount = $matizBest->fetch_row()[0];
+                                                    $matizBestAmount = $stmt->fetchColumn();
                                                     echo '('.$matizBestAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('damas')" class="province-btn d-block mt-3">Damas <div class="province-number">
                                                     <?php 
-                                                    $damas = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'damas'");
+                                                    $sql3 = "SELECT count(*) FROM car WHERE lower(model) like 'damas'";
+                                                    $stmt = $connect->prepare($sql3);
+                                                    $stmt->execute();
 
-                                                    if (!$damas)
-                                                        die(mysqli_error($damasError));
-
-                                                    $damasAmount = $damas->fetch_row()[0];
+                                                    $damasAmount = $stmt->fetchColumn();
                                                     echo '('.$damasAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('labo')" class="province-btn d-block mt-3">D.Labo <div class="province-number">
                                                     <?php 
-                                                    $labo = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'damas%labo%'");
-                                                    if (!$labo) 
-                                                        die(mysqli_error($laboError));
+                                                    $sql4 = "SELECT count(*) FROM car WHERE lower(model) like 'damas%labo%'";
+                                                    $stmt = $connect->prepare($sql4);
+                                                    $stmt->execute();
 
-                                                    $laboAmount = $labo->fetch_row()[0];
+                                                    $laboAmount = $stmt->fetchColumn();
                                                     echo '('.$laboAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('van')" class="province-btn d-block mt-3">D.Van <div class="province-number">
                                                     <?php 
-                                                    $van = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'damas%van%'");
-                                                    if (!$van) 
-                                                        die(mysqli_error($vanError));
+                                                    $sql5 = "SELECT count(*) FROM car WHERE lower(model) like 'damas%van%'";
+                                                    $stmt = $connect->prepare($sql5);
+                                                    $stmt->execute();
 
-                                                    $vanAmount = $van->fetch_row()[0];
+                                                    $vanAmount = $stmt->fetchColumn();
                                                     echo '('.$vanAmount.')';
                                                     ?> 
                                                 </div></button>
@@ -153,52 +157,52 @@ if(isset($_SESSION["loggedin"])) {
                                             </div>
                                             <div class="col-4 px-2 pt-0">
                                                 <button onclick="toggle('spark')" class="province-btn d-block">Spark <div class="province-number">
-                                                    <?php 
-                                                    $spark = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'spark%'");
-                                                    if (!$spark) 
-                                                        die(mysqli_error($sparkError));
+                                                    <?php
+                                                    $sql6 = "SELECT count(*) FROM car WHERE lower(model) like 'spark%'"; 
+                                                    $stmt = $connect->prepare($sql6);
+                                                    $stmt->execute();
 
-                                                    $sparkAmount = $spark->fetch_row()[0];
+                                                    $sparkAmount = $stmt->fetchColumn();
                                                     echo '('.$sparkAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('nexia')" class="province-btn d-block mt-3">Nexia 1 <div class="province-number">
                                                      <?php 
-                                                    $nexia = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'nexia%1%'");
-                                                    if (!$nexia) 
-                                                        die(mysqli_error($nexiaError));
+                                                    $sql7 = "SELECT count(*) FROM car WHERE lower(model) like 'nexia%1%'";
+                                                    $stmt = $connect->prepare($sql7);
+                                                    $stmt->execute();
 
-                                                    $nexiaAmount = $nexia->fetch_row()[0];
+                                                    $nexiaAmount = $stmt->fetchColumn();
                                                     echo '('.$nexiaAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('nexia2')" class="province-btn d-block mt-3">Nexia 2 <div class="province-number">
                                                     <?php 
-                                                    $nexia2 = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'nexia%2%'");
-                                                    if (!$nexia2) 
-                                                        die(mysqli_error($nexia2Error));
+                                                    $sql8 = "SELECT count(*) FROM car WHERE lower(model) like 'nexia%2%'";
+                                                    $stmt = $connect->prepare($sql8);
+                                                    $stmt->execute();
 
-                                                    $nexia2Amount = $nexia2->fetch_row()[0];
+                                                    $nexia2Amount = $stmt->fetchColumn();
                                                     echo '('.$nexia2Amount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('nexia3')" class="province-btn d-block mt-3">Nexia 3 <div class="province-number">
                                                     <?php 
-                                                    $nexia3 = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'nexia%3%'");
-                                                    if (!$nexia3) 
-                                                        die(mysqli_error($nexia3Error));
+                                                    $sql9 = "SELECT count(*) FROM car WHERE lower(model) like 'nexia%3%'";
+                                                    $stmt = $connect->prepare($sql9);
+                                                    $stmt->execute();
 
-                                                    $nexia3Amount = $nexia3->fetch_row()[0];
+                                                    $nexia3Amount = $stmt->fetchColumn();
                                                     echo '('.$nexia3Amount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('cobalt')" class="province-btn d-block mt-3">Cobalt <div class="province-number">
                                                     <?php 
-                                                    $cobalt = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'cobalt%'");
-                                                    if (!$cobalt) 
-                                                        die(mysqli_error($cobaltError));
+                                                    $sql10 = "SELECT count(*) FROM car WHERE lower(model) like 'cobalt%'";
+                                                    $stmt = $connect->prepare($sql10);
+                                                    $stmt->execute();
 
-                                                    $cobaltAmount = $cobalt->fetch_row()[0];
+                                                    $cobaltAmount = $stmt->fetchColumn();
                                                     echo '('.$cobaltAmount.')';
                                                     ?> 
                                                 </div></button>
@@ -206,51 +210,51 @@ if(isset($_SESSION["loggedin"])) {
                                             <div class="col-4 pl-2 pr-0 pt-0">
                                                 <button onclick="toggle('lacetti')" class="province-btn d-block">Lacetti <div class="province-number">
                                                     <?php 
-                                                    $lacetti = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'lacetti%'");
-                                                    if (!$lacetti) 
-                                                        die(mysqli_error($lacettiError));
+                                                    $sql11 = "SELECT count(*) FROM car WHERE lower(model) like 'lacetti%'";
+                                                    $stmt = $connect->prepare($sql11);
+                                                    $stmt->execute();
 
-                                                    $lacettiAmount = $lacetti->fetch_row()[0];
+                                                    $lacettiAmount = $stmt->fetchColumn();
                                                     echo '('.$lacettiAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('gentra')" class="province-btn d-block mt-3">Gentra <div class="province-number">
                                                      <?php 
-                                                    $gentra = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'gentra%'");
-                                                    if (!$gentra) 
-                                                        die(mysqli_error($gentraError));
+                                                    $sql12 = "SELECT count(*) FROM car WHERE lower(model) like 'gentra%'";
+                                                    $stmt = $connect->prepare($sql12);
+                                                    $stmt->execute();
 
-                                                    $gentraAmount = $gentra->fetch_row()[0];
+                                                    $gentraAmount = $stmt->fetchColumn();
                                                     echo '('.$gentraAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('malibu')" class="province-btn d-block mt-3">Malibu 1 <div class="province-number">
                                                      <?php 
-                                                    $malibu = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'malibu%1%'");
-                                                    if (!$malibu) 
-                                                        die(mysqli_error($malibuError));
+                                                    $sql13 = "SELECT count(*) FROM car WHERE lower(model) like 'malibu%1%'";
+                                                    $stmt = $connect->prepare($sql13);
+                                                    $stmt->execute();
 
-                                                    $malibuAmount = $malibu->fetch_row()[0];
+                                                    $malibuAmount = $stmt->fetchColumn();
                                                     echo '('.$malibuAmount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('malibu2')" class="province-btn d-block mt-3">Malibu 2 <div class="province-number">
-                                                     <?php 
-                                                    $malibu2 = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'malibu%2%'");
-                                                    if (!$malibu2) 
-                                                        die(mysqli_error($malibu2Error));
+                                                     <?php
+                                                    $sql14 = "SELECT count(*) FROM car WHERE lower(model) like 'malibu%2%'"; 
+                                                    $stmt = $connect->prepare($sql14);
+                                                    $stmt->execute();
 
-                                                    $malibu2Amount = $malibu2->fetch_row()[0];
+                                                    $malibu2Amount = $stmt->fetchColumn();
                                                     echo '('.$malibu2Amount.')';
                                                     ?> 
                                                 </div></button>
                                                 <button onclick="toggle('captiva')" class="province-btn d-block mt-3">Captiva <div class="province-number">
                                                      <?php 
-                                                    $captiva = mysqli_query($connect, "SELECT count(*) FROM car WHERE lower(model) like 'captiva%'");
-                                                    if (!$captiva) 
-                                                        die(mysqli_error($captivaError));
+                                                    $sql15 = "SELECT count(*) FROM car WHERE lower(model) like 'captiva%'";
+                                                    $stmt = $connect->prepare($sql15);
+                                                    $stmt->execute();
 
-                                                    $captivaAmount = $captiva->fetch_row()[0];
+                                                    $captivaAmount = $stmt->fetchColumn();
                                                     echo '('.$captivaAmount.')';
                                                     ?> 
                                                 </div></button>
@@ -268,7 +272,7 @@ if(isset($_SESSION["loggedin"])) {
                          </div>
                                     <!-- Models shadow -->
                                     <div class="col-12 p-0">
-                                        <img class="province-shadow" src="../styles/icons/province-shadow.svg" alt="province-shadow">
+                                        <img class="province-shadow" src="<?php echo $homeurl; ?>styles/icons/province-shadow.svg" alt="province-shadow">
                                     </div>
                                     <!-- end -->
                             <!-- end -->
@@ -287,52 +291,53 @@ if(isset($_SESSION["loggedin"])) {
                                         
                                             <div class="col-4 pl-0 pr-2 pt-0">
                                                 <button class="province-btn d-block" onclick="toggle('andijon')">Andijon <div class="province-number">
-                                                    <?php 
-                                                    $andijonCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Andijon'");
+                                                    <?php
+                                                    $sql = "SELECT count(*) FROM car WHERE region = 'Andijon'"; 
+                                                    $stmt = $connect->prepare($sql);
+                                                    $stmt->execute();
 
-                                                    if (!$andijonCount)
-                                                        die(mysqli_error($andijon));
-                                                    $andijonAmountCars = $andijonCount->fetch_row()[0];
+                                                    $andijonAmountCars = $stmt->fetchColumn();
                                                     echo '('.$andijonAmountCars.')';
                                                     ?>
-                                                </div></button>
+                                                </div>
+                                                </button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('buxoro')">Buxoro <div class="province-number">
                                                     <?php 
-                                                    $BuxoroCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Buxoro'");
+                                                    $sql1 = "SELECT count(*) FROM car WHERE region = 'Buxoro'";
+                                                    $stmt = $connect->prepare($sql1);
+                                                    $stmt->execute();
 
-                                                    if (!$BuxoroCount)
-                                                        die(mysqli_error($Buxoro));
-                                                    $BuxoroAmountCars = $BuxoroCount->fetch_row()[0];
+                                                    $BuxoroAmountCars = $stmt->fetchColumn();
                                                     echo '('.$BuxoroAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('jizzax')">Jizzax <div class="province-number">
                                                      <?php 
-                                                    $JizzaxCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Jizzax'");
+                                                    $sql2 = "SELECT count(*) FROM car WHERE region = 'Jizzax'";
+                                                    $stmt = $connect->prepare($sql2);
+                                                    $stmt->execute();
 
-                                                    if (!$JizzaxCount)
-                                                        die(mysqli_error($Jizzax));
-                                                    $JizzaxAmountCars = $JizzaxCount->fetch_row()[0];
+                                                    $JizzaxAmountCars = $stmt->fetchColumn();
                                                     echo '('.$JizzaxAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('qashqadaryo')">Qashqadaryo <div class="province-number">
                                                      <?php 
-                                                    $QashqadaryoCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Qashqadaryo'");
+                                                    $sql3 = "SELECT count(*) FROM car WHERE region = 'Qashqadaryo'";
+                                                    $stmt = $connect->prepare($sql3);
+                                                    $stmt->execute();
 
-                                                    if (!$QashqadaryoCount)
-                                                        die(mysqli_error($Qashqadaryo));
-                                                    $QashqadaryoAmountCars = $QashqadaryoCount->fetch_row()[0];
+                                                    $QashqadaryoAmountCars = $stmt->fetchColumn();
                                                     echo '('.$QashqadaryoAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('toshkentv')">Toshkent v. <div class="province-number">
                                                      <?php 
-                                                    $ToshkentCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Toshkent v.'");
+                                                    $sql4 = "SELECT count(*) FROM car WHERE region = 'Toshkent v.'";
+                                                    $stmt = $connect->prepare($sql4);
+                                                    $stmt->execute();
 
-                                                    if (!$ToshkentCount)
-                                                        die(mysqli_error($Toshkent));
-                                                    $ToshkentAmountCars = $ToshkentCount->fetch_row()[0];
+                                                    $ToshkentAmountCars = $stmt->fetchColumn();
                                                     echo '('.$ToshkentAmountCars.')';
                                                     ?>
                                                 </div></button>
@@ -341,51 +346,51 @@ if(isset($_SESSION["loggedin"])) {
                                             <div class="col-4 px-2 pt-0">
                                                 <button class="province-btn d-block" onclick="toggle('namangan')">Namangan <div class="province-number">
                                                      <?php 
-                                                    $NamanganCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Namangan'");
+                                                    $sql5 = "SELECT count(*) FROM car WHERE region = 'Namangan'";
+                                                    $stmt = $connect->prepare($sql5);
+                                                    $stmt->execute();
 
-                                                    if (!$NamanganCount)
-                                                        die(mysqli_error($Namangan));
-                                                    $NamanganAmountCars = $NamanganCount->fetch_row()[0];
+                                                    $NamanganAmountCars = $stmt->fetchColumn();
                                                     echo '('.$NamanganAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('samarqand')">Samarqand <div class="province-number">
                                                      <?php 
-                                                    $SamarqandCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Samarqand'");
+                                                    $sql6 = "SELECT count(*) FROM car WHERE region = 'Samarqand'";
+                                                    $stmt = $connect->prepare($sql6);
+                                                    $stmt->execute();
 
-                                                    if (!$SamarqandCount)
-                                                        die(mysqli_error($Samarqand));
-                                                    $SamarqandAmountCars = $SamarqandCount->fetch_row()[0];
+                                                    $SamarqandAmountCars = $stmt->fetchColumn();
                                                     echo '('.$SamarqandAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('surxondaryo')">Surxondaryo <div class="province-number">
                                                      <?php 
-                                                    $SurxondaryoCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Surxondaryo'");
+                                                    $sql7 = "SELECT count(*) FROM car WHERE region = 'Surxondaryo'";
+                                                    $stmt = $connect->prepare($sql7);
+                                                    $stmt->execute();
 
-                                                    if (!$SurxondaryoCount)
-                                                        die(mysqli_error($Surxondaryo));
-                                                    $SurxondaryoAmountCars = $SurxondaryoCount->fetch_row()[0];
+                                                    $SurxondaryoAmountCars = $stmt->fetchColumn();
                                                     echo '('.$SurxondaryoAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('sirdaryo')">Sirdaryo <div class="province-number">
                                                      <?php 
-                                                    $SirdaryoCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Sirdaryo'");
+                                                    $sql8 = "SELECT count(*) FROM car WHERE region = 'Sirdaryo'";
+                                                    $stmt = $connect->prepare($sql8);
+                                                    $stmt->execute();
 
-                                                    if (!$SirdaryoCount)
-                                                        die(mysqli_error($Sirdaryo));
-                                                    $SirdaryoAmountCars = $SirdaryoCount->fetch_row()[0];
+                                                    $SirdaryoAmountCars = $stmt->fetchColumn();
                                                     echo '('.$SirdaryoAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('toshkentsh')">Toshkent sh. <div class="province-number">
                                                      <?php 
-                                                    $ToshkentShCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Toshkent sh.'");
+                                                    $sql9 = "SELECT count(*) FROM car WHERE region = 'Toshkent sh.'";
+                                                    $stmt = $connect->prepare($sql9);
+                                                    $stmt->execute();
 
-                                                    if (!$ToshkentShCount)
-                                                        die(mysqli_error($ToshkentSh));
-                                                    $ToshkentShAmountCars = $ToshkentShCount->fetch_row()[0];
+                                                    $ToshkentShAmountCars = $stmt->fetchColumn();
                                                     echo '('.$ToshkentShAmountCars.')';
                                                     ?>
                                                 </div></button>
@@ -393,51 +398,51 @@ if(isset($_SESSION["loggedin"])) {
                                             <div class="col-4 pl-2 pr-0 pt-0">
                                                 <button class="province-btn d-block" onclick="toggle('fargona')">Farg'ona <div class="province-number">
                                                      <?php 
-                                                    $FargonaCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Farg`ona'");
+                                                    $sql10 = "SELECT count(*) FROM car WHERE region = 'Farg`ona'";
+                                                    $stmt = $connect->prepare($sql10);
+                                                    $stmt->execute();
 
-                                                    if (!$FargonaCount)
-                                                        die(mysqli_error($Fargona));
-                                                    $FargonaAmountCars = $FargonaCount->fetch_row()[0];
+                                                    $FargonaAmountCars = $stmt->fetchColumn();
                                                     echo '('.$FargonaAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('xorazm')">Xorazm <div class="province-number">
                                                      <?php 
-                                                    $XorazmCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Xorazm'");
+                                                    $sql11 = "SELECT count(*) FROM car WHERE region = 'Xorazm'";
+                                                    $stmt = $connect->prepare($sql11);
+                                                    $stmt->execute();
 
-                                                    if (!$XorazmCount)
-                                                        die(mysqli_error($Xorazm));
-                                                    $XorazmAmountCars = $XorazmCount->fetch_row()[0];
+                                                    $XorazmAmountCars = $stmt->fetchColumn();
                                                     echo '('.$XorazmAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('navoiy')">Navoiy <div class="province-number">
                                                      <?php 
-                                                    $NavoiyCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Navoiy'");
+                                                    $sql12 = "SELECT count(*) FROM car WHERE region = 'Navoiy'";
+                                                    $stmt = $connect->prepare($sql12);
+                                                    $stmt->execute();
 
-                                                    if (!$NavoiyCount)
-                                                        die(mysqli_error($Navoiy));
-                                                    $NavoiyAmountCars = $NavoiyCount->fetch_row()[0];
+                                                    $NavoiyAmountCars = $stmt->fetchColumn();
                                                     echo '('.$NavoiyAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('qoraqalpoq')">Qoraqalpoq <div class="province-number">
                                                      <?php 
-                                                    $QoraqalpoqCount = mysqli_query($connect, "SELECT count(*) FROM car WHERE region = 'Qoraqalpoq'");
+                                                    $sql13 = "SELECT count(*) FROM car WHERE region = 'Qoraqalpoq'";
+                                                    $stmt = $connect->prepare($sql13);
+                                                    $stmt->execute();
 
-                                                    if (!$QoraqalpoqCount)
-                                                        die(mysqli_error($Qoraqalpoq));
-                                                    $QoraqalpoqAmountCars = $QoraqalpoqCount->fetch_row()[0];
+                                                    $QoraqalpoqAmountCars = $stmt->fetchColumn();
                                                     echo '('.$QoraqalpoqAmountCars.')';
                                                     ?>
                                                 </div></button>
                                                 <button class="province-btn d-block mt-3" onclick="toggle('ozbekiston')">O`zbekiston <div class="province-number">
                                                      <?php 
-                                                    $OzbekistonCount = mysqli_query($connect, "SELECT count(*) FROM car");
+                                                    $sql14 = "SELECT count(*) FROM car";
+                                                    $stmt = $connect->prepare($sql14);
+                                                    $stmt->execute();
 
-                                                    if (!$OzbekistonCount)
-                                                        die(mysqli_error($Ozbekiston));
-                                                    $OzbekistonAmountCars = $OzbekistonCount->fetch_row()[0];
+                                                    $OzbekistonAmountCars = $stmt->fetchColumn();
                                                     echo '('.$OzbekistonAmountCars.')';
                                                     ?>
                                                 </div></button>
@@ -455,13 +460,14 @@ if(isset($_SESSION["loggedin"])) {
                          </div>
                                     <!-- Province shadow -->
                                     <div class="col-12 p-0">
-                                        <img class="province-shadow" src="../styles/icons/province-shadow.svg" alt="province-shadow">
+                                        <img class="province-shadow" src="./styles/icons/province-shadow.svg" alt="province-shadow">
                                     </div>
                                     <!-- end -->
                             <!-- end -->
-                            
+
                         </div>
                     <!-- end -->
+
 
             <!-- Categories -->
             <div class="container-fluid bg-yellow">
@@ -558,38 +564,47 @@ if(isset($_SESSION["loggedin"])) {
                 </div>
             </div>
         </div>
-        <div class="container mx-lg-auto my-4">
+        <div class="container parent mx-lg-auto my-4">
             <div class="pdf">
             <div id="img">
             <div id="doc">
             <div id="excel">
                 <!-- Car -->
-                <?php include '../sections/view/car.php'?>
+                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/car.php'?>
                 <!-- Documents -->
-                <?php include '../sections/view/documents.php'?>
+                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/documents.php'?>
                 <!-- Companies -->
-                <?php include '../sections/view/companies.php'?>
+                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/companies.php'?>
                 <!-- Persons -->
-                <?php include '../sections/view/persons.php'?>
+                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/persons.php'?>
                 <!-- Purchase -->
-                <?php include '../sections/view/purchase.php'?>
+                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/purchase.php'?>
                 <!-- Sell -->
-                <?php include '../sections/view/sell.php'?>
+                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/sell.php'?>
                 <!-- Status -->
-                <?php include '../sections/view/status.php'?>
+                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/status.php'?>
                 <!-- Fine -->
-                <?php include '../sections/view/fine.php' ?>
+                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/fine.php' ?>
             </div>
             </div>
             </div>
             
-            <?php $id = $_GET['id']; ?>
                         <div class="col-12 p-0">
-                            <a href="update.php?id=<?php echo $id; ?>">
+                            <a href="update?id=<?php echo $id; ?>">
                                 <button class="btn btn-save mt-3">Tuzatish</button>
                             </a>
                         </div>
-            </div>
 
         </div>
-<?php include "includes/footer.php"; ?>
+    
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="<?php echo $homeurl; ?>styles/js/doc-js/FileSaver.js"></script>
+    <script src="<?php echo $homeurl; ?>styles/js/doc-js/jquery.wordexport.js"></script>
+    <script src="<?php echo $homeurl; ?>styles/source/html2canvas.js"></script>
+    <script src="<?php echo $homeurl; ?>styles/js/app.js"></script>
+	<script src="<?php echo $homeurl; ?>styles/js/loader.js"></script>

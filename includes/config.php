@@ -11,7 +11,7 @@ $protocol = strtolower(substr($_SERVER['SERVER_PROTOCOL'],0,strpos($_SERVER["SER
 if(in_array($_SERVER['REMOTE_ADDR'], $localWhiteList)){
 	// local connect
 	$currenturl = 'http://' . $_SERVER['SERVER_PROTOCOL'] . $_SERVER['REQUEST_URI'];
-	$homeurl = 'http://'.$_SERVER['SERVER_NAME'];
+	$homeurl = 'http://'.$_SERVER['SERVER_NAME'].'/';
 
 	$DB_SERVER = 'localhost';
 	$DB_USERNAME = 'root';

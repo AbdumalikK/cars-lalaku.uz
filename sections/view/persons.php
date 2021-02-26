@@ -1,14 +1,121 @@
    <?php 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM persons WHERE id = $id";
-    $result = mysqli_query($connect, $sql);
+
+    $sql = "SELECT * FROM persons WHERE id = :id";
+    $parameter = array(":id" => $id);
+    $stmt = $connect->prepare($sql);
+    $stmt->execute($parameter);
 }
 
-while ($persons = mysqli_fetch_assoc($result)) {
+while ($persons = $stmt->fetch()) {
 
-?>
-    <div class="row">
+ if ($persons['foto_1']) {
+    $photo = '<div class="file-input mt-4">
+      <hr class="hr-add">
+      <hr class="vl">
+      <a href="'.$persons['foto_1'].'" download>
+      <img src="'.$persons['foto_1'].'" width="64" height="64" class="img-person1 top-21" id="img-show" alt="">
+      <span class="img-download">
+      <img class="img-down-icon" src="../../styles/icons/download.svg" alt="">
+      </span>
+      </a>
+      </div>';
+ } else { $photo = '<div class="pl-3">Rasm yo`q</div>'; }
+
+
+  if ($persons['foto_2']) {
+    $photo2 = '<div class="file-input mt-4">
+      <hr class="hr-add">
+      <hr class="vl">
+      <a href="'.$persons['foto_2'].'" download>
+      <img src="'.$persons['foto_2'].'" width="64" height="64" class="img-person2" id="img-show1" alt="">
+      <span class="img-download">
+      <img class="img-down-icon" src="../../styles/icons/download.svg" alt="">
+      </span>
+      </a>
+      </div>';
+ } else { $photo2 = '<div class="pl-3">Rasm yo`q</div>'; }  
+
+
+
+                              $person = '<!-- row contenti -->
+                                <div class="row">
+                                    <div class="col-12 px-0">
+
+                                     <div class="content-border mb-2">
+                                          <div class="row mb-2">
+                                               <div class="col-6">
+                                            <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Haydovchi</p>
+                                            <h5 class="view-user ml-3">
+                                              '.$persons['driver_name'].' '.$persons['driver_surname'].' '.$persons['driver_fathername'].'
+                                            </h5>
+                                             <div class="wrap">
+                                                <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Berilgan sanasi</p>
+                                                <h5 class="view-user ml-3">
+                                                  '.$persons['d_given_date'].'
+                                                </h5>
+                                             </div>
+                                                 
+                                             </div>
+                                             
+                                             <div class="col-3 px-0">
+                                             <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Telefon 1</p>
+                                             <h5 class="view-user ml-3">
+                                                '.$persons['d_phone_1'].'
+                                             </h5>
+                                             <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Telefon 2</p>
+                                             <h5 class="view-user ml-3">
+                                                '.$persons['d_phone_2'].'
+                                             </h5>
+                                             </div>
+                                             
+                                             <div class="col-3">
+                                                '.$photo.'
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                          <div class="row">
+                                            <div class="col-6">
+                                         <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Javobgar shaxs</p>
+                                        <h5 class="view-user ml-3">
+                                          '.$persons['respons_name'].' '.$persons['respons_surname'].' '.$persons['respons_fathername'].'
+                                        </h5>
+                                          <div class="wrap">
+                                             <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Berilgan sanasi</p>
+                                        <h5 class="view-user ml-3">
+                                          '.$persons['r_given_date'].'
+                                        </h5>
+                                          </div>
+                                              
+                                          </div>
+                                          
+                                          <div class="col-3 px-0">
+                                          <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Telefon 1</p>
+                                        <h5 class="view-user ml-3">
+                                          '.$persons['r_phone_1'].'
+                                        </h5>
+                                          <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Telefon 2</p>
+                                        <h5 class="view-user ml-3">
+                                          '.$persons['r_phone_2'].'
+                                        </h5>
+                                          </div>
+                                          
+                                          <div class="col-3">
+                                            '.$photo2.'
+                                          </div>
+                                      </div>
+                                </div>
+
+                                   
+                                </div>
+                                <!-- end row -->';
+                      
+
+} ?>
+
+<div class="row">
             <!-- Shaxslar-section -->
             <div class="col-12" data-toggle="collapse" data-target="#person">
                 <div class="content-border-top">
@@ -26,102 +133,7 @@ while ($persons = mysqli_fetch_assoc($result)) {
                         </div>
                         <!-- collapse show -->
                         <div class="col-12 mb-2">
-                               
-                                <!-- row contenti -->
-                                <div class="row">
-                                    <div class="col-12 px-0">
-
-                                     <div class="content-border mb-2">
-                                          <div class="row mb-2">
-                                               <div class="col-6">
-                                            <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Haydovchi</p>
-                                            <h5 class="view-user ml-3">
-                                    <?php echo $persons['driver_name'], ' ', $persons['driver_surname'], ' ', $persons['driver_fathername']; ?>
-                                            </h5>
-                                             <div class="wrap">
-                                                <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Berilgan sanasi</p>
-                                                <h5 class="view-user ml-3">
-                                    <?php echo $persons['d_given_date']; ?>
-                                                </h5>
-                                             </div>
-                                                 
-                                             </div>
-                                             
-                                             <div class="col-3 px-0">
-                                             <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Telefon 1</p>
-                                             <h5 class="view-user ml-3">
-                                    <?php echo $persons['d_phone_1']; ?>
-                                             </h5>
-                                             <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Telefon 2</p>
-                                             <h5 class="view-user ml-3">
-                                    <?php echo $persons['d_phone_2']; ?>
-                                             </h5>
-                                             </div>
-                                             
-                                             <div class="col-3">
-                                    <?php if ($persons['foto_1']) { ?>
-                                                 <div class="file-input mt-4">
-                                                   <hr class="hr-add">
-                                                   <hr class="vl">
-                                                   <a href="<?php echo $persons['foto_1'];?>" download>
-                                                   <img src="<?php echo $persons['foto_1'];?>" width="64" height="64" class="img-person1 top-21" id="img-show" alt="">
-                                                   <span class="img-download">
-                                                   <img class="img-down-icon" src="../../styles/icons/download.svg" alt="">
-                                                   </span>
-                                                   </a>
-                                             </div>
-                                    <?php } else { echo '<div class="pl-3">Rasm yo`q</div>'; }  ?>
-                                             </div>
-                                         </div>
-                                     </div>
-
-                                          <div class="row">
-                                            <div class="col-6">
-                                         <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Javobgar shaxs</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $persons['respons_name'], ' ', $persons['respons_surname'], ' ', $persons['respons_fathername']; ?>
-                                        </h5>
-                                          <div class="wrap">
-                                             <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Berilgan sanasi</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $persons['r_given_date']; ?>
-                                        </h5>
-                                          </div>
-                                              
-                                          </div>
-                                          
-                                          <div class="col-3 px-0">
-                                          <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Telefon 1</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $persons['r_phone_1']; ?>
-                                        </h5>
-                                          <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Telefon 2</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $persons['r_phone_2']; ?>
-                                        </h5>
-                                          </div>
-                                          
-                                          <div class="col-3">
-                                    <?php if ($persons['foto_2']) { ?>
-                                              <div class="file-input mt-4">
-                                                <hr class="hr-add">
-                                                <hr class="vl">
-                                                <a href="<?php echo $persons['foto_2'];?>" download>
-                                                <img src="<?php echo $persons['foto_2'];?>" width="64" height="64" class="img-person2" id="img-show1" alt="">
-                                                <span class="img-download">
-                                                <img class="img-down-icon" src="../../styles/icons/download.svg" alt="">
-                                                </span>
-                                                </a>
-                                          </div>
-                                    <?php } else { echo '<div class="pl-3">Rasm yo`q</div>'; }  ?>
-
-                                          </div>
-                                      </div>
-                                </div>
-
-                                   
-                                </div>
-                                <!-- end row -->
+                          <?php echo $person; ?>
                         </div>
                     </div>
                     <!-- end col-12 -->
@@ -169,5 +181,3 @@ while ($persons = mysqli_fetch_assoc($result)) {
 
         </div>
         <!-- end row -->
-
-<?php } ?>

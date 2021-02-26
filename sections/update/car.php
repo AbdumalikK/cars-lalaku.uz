@@ -1,12 +1,15 @@
 <?php 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM car WHERE id = $id";
-    $result = mysqli_query($connect, $sql);
+
+    $sql = "SELECT * FROM car WHERE id = :id";
+    $parameter = array(':id' => $id);
+    $stmt = $connect->prepare($sql);
+    $stmt->execute($parameter);
 
 }
 
-while ($car = mysqli_fetch_assoc($result)) {
+while ($car = $stmt->fetch()) {
 
 ?>
 
@@ -35,9 +38,10 @@ while ($car = mysqli_fetch_assoc($result)) {
                                         <option value="<?php echo $car['mark'] ?>"><?php echo $car['mark'] ?></option>
                                         <?php
                                         $sql = "SELECT * FROM categories";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute();
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['mark'].'>'.$rows['mark'].'</option>';
                                         }
@@ -47,9 +51,10 @@ while ($car = mysqli_fetch_assoc($result)) {
                                         <option value="<?php echo $car['carcase'] ?>" selected><?php echo $car['carcase'] ?></option>
                                         <?php
                                         $sql = "SELECT * FROM carcase_type";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute();
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['carcase'].'>'.$rows['carcase'].'</option>';
                                         }
@@ -59,9 +64,10 @@ while ($car = mysqli_fetch_assoc($result)) {
                                         <option value="<?php echo $car['fuel'] ?>" selected><?php echo $car['fuel'] ?></option>
                                         <?php
                                         $sql = "SELECT * FROM fuel_type";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute();
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['fuel'].'>'.$rows['fuel'].'</option>';
                                         }
@@ -74,9 +80,10 @@ while ($car = mysqli_fetch_assoc($result)) {
                                         <option value="<?php echo $car['model'] ?>" selected><?php echo $car['model'] ?></option>
                                         <?php
                                         $sql = "SELECT * FROM car_models";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute();
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['model'].'>'.$rows['model'].'</option>';
                                         }
@@ -86,9 +93,10 @@ while ($car = mysqli_fetch_assoc($result)) {
                                         <option value="<?php echo $car['manuf_year'] ?>" selected><?php echo $car['manuf_-year'] ?></option>
                                         <?php
                                         $sql = "SELECT * FROM car_manufactured_year";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute();
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['year'].'>'.$rows['year'].'</option>';
                                         }
@@ -98,9 +106,10 @@ while ($car = mysqli_fetch_assoc($result)) {
                                         <option value="<?php echo $car['engine'] ?>" selected><?php echo $car['engine'] ?></option>
                                         <?php
                                         $sql = "SELECT * FROM car_engine_types";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute();
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['engine'].'>'.$rows['engine'].'</option>';
                                         }

@@ -21,9 +21,10 @@
                                         <option value="">Markasi</option>
                                         <?php
                                         $sql = "SELECT * FROM categories";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['mark'].'>'.$rows['mark'].'</option>';
                                         }
@@ -33,9 +34,10 @@
                                         <option value="Tanlanmadi" selected>Kuzov turi</option>
                                         <?php
                                         $sql = "SELECT * FROM carcase_type";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['carcase'].'>'.$rows['carcase'].'</option>';
                                         }
@@ -45,9 +47,10 @@
                                         <option value="Tanlanmadi" selected>Yoqilg`i turi</option>
                                         <?php
                                         $sql = "SELECT * FROM fuel_type";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['fuel'].'>'.$rows['fuel'].'</option>';
                                         }
@@ -60,9 +63,10 @@
                                         <option value="Tanlanmadi" selected>Modeli</option>
                                         <?php
                                         $sql = "SELECT * FROM car_models";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['model'].'>'.$rows['model'].'</option>';
                                         }
@@ -72,9 +76,10 @@
                                         <option value="Tanlanmadi" selected>Ishlab chiqarilgan yili</option>
                                         <?php
                                         $sql = "SELECT * FROM car_manufactured_year";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['year'].'>'.$rows['year'].'</option>';
                                         }
@@ -84,9 +89,10 @@
                                         <option value="Tanlanmadi" selected>Dvigatel hajmi</option>
                                         <?php
                                         $sql = "SELECT * FROM car_engine_types";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['engine'].'>'.$rows['engine'].'</option>';
                                         }

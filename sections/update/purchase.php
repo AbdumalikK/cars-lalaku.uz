@@ -1,8 +1,11 @@
 <?php 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM purchase WHERE id = $id";
-    $result = mysqli_query($connect, $sql);
+
+    $sql = "SELECT * FROM purchase WHERE id = :id";
+    $parameter = array(':id' => $id);
+    $stmt = $connect->prepare($sql);
+    $stmt->execute($parameter);
 
     // if(count($result) == 1){
     //     $n = mysqli_fetch_array($result);
@@ -10,7 +13,7 @@ if (isset($_GET['id'])) {
     // }
 }
 
-while ($purchase = mysqli_fetch_assoc($result)) {
+while ($purchase = $stmt->fetch()) {
 
 ?>
 <input type="hidden" name="id" value="<?php echo $id; ?>">

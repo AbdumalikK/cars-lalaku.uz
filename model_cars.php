@@ -17,7 +17,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -101,7 +101,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -176,7 +176,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -252,7 +252,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -328,7 +328,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -404,7 +404,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -480,7 +480,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -556,7 +556,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -632,7 +632,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -708,7 +708,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -784,7 +784,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -861,7 +861,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -940,7 +940,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -1016,7 +1016,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -1092,7 +1092,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>
@@ -1168,7 +1168,7 @@ if ($stmt->fetchColumn() > 0) {
       <div class="row">
           <div class="col-5 pr-1">
             <div class="info">
-            <a href="action/user-view.php?id='.$row["id"].'">
+            <a href="action/user-view?id='.$row["id"].'">
               <h5 class="d-inline-block content-border ml-0 mb-0">'.$row["model"].'</h5>
             </a>
               <p class="content-who text-dark ml-0">haydovchi</p>

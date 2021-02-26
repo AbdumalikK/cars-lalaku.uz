@@ -1,8 +1,11 @@
 <?php 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM region WHERE id = $id";
-    $result = mysqli_query($connect, $sql);
+
+    $sql = "SELECT * FROM region WHERE id = :id";
+    $parameter = array(':id' => $id);
+    $stmt = $connect->prepare($sql);
+    $stmt->execute($parameter);
 
     // if(count($result) == 1){
     //     $n = mysqli_fetch_array($result);
@@ -10,7 +13,7 @@ if (isset($_GET['id'])) {
     // }
 }
 
-while ($region = mysqli_fetch_assoc($result)) {
+while ($region = $stmt->fetch()) {
 
 ?>
 <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -43,9 +46,10 @@ while ($region = mysqli_fetch_assoc($result)) {
                                             <option value="<?php echo $region['corp'] ?>" selected><?php echo $region['corp'] ?></option>
                                            <?php
                                         $sql = "SELECT * FROM companies";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['company'].'>'.$rows['company'].'</option>';
                                         }
@@ -61,9 +65,10 @@ while ($region = mysqli_fetch_assoc($result)) {
                                             <option value="<?php echo $region['province'] ?>" selected><?php echo $region['province'] ?></option>
                                             <?php
                                         $sql = "SELECT * FROM provinces";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['province'].'>'.$rows['province'].'</option>';
                                         }

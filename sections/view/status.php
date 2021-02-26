@@ -1,13 +1,52 @@
 <?php 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM status WHERE id = $id";
-    $result = mysqli_query($connect, $sql);
+
+    $sql = "SELECT * FROM status WHERE id = :id";
+    $parameter = array(":id" => $id);
+    $stmt = $connect->prepare($sql);
+    $stmt->execute($parameter);
 }
 
-while ($status = mysqli_fetch_assoc($result)) {
+while ($status = $stmt->fetch()) {
 
-?>
+                                $status_show = '<!-- row contenti -->
+                                      <div class="row">
+                                          <div class="col-12 p-0">
+                                             <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Statusi</p>
+                                             <h5 class="view-user ml-3">
+                                               '.$status['status'].'
+                                             </h5>
+                                          </div>
+                                          <div class="col-6 p-0">
+                                              <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Qachondan</p>
+                                             <h5 class="view-user ml-3">
+                                               '.$status['start_date'].'
+                                             </h5>
+                                          </div>
+                                          <div class="col-6 p-0">
+                                              <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Qachongacha</p>
+                                             <h5 class="view-user ml-3">
+                                              '.$status['stop_date'].'
+                                             </h5>
+                                          </div>
+                                          <div class="col-12 p-0">
+                                              <p class="user-info-titles wd39 content-border m-0 p-0 pb-2 ml-3">Summasi</p>
+                                             <h5 class="view-user ml-3 mt-2">
+                                               '.$status['price'].'
+                                             </h5>
+                                          </div>
+                                          <div class="col-12 mt-2 mb-3 px-0">
+                                              <p class="user-info-titles wd89 content-border m-0 p-0 pb-2 ml-3">Komment</p>
+                                             <h5 class="view-user ml-3 mt-1">
+                                               '.$status['comment'].'
+                                             </h5>
+                                          </div>
+                                      </div>
+                                      <!-- end row -->';
+                                        
+ } ?>
+
 <div class="row">
             <!-- Holati-section -->
             <div class="col-12" data-toggle="collapse" data-target="#status">
@@ -26,51 +65,11 @@ while ($status = mysqli_fetch_assoc($result)) {
                         </div>
                             <!-- collapse show -->
                                   <div class="col-12 mb-2">
-                                      <!-- row contenti -->
-                                      <div class="row">
-                                          <div class="col-12 p-0">
-                                             <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Statusi</p>
-                                             <h5 class="view-user ml-3">
-                                               <?php echo $status['status']; ?>
-                                             </h5>
-                                          </div>
-                                          <div class="col-6 p-0">
-                                              <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Qachondan</p>
-                                             <h5 class="view-user ml-3">
-                                               <?php echo $status['start_date']; ?>
-                                             </h5>
-                                          </div>
-                                          <div class="col-6 p-0">
-                                              <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Qachongacha</p>
-                                             <h5 class="view-user ml-3">
-                                               <?php echo $status['stop_date']; ?>
-                                             </h5>
-                                          </div>
-                                          <div class="col-12 p-0">
-                                              <p class="user-info-titles wd39 content-border m-0 p-0 pb-2 ml-3">Summasi</p>
-                                             <h5 class="view-user ml-3 mt-2">
-                                               <?php echo $status['price']; ?>
-                                             </h5>
-                                          </div>
-                                          <div class="col-12 mt-2 mb-3 px-0">
-                                              <p class="user-info-titles wd89 content-border m-0 p-0 pb-2 ml-3">Komment</p>
-                                             <h5 class="view-user ml-3 mt-1">
-                                               <?php echo $status['comment']; ?>
-                                             </h5>
-                                          </div>
-                                           
-                               
-                               
-                               
-                                      </div>
-                                      <!-- end row -->
-                                          </div>
+                                      <?php echo $status_show; ?>
+                                  </div>
                                       <!-- end col-12 -->
-
-                                               </div>
-
-
-                                               <div class="col-12 mb-2 px-2 mt-3 bg-history">
+                            </div>
+                            <div class="col-12 mb-2 px-2 mt-3 bg-history">
                             <div class="content-border">
                               <div class="content-border-top content-border">
                                 <button class="btn-nav user-info-titles m-0 py-1" data-toggle="collapse" data-target="#persons-history">Statuslar tarixi</button>
@@ -111,4 +110,3 @@ while ($status = mysqli_fetch_assoc($result)) {
             <!-- end col-12 -->
         </div>
         <!-- end row -->
-<?php } ?>

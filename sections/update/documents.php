@@ -1,8 +1,11 @@
 <?php 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM documents WHERE id = $id";
-    $result = mysqli_query($connect, $sql);
+
+    $sql = "SELECT * FROM documents WHERE id = :id";
+    $parameter = array(':id' => $id);
+    $stmt = $connect->prepare($sql);
+    $stmt->execute($parameter);
 
     // if(count($result) == 1){
     //     $n = mysqli_fetch_array($result);
@@ -10,7 +13,7 @@ if (isset($_GET['id'])) {
     // }
 }
 
-while ($documents = mysqli_fetch_assoc($result)) {
+while ($documents = $stmt->fetch()) {
 
 ?>
 
@@ -122,9 +125,10 @@ while ($documents = mysqli_fetch_assoc($result)) {
                                             <option value="<?php echo $documents['insurance_type'] ?>" name="insurance_type" selected><?php echo $documents['insurance_type'] ?></option>
                                              <?php
                                               $sql = "SELECT * FROM documents";
-                                              $results = mysqli_query($connect, $sql);
+                                              $stmt = $connect->prepare($sql);
+                                              $stmt->execute($parameter);
 
-                                              while ($rows = $results->fetch_assoc())
+                                              while ($rows = $stmt->fetch())
                                               {
                                                   echo '<option value='.$rows['insurance_type'].'>'.$rows['insurance_type'].'</option>';
                                               }
@@ -171,9 +175,10 @@ while ($documents = mysqli_fetch_assoc($result)) {
                                             <option value="<?php echo $documents['gas_akt'] ?>" selected><?php echo $documents['gas_akt'] ?></option>
                                               <?php
                                         $sql = "SELECT * FROM documents";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['gas_akt'].'>'.$rows['gas_akt'].'</option>';
                                         }
@@ -258,14 +263,15 @@ while ($documents = mysqli_fetch_assoc($result)) {
                                         <select class="choose-option-add mt-3" name="warrant_type" id="marka">
                                             <option value="<?php echo $documents['trust_type'] ?>" selected><?php echo $documents['trust_type'] ?></option>
                                                  <?php
-                                        $sql = "SELECT * FROM documents";
-                                        $results = mysqli_query($connect, $sql);
+                                                    $sql = "SELECT * FROM documents";
+                                                    $stmt = $connect->prepare($sql);
+                                                    $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
-                                        {
-                                            echo '<option value='.$rows['trust_type'].'>'.$rows['trust_type'].'</option>';
-                                        }
-                                        ?>
+                                                    while ($rows = $stmt->fetch())
+                                                    {
+                                                        echo '<option value='.$rows['trust_type'].'>'.$rows['trust_type'].'</option>';
+                                                    }
+                                                ?>
                                           </select>
                                       <span class="add-date">DD/MM/YYYY</span>
                                       <input type="text" value="<?php echo $documents['trust_date'] ?>" name="warrant_expire_date" class="choose-option-add mt-3" placeholder="Ishonchnoma muddati">

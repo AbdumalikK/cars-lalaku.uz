@@ -1,12 +1,39 @@
 <?php 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM region WHERE id = $id";
-    $result = mysqli_query($connect, $sql);
+
+    $sql = "SELECT * FROM region WHERE id = :id";
+    $parameter = array(':id' => $id);
+    $stmt = $connect->prepare($sql);
+    $stmt->execute($parameter);
 }
 
-while ($region = mysqli_fetch_assoc($result)) {
-
+while ($region = $stmt->fetch()) {
+                            $company =  '<!-- row contenti -->
+                                <div class="row">
+                                    <div class="col-6 px-0">
+                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Tashkilot</p>
+                                        <h5 class="view-user ml-3">
+                                            '.$region['corp'].'
+                                        </h5>
+                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Berilgan sanasi</p>
+                                        <h5 class="view-user ml-3">
+                                            '.$region['given_date'].'
+                                        </h5>
+                                    </div>
+                                    <div class="col-6 px-0">
+                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Viloyat</p>
+                                        <h5 class="view-user ml-3">
+                                            '.$region['province'].'
+                                        </h5>
+                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Shahar / Tuman</p>
+                                        <h5 class="view-user ml-3">
+                                            '.$region['city'].'
+                                        </h5>
+                                    </div>
+                                </div>
+                                <!-- end row -->';
+} 
 ?>
 
 <div class="row">
@@ -28,31 +55,7 @@ while ($region = mysqli_fetch_assoc($result)) {
                         </div>
                         <!-- collapse show -->
                         <div class="col-12">
-                               
-                                <!-- row contenti -->
-                                <div class="row">
-                                    <div class="col-6 px-0">
-                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Tashkilot</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $region['corp']; ?>
-                                        </h5>
-                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Berilgan sanasi</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $region['given_date']; ?>
-                                        </h5>
-                                    </div>
-                                    <div class="col-6 px-0">
-                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3">Viloyat</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $region['province']; ?>
-                                        </h5>
-                                        <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Shahar / Tuman</p>
-                                        <h5 class="view-user ml-3">
-                                    <?php echo $region['city']; ?>
-                                        </h5>
-                                    </div>
-                                </div>
-                                <!-- end row -->
+                            <?php echo $company; ?>
                         </div>
                     </div>
                     <!-- end col-12 -->
@@ -98,4 +101,3 @@ while ($region = mysqli_fetch_assoc($result)) {
             <!-- end col-12 -->
         </div>
         <!-- end row -->
-<?php } ?>

@@ -6,26 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>LaLaKoo Cars</title>
     <!-- Styles css-->
-    <link rel="stylesheet" href="styles/source/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/css/style.css">
-    <link rel="stylesheet" href="styles/css/search.css">
-    <link rel="stylesheet" href="styles/css/image.css">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/source/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/css/style.css">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/css/search.css">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/css/image.css">
     <!-- <link rel="stylesheet" href="styles/source/all.min.css"> -->
     <!-- Fonts -->
-    <link rel="stylesheet" href="styles/fonts/18VAGROUNDEDMBOLD_0.TTF">
-    <link rel="stylesheet" href="styles/fonts/TITILLIUM-BOLD.OTF">
-    <link rel="stylesheet" href="styles/fonts/TITILLIUM-REGULAR.OTF">
-    <link rel="stylesheet" href="styles/fonts/TITILLIUM-THIN.OTF">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/fonts/18VAGROUNDEDMBOLD_0.TTF">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/fonts/TITILLIUM-BOLD.OTF">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/fonts/TITILLIUM-REGULAR.OTF">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/fonts/TITILLIUM-THIN.OTF">
+    <link rel="icon" href="<?php echo $homeurl; ?>favicon.ico" type="image/x-icon">
     <!-- JS Files -->
-    <script src="styles/source/jquery.min.js"></script>
+    <!-- <script src="styles/source/jquery.min.js"></script>
     <script src="styles/source/bootstrap.min.js"></script>
     <script src="styles/source/popper.min.js"></script>
-    <script src="styles/js/app.js"></script>
+    <script src="styles/js/app.js"></script> -->
 	<!-- <script src="styles/js/search.js"></script> -->
 </head>
 <body>
-
 <!-- Container -->
 <div class="loader">
     <p id="loadText">LaLaKu <img src="styles/loader-logo.svg" width="50" height="50" alt="is loading..."></p>

@@ -1,8 +1,11 @@
  <?php 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM sale WHERE id = $id";
-    $result = mysqli_query($connect, $sql);
+
+    $sql = "SELECT * FROM sale WHERE id = :id";
+    $parameter = array(':id' => $id);
+    $stmt = $connect->prepare($sql);
+    $stmt->execute($parameter);
 
     // if(count($result) == 1){
     //     $n = mysqli_fetch_array($result);
@@ -10,7 +13,7 @@ if (isset($_GET['id'])) {
     // }
 }
 
-while ($sale = mysqli_fetch_assoc($result)) {
+while ($sale = $stmt->fetch()) {
 
 ?>
 <input type="hidden" name="id" value="<?php echo $id; ?>">

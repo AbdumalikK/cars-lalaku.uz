@@ -1,14 +1,56 @@
 <?php 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM fine WHERE id = $id";
-    $result = mysqli_query($connect, $sql);
+
+    $sql = "SELECT * FROM fine WHERE id = :id";
+    $parameter = array(":id" => $id);
+    $stmt = $connect->prepare($sql);
+    $stmt->execute($parameter);
 }
 
-while ($fine = mysqli_fetch_assoc($result)) {
+while ($fine = $stmt->fetch()) {
+ 
+                                $fine_show = '<!-- row contenti -->
+                                    <div class="row">
+                                        <div class="col-12 px-0">
+                                           <p class="user-info-titles wd89 content-border m-0 p-0 pb-2 ml-3">Jarima turi</p>
+                                           <h5 class="view-user ml-3">
+                                             '.$fine['fine_type'].'
+                                           </h5>
+                                        </div>
+                                        <div class="col-6 p-0">
+                                           <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Qachondan</p>
+                                           <h5 class="view-user ml-3">
+                                             '.$fine['fine_start'].'
+                                           </h5>
+                                        </div>
+                                           <div class="col-6 p-0">
+                                                <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Qachongacha</p>
+                                           <h5 class="view-user ml-3">
+                                             '.$fine['fine_stop'].'
+                                           </h5>
+                                           </div>
 
-?>
- <div class="row">
+                                           <div class="col-12 p-0">
+                                               <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Summasi</p>
+                                           <h5 class="view-user ml-3 mb-0">
+                                              '.$fine['fine_price'].'
+                                           </h5>
+                                           </div>
+                            
+                                        <div class="col-12 mt-3 mb-2 px-0">
+                                           <p class="user-info-titles wd89 content-border m-0 p-0 pb-2 ml-3">Komment</p>
+                                           <h5 class="view-user ml-3 mt-1">
+                                             '.$fine['fine_comment'].'
+                                           </h5>
+                                        </div>
+                                    </div>
+                                    <!-- end row -->';
+
+} ?>
+
+
+<div class="row">
             <!-- Sotuv-section -->
             <div class="col-12" data-toggle="collapse" data-target="#fine">
                 <div class="content-border content-border-top">
@@ -29,44 +71,9 @@ while ($fine = mysqli_fetch_assoc($result)) {
                         <div class="content-border">
                             <!-- collapse show -->
                             <div class="col-12">
-                                    <!-- row contenti -->
-                                    <div class="row">
-                                        <div class="col-12 px-0">
-                                           <p class="user-info-titles wd89 content-border m-0 p-0 pb-2 ml-3">Jarima turi</p>
-                                           <h5 class="view-user ml-3">
-                                             <?php echo $fine['fine_type']; ?>
-                                           </h5>
-                                        </div>
 
+                                <?php echo $fine_show; ?>
 
-                                        <div class="col-6 p-0">
-                                           <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Qachondan</p>
-                                           <h5 class="view-user ml-3">
-                                             <?php echo $fine['fine_start']; ?>
-                                           </h5>
-                                        </div>
-                                           <div class="col-6 p-0">
-                                                <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Qachongacha</p>
-                                           <h5 class="view-user ml-3">
-                                             <?php echo $fine['fine_stop']; ?>
-                                           </h5>
-                                           </div>
-
-                                           <div class="col-12 p-0">
-                                               <p class="user-info-titles wd78 content-border m-0 p-0 pb-2 ml-3 mt-3">Summasi</p>
-                                           <h5 class="view-user ml-3 mb-0">
-                                              <?php echo $fine['fine_price']; ?>
-                                           </h5>
-                                           </div>
-                            
-                                        <div class="col-12 mt-3 mb-2 px-0">
-                                           <p class="user-info-titles wd89 content-border m-0 p-0 pb-2 ml-3">Komment</p>
-                                           <h5 class="view-user ml-3 mt-1">
-                                             <?php echo $fine['fine_comment']; ?>
-                                           </h5>
-                                        </div>
-                                    </div>
-                                    <!-- end row -->
                             </div>
                                           <div class="col-12 mb-3 px-2 bg-history">
                             <div class="content-border">
@@ -139,4 +146,3 @@ while ($fine = mysqli_fetch_assoc($result)) {
 
 
 </div>
-<?php } ?>

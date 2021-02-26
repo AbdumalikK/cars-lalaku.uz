@@ -16,31 +16,21 @@
     <link rel="stylesheet" href="../styles/fonts/TITILLIUM-REGULAR.OTF">
     <link rel="stylesheet" href="../styles/fonts/TITILLIUM-THIN.OTF">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <!-- JS Files -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <!-- <script src="../styles/js/darkmode-js.min.js"></script> -->
-    <script src="../styles/js/app.js"></script>
-    <script src="../styles/js/dropzonejs/dropzone.js"></script>
 </head>
 <body>
 
 <!-- Reminder and made tasks -->
 <div class="container-lg mx-lg-auto text-center mt-4 bg-yellow fixed-top">
-
-
-
 	<div class="row">
 		<div class="col-5 mr-auto">
-			<a class="text-decoration-none" href="edit.php"><div class="tasks-border-top ml-4">
+			<a class="text-decoration-none" href="edit"><div class="tasks-border-top ml-4">
 					<h2 class="m-0 pt-2"><img src="../styles/icons/edit.svg" alt=""></h2>
 					<p class="m-0">Tuzatish</p>
 				</div></a>
 		</div>
 		<div class="col-1 add-border-left p-0 m-0 my-2"></div>
 		<div class="col-5">
-			<a class="text-decoration-none" href="add.php"><div class="tasks-border-top ml-4">
+			<a class="text-decoration-none" href="add"><div class="tasks-border-top ml-4">
 					<h2 class="m-0 pt-2"><img src="../styles/icons/car-add.svg" alt=""></h2>
 					<p class="m-0">Qo`shish</p>
 				</div></a>
@@ -72,23 +62,23 @@ include_once '../sections/update/sql_query_update.php';
 
  <!-- Add information section -->
     <div class="container mx-lg-auto my-4">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data">
+    <form autocomplete="off" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data">
 		<!-- Car -->
-        <?php include_once '../sections/update/car.php'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/sections/update/car.php'?>
 		<!-- Documents -->
-        <?php include_once '../sections/update/documents.php'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/sections/update/documents.php'?>
 		<!-- Companies -->
-        <?php include_once '../sections/update/companies.php'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/sections/update/companies.php'?>
 		<!-- Persons -->
-        <?php include_once '../sections/update/persons.php'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/sections/update/persons.php'?>
         <!-- Purchase -->
-        <?php include_once '../sections/update/purchase.php'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/sections/update/purchase.php'?>
 		<!-- Sell -->
-        <?php include_once '../sections/update/sell.php'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/sections/update/sell.php'?>
         <!-- Status -->
-        <?php include_once '../sections/update/status.php'?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/sections/update/status.php'?>
         <!-- Fine -->
-        <?php include_once '../sections/update/fine.php' ?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/sections/update/fine.php' ?>
         <div class="col-12 p-0">
         <input type="submit" name="update" value="Yangilash" class="btn btn-save my-3">
         </div>
@@ -98,4 +88,12 @@ include_once '../sections/update/sql_query_update.php';
 
 <?php //} else {
     //echo "Wrong request";
-//} ?>
+    //} ?>
+
+    <!-- JS Files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="../styles/js/darkmode-js.min.js"></script>
+    <script src="../styles/js/app.js"></script>
+    <script src="../styles/js/dropzonejs/dropzone.js"></script>

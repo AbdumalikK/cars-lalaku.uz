@@ -32,7 +32,7 @@ include '../includes/config.php';
     <div class="container-lg mx-lg-auto text-center mt-4 bg-yellow fixed-top">
         <div class="row">
             <div class="col-5 mr-auto">
-                <a class="text-decoration-none" href="edit.php">
+                <a class="text-decoration-none" href="edit">
                     <div class="tasks-border-top reminder-top ml-4">
                         <h2 class="m-0 pt-2"><img src="../styles/icons/edit.svg" alt=""></h2>
                         <p class="m-0">Tuzatish</p>
@@ -41,7 +41,7 @@ include '../includes/config.php';
             </div>
             <div class="col-1 add-border-left p-0 m-0 my-2"></div>
             <div class="col-5">
-                <a class="text-decoration-none" href="add.php">
+                <a class="text-decoration-none" href="add">
                     <div class="tasks-border-top ml-4">
                         <h2 class="m-0 pt-2"><img src="../styles/icons/car-add.svg" alt=""></h2>
                         <p class="m-0">Qo`shish</p>

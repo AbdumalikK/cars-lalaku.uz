@@ -26,9 +26,10 @@
                                                 <option value="Tanlanmadi" selected>Jarima turi</option>
                                                  <?php
                                         $sql = "SELECT * FROM fine_types";
-                                        $results = mysqli_query($connect, $sql);
+                                        $stmt = $connect->prepare($sql);
+                                        $stmt->execute($parameter);
 
-                                        while ($rows = $results->fetch_assoc())
+                                        while ($rows = $stmt->fetch())
                                         {
                                             echo '<option value='.$rows['fine'].'>'.$rows['fine'].'</option>';
                                         }
