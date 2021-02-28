@@ -386,4 +386,12 @@ if ($send->execute() === TRUE) {
 $send->close();
 $connect->close();
 
+<<<<<<< Updated upstream
 }
+=======
+if($totalQueries == 8){
+    header("Location: sent.php");
+}
+
+}
+>>>>>>> Stashed changes
