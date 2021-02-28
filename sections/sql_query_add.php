@@ -2,19 +2,18 @@
 if (isset($_POST['submit'])) { 
 // car
 $car_mark = $_POST['car-mark'];
-$car_carcase = $_POST['car-carcase'];
-$car_fuel = $_POST['car-fuel'];
-$car_number = $_POST['car-number'];
 $car_model = $_POST['car-model'];
+$car_carcase = $_POST['car-carcase'];
 $car_manufacture_year = $_POST['car-manufacture'];
+$car_fuel = $_POST['car-fuel'];
 $car_engine = $_POST['car-engine'];
-// $car_number = $_POST['car-number'];
+$car_number = $_POST['car-number'];
 $car_gps = $_POST['car-gps'];
-$car_photo1 = $_POST['car-photo1'];
-$car_photo2 = $_POST['car-photo2'];
-$car_photo3 = $_POST['car-photo3'];
-$car_photo4 = $_POST['car-photo4'];
-$car_video1 = $_POST['car-video1'];
+// $car_photo1 = $_POST['car-photo1'];
+// $car_photo2 = $_POST['car-photo2'];
+// $car_photo3 = $_POST['car-photo3'];
+// $car_photo4 = $_POST['car-photo4'];
+// $car_video1 = $_POST['car-video1'];
 
 
 // documents
@@ -22,31 +21,31 @@ $doc_owner_name = $_POST['doc-owner-name'];
 $doc_owner_surname = $_POST['doc-owner-surname'];
 $doc_owner_fathername = $_POST['doc-owner-fathername'];
 $doc_date = $_POST['doc-date'];
-$doc_photo1 = $_POST['doc-photo1'];
-$doc_photo2 = $_POST['doc-photo2'];
+// $doc_photo1 = $_POST['doc-photo1'];
+// $doc_photo2 = $_POST['doc-photo2'];
 $tex_passport = $_POST['tex_passport'];
 $tex_date = $_POST['tex_date'];
-$tex_photo1 = $_POST['tex_photo1'];
-$tex_photo2 = $_POST['tex_photo2'];
+// $tex_photo1 = $_POST['tex_photo1'];
+// $tex_photo2 = $_POST['tex_photo2'];
 $insurance_type = $_POST['insurance_type'];
 $insurance_expire_date = $_POST['insurance_expire_date'];
-$insurance_photo1 = $_POST['insurance_photo1'];
-$insurance_photo2 = $_POST['insurance_photo2'];
+// $insurance_photo1 = $_POST['insurance_photo1'];
+// $insurance_photo2 = $_POST['insurance_photo2'];
 $gas_akt = $_POST['gas_akt'];
 $gas_check_date = $_POST['gas_check_date'];
-$gas_photo1 = $_POST['gas_photo1'];
-$gas_photo2 = $_POST['gas_photo2'];
+// $gas_photo1 = $_POST['gas_photo1'];
+// $gas_photo2 = $_POST['gas_photo2'];
 $rental_deal_number = $_POST['rental_deal_number'];
 $rental_expire_date = $_POST['rental_expire_date'];
-$rent_photo1 = $_POST['rent_photo1'];
-$rent_photo2 = $_POST['rent_photo2'];
+// $rent_photo1 = $_POST['rent_photo1'];
+// $rent_photo2 = $_POST['rent_photo2'];
 $warrant_name = $_POST['warrant_name'];
 $warrant_surname = $_POST['warrant_surname'];
 $warrant_fathername = $_POST['warrant_fathername'];
 $warrant_type = $_POST['warrant_type'];
 $warrant_expire_date = $_POST['warrant_expire_date'];
-$warrant_photo1 = $_POST['warrant_photo1'];
-$warrant_photo2 = $_POST['warrant_photo2'];
+// $warrant_photo1 = $_POST['warrant_photo1'];
+// $warrant_photo2 = $_POST['warrant_photo2'];
 
 // province
 $prov_company = $_POST['prov_company'];
@@ -61,7 +60,7 @@ $person_fathername = $_POST['person_fathername'];
 $person_given_date = $_POST['person_given_date'];
 $person_tel1 = $_POST['person_tel1'];
 $person_tel2 = $_POST['person_tel2'];
-$person_photo = $_POST['person_photo'];
+// $person_photo = $_POST['person_photo'];
 
 $respons_name = $_POST['respons_name'];
 $respons_surname = $_POST['respons_surname'];
@@ -69,7 +68,7 @@ $respons_father = $_POST['respons_fathername'];
 $respons_given_date = $_POST['respons_given_date'];
 $respons_tel1 = $_POST['respons_tel1'];
 $respons_tel2 = $_POST['respons_tel2'];
-$respons_photo = $_POST['respons_photo'];
+// $respons_photo = $_POST['respons_photo'];
 
 // purchase
 $purchase_name = $_POST['purchase_name'];
@@ -108,14 +107,19 @@ $sts_sell = $_POST['sts_sell'];
 
 //include '../sections/upload-manager.php';
 
+$totalQueries = 0;
+
+
 // Car insert to database -->
 $send = "INSERT INTO car (
 mark, 
 model, 
 carcase, 
 manuf_year, 
-fuel, engine, 
-d_number, gps, 
+fuel, 
+engine, 
+d_number, 
+gps, 
 foto_1, 
 foto_2, 
 foto_3, 
@@ -127,8 +131,10 @@ sts_sell
 :model, 
 :carcase, 
 :manuf_year, 
-:fuel, engine, 
-:d_number, gps, 
+:fuel, 
+:engine, 
+:d_number, 
+:gps, 
 :foto_1, 
 :foto_2, 
 :foto_3, 
@@ -136,23 +142,29 @@ sts_sell
 :video_1, 
 :sts_sell)";
 
-$parameters = array(':mark' => $car_mark,
-':model' => $car_model,':carcase' => $car_carcase,
+$parameters = array(
+':mark' => $car_mark,
+':model' => $car_model,
+':carcase' => $car_carcase,
 ':manuf_year' => $car_manufacture_year,
-':fuel' => $car_fuel,':engine' => $car_engine,
-':d_number' => $car_number,':gps' => $car_gps,
-':foto_1' => $res1,':foto_2' => $res2,':foto_3' => $res3,
-':foto_4' => $res4,':video_1' => $resVideo,':sts_sell' => $sts_sell);
+':fuel' => $car_fuel,
+':engine' => $car_engine,
+':d_number' => $car_number,
+':gps' => $car_gps,
+':foto_1' => $car_photo1,
+':foto_2' => $car_photo2,
+':foto_3' => $car_photo3,
+':foto_4' => $car_photo4,
+':video_1' => $car_video1,
+':sts_sell' => $sts_sell);
 
 $stmt = $connect->prepare($send);
-$stmt->execute($parameters);
 
-// if ($connect->query($send) === TRUE) {
-//     echo "1";
-//     header("Location: sent.php", false);
-// } else {
-//     echo "Error: " .$send. "<br>" . $connect->error;
-// }
+if ($stmt->execute($parameters) === TRUE) {
+    echo $totalQueries += 1;
+} else {
+    echo "Error";
+}
 
 // Documents insert to database -->
 $sendDoc = "INSERT INTO documents (
@@ -187,7 +199,7 @@ foto_11,
 foto_12
 ) VALUES (
 :owner_name,
-:owner_surnam,
+:owner_surname,
 :owner_fathername,
 :owner_date,
 :foto_1,
@@ -208,7 +220,7 @@ foto_12
 :renta_date,
 :foto_9,
 :foto_10,
-:trust_nam,
+:trust_name,
 :trust_surname,
 :trust_fathername,
 :trust_type,
@@ -221,59 +233,56 @@ $parameters = array(
 ':owner_surname' => $doc_owner_surname,
 ':owner_fathername' => $doc_owner_fathername,
 ':owner_date' => $doc_date,
-':foto_1' => $res5,
-':foto_2' => $res6,
+':foto_1' => $doc_photo1,
+':foto_2' => $doc_photo2,
 ':tex_passport' => $tex_passport,
 ':tex_pass_date' => $tex_date,
-':foto_3' => $res7,
-':foto_4' => $res8,
+':foto_3' => $tex_photo1,
+':foto_4' => $tex_photo2,
 ':insurance_type' => $insurance_type,
 ':ins_date' => $insurance_expire_date,
 ':foto_5' => $insurance_photo1,
 ':foto_6' => $insurance_photo2,
 ':gas_akt' => $gas_akt,
 ':gas_date' => $gas_check_date,
-':foto_7' => $res9,
-':foto_8' => $res10,
+':foto_7' => $gas_photo1,
+':foto_8' => $gas_photo2,
 ':renta' => $rental_deal_number,
 ':renta_date' => $rental_expire_date,
-':foto_9' => $res11,
-':foto_10' => $res12,
+':foto_9' => $rent_photo1,
+':foto_10' => $rent_photo2,
 ':trust_name' => $warrant_name,
 ':trust_surname' => $warrant_surname,
 ':trust_fathername' => $warrant_fathername,
 ':trust_type' => $warrant_type,
 ':trust_date' => $warrant_expire_date,
-':foto_11' => $res13,
-':foto_12' => $res1
-);
+':foto_11' => $warrant_photo1,
+':foto_12' => $warrant_photo2);
 
 $stmt = $connect->prepare($sendDoc);
-$stmt->execute($parameters);
-// if ($connect->query($sendDoc) === TRUE) {
-//     echo "1";
-// } else {
-//     echo "Error: " .$sendDoc. "<br>" . $connect->error;
-// }
+
+if ($stmt->execute($parameters) === TRUE) {
+    echo $totalQueries += 1;
+} else {
+    echo "Error";
+}
 
 $send = "INSERT INTO region (corp, province, city, given_date
 ) VALUES (
 :corp,
 :province,
 :city,
-:given_date
-)";
+:given_date)";
 
 $parameters = array(':corp' => $prov_company, ':province' => $prov_region, ':city' => $prov_city, ':given_date' => $prov_given_date);
 
 $stmt = $connect->prepare($send);
-$stmt->execute($parameters);
 
-// if ($connect->query($send) === TRUE) {
-//     echo "1";
-// } else {
-//     echo "Error: " .$send. "<br>" . $connect->error;
-// }
+if ($stmt->execute($parameters) === TRUE) {
+    echo $totalQueries += 1;
+} else {
+    echo "Error";
+}
 
 $send = "INSERT INTO persons (
 driver_name, 
@@ -314,8 +323,8 @@ $parameters = array(
 ':d_given_date' => $person_given_date, 
 ':d_phone_1' => $person_tel1, 
 ':d_phone_2' => $person_tel2, 
-':foto_1' => $res15, 
-':foto_2' => $res16, 
+':foto_1' => $person_photo, 
+':foto_2' => $respons_photo, 
 ':respons_name' => $respons_name, 
 ':respons_surname' => $respons_surname, 
 ':respons_fathername' => $respons_father, 
@@ -325,13 +334,12 @@ $parameters = array(
 );
 
 $stmt = $connect->prepare($send);
-$stmt->execute($parameters);
 
-// if ($connect->query($send) === TRUE) {
-//     echo "1";
-// } else {
-//     echo "Error: " .$send. "<br>" . $connect->error;
-// }
+if ($stmt->execute($parameters) === TRUE) {
+    echo $totalQueries += 1;
+} else {
+    echo "Error";
+}
 
 $send = "INSERT INTO purchase (
 buyer_name, 
@@ -362,13 +370,12 @@ $parameters = array(
 );
 
 $stmt = $connect->prepare($send);
-$stmt->execute($parameters);
 
-// if ($connect->query($send) === TRUE) {
-//     echo "1";
-// } else {
-//     echo "Error: " .$send. "<br>" . $connect->error;
-// }
+if ($stmt->execute($parameters) === TRUE) {
+    echo $totalQueries += 1;
+} else {
+    echo "Error";
+}
 
 $send = "INSERT INTO sale (
 respons_name,
@@ -405,13 +412,12 @@ $parameters = array(
 );
 
 $stmt = $connect->prepare($send);
-$stmt->execute($parameters);
 
-// if ($connect->query($send) === TRUE) {
-//     echo "1";
-// } else {
-//     echo "Error: " .$send. "<br>" . $connect->error;
-// }
+if ($stmt->execute($parameters) === TRUE) {
+    echo $totalQueries += 1;
+} else {
+    echo "Error";
+}
 
 $send = "INSERT INTO status (
 status,
@@ -436,13 +442,12 @@ $parameters = array(
 );
 
 $stmt = $connect->prepare($send);
-$stmt->execute($parameters);
 
-// if ($connect->query($send) === TRUE) {
-//     echo "1";
-// } else {
-//     echo "Error: " .$send. "<br>" . $connect->error;
-// }
+if ($stmt->execute($parameters) === TRUE) {
+    echo $totalQueries += 1;
+} else {
+    echo "Error";
+}
 
 $send = "INSERT INTO fine (
 fine_type,
@@ -467,12 +472,15 @@ $parameters = array(
 );
 
 $stmt = $connect->prepare($send);
-$stmt->execute($parameters);
 
-// if ($connect->query($send) === TRUE) {
-//     echo "1";
-// } else {
-//     echo "Error: " .$send. "<br>" . $connect->error;
-// }
+if ($stmt->execute($parameters) === TRUE) {
+    echo $totalQueries += 1;
+} else {
+    echo "Error";
+}
+
+if($totalQueries == 8){
+    header("Location: sent.php", false);
+}
 
 }

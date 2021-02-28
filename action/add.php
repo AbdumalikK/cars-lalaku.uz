@@ -47,7 +47,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/sections/sql_query_add.php';
 
     <!-- Add information section -->
     <div class="container mx-lg-auto my-4 nav-fixed-margin">
-		<form autocomplete="off" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data">
+		<form autocomplete="off" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>" method="POST" enctype="multipart/form-data">
             <!-- Car -->
                     <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/car.php'?>
             <!-- Documents -->

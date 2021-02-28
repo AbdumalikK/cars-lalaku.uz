@@ -1,9 +1,28 @@
 <?php
+$car_photo1 = "";
+$car_photo2 = "";
+$car_photo3 = ""; 
+$car_photo4 = "";
+$car_video1 = "";
+$doc_photo1 = ""; 
+$doc_photo2 = "";
+$tex_photo1 = "";
+$tex_photo2 = "";
+$insurance_photo1 = "";
+$insurance_photo2 = "";
+$gas_photo1 = "";
+$gas_photo2 = "";
+$rent_photo1 = "";
+$rent_photo2 = "";
+$warrant_photo1 = "";
+$warrant_photo2 = "";
+$person_photo = "";
+$respons_photo = "";
 
 // Car photo 1
-
 // Check if the form was submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    
     // Check if file was uploaded without errors
     if(isset($_FILES["car-photo1"]) && $_FILES["car-photo1"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -26,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["car-photo1"]["tmp_name"], "../styles/images/" . $filename);
-                $res1 = "../styles/images/".$filename;
+                $car_photo1 = "../styles/images/".$filename;
                 // $upload_sql = "INSERT INTO car (foto_1) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -43,13 +62,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["car-photo1"]["error"];
     }
-}
+
 
 
 // Car photo 2
 
 // Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["car-photo2"]) && $_FILES["car-photo2"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -72,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["car-photo2"]["tmp_name"], "../styles/images/" . $filename);
-                $res2 = "../styles/images/".$filename;
+                $car_photo2 = "../styles/images/".$filename;
                 // $upload_sql = "INSERT INTO car (foto_2) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -89,13 +107,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["car-photo2"]["error"];
     }
-}
 
 
 // Car photo 3
 
 // Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["car-photo3"]) && $_FILES["car-photo3"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -118,7 +134,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["car-photo3"]["tmp_name"], "../styles/images/" . $filename);
-                $res3 = "../styles/images/".$filename;
+                $car_photo3 = "../styles/images/".$filename;
                 // $upload_sql = "INSERT INTO car (foto_3) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -135,13 +151,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["car-photo3"]["error"];
     }
-}
 
 
 // Car photo 4
 
 // Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["car-photo4"]) && $_FILES["car-photo4"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -164,7 +178,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["car-photo4"]["tmp_name"], "../styles/images/" . $filename);
-                $res4 = "../styles/images/".$filename;
+                $car_photo4 = "../styles/images/".$filename;
                 // $upload_sql = "INSERT INTO car (foto_4) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -181,13 +195,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["car-photo4"]["error"];
     }
-}
 
 
 // Car Video
 
 // Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["car-video1"]) && $_FILES["car-video1"]["error"] == 0){
         $allowed = array("mp4" => "video/mp4", "m4a" => "video/m4a", "3gp" => "video/3gp", "flac" => "video/flac");
@@ -211,7 +223,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             } else {
                 move_uploaded_file($_FILES["car-video1"]["tmp_name"], "../styles/videos/" . $filename);
 
-                $resVideo = "../styles/videos/" . $filename;
+                $car_video1 = "../styles/videos/" . $filename;
                 // $uploadVideo_sql = "INSERT INTO car (video_1) VALUES ('$resVideo')";
 
                 // if ($connect->query($uploadVideo_sql) === TRUE) {
@@ -228,15 +240,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["car-video1"]["error"];
     }
-}
 
 
 
 
 // Documents photo 1
 
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["doc-photo1"]) && $_FILES["doc-photo1"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -259,7 +268,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["doc-photo1"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res5 = "../styles/images/documents/".$filename;
+                $doc_photo1 = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_1) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -276,14 +285,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["doc-photo1"]["error"];
     }
-}
 
 
 
 // Documents photo 2
 
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["doc-photo2"]) && $_FILES["doc-photo2"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -306,7 +312,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["doc-photo2"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res6 = "../styles/images/documents/".$filename;
+                $doc_photo2 = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_2) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -323,13 +329,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["doc-photo2"]["error"];
     }
-}
 
 
 // Documents Tex Photo 1
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["tex_photo1"]) && $_FILES["tex_photo1"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -352,7 +354,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["tex_photo1"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res7 = "../styles/images/documents/".$filename;
+                $tex_photo1 = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_3) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -369,13 +371,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["tex_photo1"]["error"];
     }
-}
 
 
 // Documents Tex Photo 2
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["tex_photo2"]) && $_FILES["tex_photo2"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -398,7 +396,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["tex_photo2"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res8 = "../styles/images/documents/".$filename;
+                $tex_photo2 = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_4) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -415,14 +413,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["tex_photo2"]["error"];
     }
-}
 
 
 
 // Documents Sug`urta 1
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["insurance_photo1"]) && $_FILES["insurance_photo1"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -445,7 +439,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["insurance_photo1"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res9 = "../styles/images/documents/".$filename;
+                $insurance_photo1 = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_5) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -462,13 +456,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["insurance_photo1"]["error"];
     }
-}
 
 
 // Documents Sug`urta 2
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["insurance_photo2"]) && $_FILES["insurance_photo2"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -491,7 +481,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["insurance_photo2"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res10 = "../styles/images/documents/".$filename;
+                $insurance_photo2 = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_6) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -508,15 +498,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["insurance_photo2"]["error"];
     }
-}
 
 
 
 
 // Documents Gaz akt 1
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["gas_photo1"]) && $_FILES["gas_photo1"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -539,7 +525,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["gas_photo1"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res11 = "../styles/images/documents/".$filename;
+                $gas_photo1 = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_7) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -556,14 +542,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["gas_photo1"]["error"];
     }
-}
 
 
 
 // Documents Gaz akt 2
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["gas_photo2"]) && $_FILES["gas_photo2"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -586,7 +568,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["gas_photo2"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res12 = "../styles/images/documents/".$filename;
+                $gas_photo2 = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_8) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -603,13 +585,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["gas_photo2"]["error"];
     }
-}
 
 
 // Documents Ijara shartnoma 1
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["rent_photo1"]) && $_FILES["rent_photo1"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -632,7 +610,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["rent_photo1"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res13 = "../styles/images/documents/".$filename;
+                $rent_photo1 = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_9) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -649,13 +627,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["rent_photo1"]["error"];
     }
-}
 
 
 // Documents Ijara shartnoma 2
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["rent_photo2"]) && $_FILES["rent_photo2"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -678,8 +652,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["rent_photo2"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res14 = "../styles/images/documents/".$filename;
-                $upload_sql = "INSERT INTO documents (foto_10) VALUES ('$res')";
+                $rent_photo2 = "../styles/images/documents/".$filename;
+                // $upload_sql = "INSERT INTO documents (foto_10) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
                 // echo "";
@@ -695,12 +669,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["rent_photo2"]["error"];
     }
-}
 
 // Documents Ishonchnoma 1
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["warrant_photo1"]) && $_FILES["warrant_photo1"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -723,7 +693,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["warrant_photo1"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res15 = "../styles/images/documents/".$filename;
+                $warrant_photo1 = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_11) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -740,15 +710,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["warrant_photo1"]["error"];
     }
-}
 
 
 
 
 // Documents Ishonchnoma 2
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["warrant_photo2"]) && $_FILES["warrant_photo2"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -771,7 +737,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["warrant_photo2"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res16 = "../styles/images/documents/".$filename;
+                $warrant_photo2 = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_12) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -788,14 +754,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["warrant_photo2"]["error"];
     }
-}
 
 
 
 // Persons 1
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["person_photo"]) && $_FILES["person_photo"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -818,7 +780,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["person_photo"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res17 = "../styles/images/documents/".$filename;
+                $person_photo = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_1) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -835,15 +797,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["person_photo"]["error"];
     }
-}
 
 
 
 
 // Persons 2
-
-// Check if the form was submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if file was uploaded without errors
     if(isset($_FILES["respons_photo"]) && $_FILES["respons_photo"]["error"] == 0){
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -866,7 +824,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo $filename . " is already exists.";
             } else {
                 move_uploaded_file($_FILES["respons_photo"]["tmp_name"], "../styles/images/documents/" . $filename);
-                $res18 = "../styles/images/documents/".$filename;
+                $respons_photo = "../styles/images/documents/".$filename;
                 // $upload_sql = "INSERT INTO documents (foto_2) VALUES ('$res')";
 
                 // if ($connect->query($upload_sql) === TRUE) {
@@ -883,5 +841,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         echo "Error: " . $_FILES["respons_photo"]["error"];
     }
+
+
 }
 
