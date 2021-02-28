@@ -161,7 +161,7 @@ $parameters = array(
 $stmt = $connect->prepare($send);
 
 if ($stmt->execute($parameters) === TRUE) {
-    echo $totalQueries += 1;
+    $totalQueries += 1;
 } else {
     echo "Error";
 }
@@ -262,7 +262,7 @@ $parameters = array(
 $stmt = $connect->prepare($sendDoc);
 
 if ($stmt->execute($parameters) === TRUE) {
-    echo $totalQueries += 1;
+    $totalQueries += 1;
 } else {
     echo "Error";
 }
@@ -279,7 +279,7 @@ $parameters = array(':corp' => $prov_company, ':province' => $prov_region, ':cit
 $stmt = $connect->prepare($send);
 
 if ($stmt->execute($parameters) === TRUE) {
-    echo $totalQueries += 1;
+    $totalQueries += 1;
 } else {
     echo "Error";
 }
@@ -336,7 +336,7 @@ $parameters = array(
 $stmt = $connect->prepare($send);
 
 if ($stmt->execute($parameters) === TRUE) {
-    echo $totalQueries += 1;
+    $totalQueries += 1;
 } else {
     echo "Error";
 }
@@ -372,7 +372,7 @@ $parameters = array(
 $stmt = $connect->prepare($send);
 
 if ($stmt->execute($parameters) === TRUE) {
-    echo $totalQueries += 1;
+    $totalQueries += 1;
 } else {
     echo "Error";
 }
@@ -414,7 +414,7 @@ $parameters = array(
 $stmt = $connect->prepare($send);
 
 if ($stmt->execute($parameters) === TRUE) {
-    echo $totalQueries += 1;
+    $totalQueries += 1;
 } else {
     echo "Error";
 }
@@ -444,7 +444,7 @@ $parameters = array(
 $stmt = $connect->prepare($send);
 
 if ($stmt->execute($parameters) === TRUE) {
-    echo $totalQueries += 1;
+    $totalQueries += 1;
 } else {
     echo "Error";
 }
@@ -474,13 +474,16 @@ $parameters = array(
 $stmt = $connect->prepare($send);
 
 if ($stmt->execute($parameters) === TRUE) {
-    echo $totalQueries += 1;
+    $totalQueries += 1;
 } else {
     echo "Error";
 }
 
 if($totalQueries == 8){
-    header("Location: sent.php", false);
+    echo '<script type="text/javascript">
+           window.location = "sent.php"
+      </script>';
 }
 
 }
+?>
