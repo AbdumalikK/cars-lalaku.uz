@@ -1,21 +1,21 @@
 <?php
 if (isset($_POST['update'])) { 
 $id = $_POST['id'];
+
 // car
 $car_mark = $_POST['car-mark'];
-$car_carcase = $_POST['car-carcase'];
-$car_fuel = $_POST['car-fuel'];
-$car_number = $_POST['car-number'];
 $car_model = $_POST['car-model'];
+$car_carcase = $_POST['car-carcase'];
 $car_manufacture_year = $_POST['car-manufacture'];
+$car_fuel = $_POST['car-fuel'];
 $car_engine = $_POST['car-engine'];
-// $car_number = $_POST['car-number'];
+$car_number = $_POST['car-number'];
 $car_gps = $_POST['car-gps'];
-$car_photo1 = $_POST['car-photo1'];
-$car_photo2 = $_POST['car-photo2'];
-$car_photo3 = $_POST['car-photo3'];
-$car_photo4 = $_POST['car-photo4'];
-$car_video1 = $_POST['car-video1'];
+// $car_photo1 = $_POST['car-photo1'];
+// $car_photo2 = $_POST['car-photo2'];
+// $car_photo3 = $_POST['car-photo3'];
+// $car_photo4 = $_POST['car-photo4'];
+// $car_video1 = $_POST['car-video1'];
 
 
 // documents
@@ -23,31 +23,31 @@ $doc_owner_name = $_POST['doc-owner-name'];
 $doc_owner_surname = $_POST['doc-owner-surname'];
 $doc_owner_fathername = $_POST['doc-owner-fathername'];
 $doc_date = $_POST['doc-date'];
-$doc_photo1 = $_POST['doc-photo1'];
-$doc_photo2 = $_POST['doc-photo2'];
+// $doc_photo1 = $_POST['doc-photo1'];
+// $doc_photo2 = $_POST['doc-photo2'];
 $tex_passport = $_POST['tex_passport'];
 $tex_date = $_POST['tex_date'];
-$tex_photo1 = $_POST['tex_photo1'];
-$tex_photo2 = $_POST['tex_photo2'];
+// $tex_photo1 = $_POST['tex_photo1'];
+// $tex_photo2 = $_POST['tex_photo2'];
 $insurance_type = $_POST['insurance_type'];
 $insurance_expire_date = $_POST['insurance_expire_date'];
-$insurance_photo1 = $_POST['insurance_photo1'];
-$insurance_photo2 = $_POST['insurance_photo2'];
+// $insurance_photo1 = $_POST['insurance_photo1'];
+// $insurance_photo2 = $_POST['insurance_photo2'];
 $gas_akt = $_POST['gas_akt'];
 $gas_check_date = $_POST['gas_check_date'];
-$gas_photo1 = $_POST['gas_photo1'];
-$gas_photo2 = $_POST['gas_photo2'];
+// $gas_photo1 = $_POST['gas_photo1'];
+// $gas_photo2 = $_POST['gas_photo2'];
 $rental_deal_number = $_POST['rental_deal_number'];
 $rental_expire_date = $_POST['rental_expire_date'];
-$rent_photo1 = $_POST['rent_photo1'];
-$rent_photo2 = $_POST['rent_photo2'];
+// $rent_photo1 = $_POST['rent_photo1'];
+// $rent_photo2 = $_POST['rent_photo2'];
 $warrant_name = $_POST['warrant_name'];
 $warrant_surname = $_POST['warrant_surname'];
 $warrant_fathername = $_POST['warrant_fathername'];
 $warrant_type = $_POST['warrant_type'];
 $warrant_expire_date = $_POST['warrant_expire_date'];
-$warrant_photo1 = $_POST['warrant_photo1'];
-$warrant_photo2 = $_POST['warrant_photo2'];
+// $warrant_photo1 = $_POST['warrant_photo1'];
+// $warrant_photo2 = $_POST['warrant_photo2'];
 
 // province
 $prov_company = $_POST['prov_company'];
@@ -62,7 +62,7 @@ $person_fathername = $_POST['person_fathername'];
 $person_given_date = $_POST['person_given_date'];
 $person_tel1 = $_POST['person_tel1'];
 $person_tel2 = $_POST['person_tel2'];
-$person_photo = $_POST['person_photo'];
+// $person_photo = $_POST['person_photo'];
 
 $respons_name = $_POST['respons_name'];
 $respons_surname = $_POST['respons_surname'];
@@ -70,7 +70,7 @@ $respons_father = $_POST['respons_fathername'];
 $respons_given_date = $_POST['respons_given_date'];
 $respons_tel1 = $_POST['respons_tel1'];
 $respons_tel2 = $_POST['respons_tel2'];
-$respons_photo = $_POST['respons_photo'];
+// $respons_photo = $_POST['respons_photo'];
 
 // purchase
 $purchase_name = $_POST['purchase_name'];
@@ -106,186 +106,304 @@ $fine_stop = $_POST['fine_stop'];
 $fine_price = $_POST['fine_price'];
 $fine_comment = $_POST['fine_comment'];
 $sts_sell = $_POST['sts_sell'];
-?>
 
-<?php //include ('../upload-manager.php'); ?>
+//include '../sections/upload-manager.php';
 
-<!-- Car insert to database -->
-<?php
-$send = "UPDATE car SET 
-mark = '$car_mark', 
-model = '$car_model', 
-carcase = '$car_carcase', 
-manuf_year = '$car_manufacture_year', 
-fuel = '$car_fuel', 
-engine = '$car_engine',
-d_number = '$car_number', 
-gps = '$car_gps',
-foto_1 = '$res1',
-foto_2 = '$res2',
-foto_3 = '$res3',
-foto_4 = '$res4',
-video_1 = '$resVideo',
-sts_sell = '$sts_sell' WHERE id='$id'";
+$totalQueries = 0;
 
-if ($connect->query($send) === TRUE) {
-    echo "Car updated successfully";
+
+// Car insert to database -->
+$send = "UPDATE car SET
+mark = :mark,  
+model = :model,  
+carcase = :carcase,  
+manuf_year = :manuf_year,  
+fuel = :fuel,  
+engine = :engine,  
+d_number = :d_number,  
+gps = :gps,  
+foto_1 = :foto_1,  
+foto_2 = :foto_2,  
+foto_3 = :foto_3,  
+foto_4 = :foto_4,  
+video_1 = :video_1,  
+sts_sell = :sts_sell 
+WHERE id='$id'";
+
+
+$parameters = array(
+':mark' => $car_mark,
+':model' => $car_model,
+':carcase' => $car_carcase,
+':manuf_year' => $car_manufacture_year,
+':fuel' => $car_fuel,
+':engine' => $car_engine,
+':d_number' => $car_number,
+':gps' => $car_gps,
+':foto_1' => $car_photo1,
+':foto_2' => $car_photo2,
+':foto_3' => $car_photo3,
+':foto_4' => $car_photo4,
+':video_1' => $car_video1,
+':sts_sell' => $sts_sell);
+
+$stmt = $connect->prepare($send);
+
+if ($stmt->execute($parameters) === TRUE) {
+    $totalQueries += 1;
 } else {
-    echo "Error: " .$send. "<br>" . $connect->error;
+    echo "Error";
 }
-?>
 
-<!-- Documents insert to database -->
-<?php
+// Documents insert to database -->
 $sendDoc = "UPDATE documents SET
-owner_name = '$doc_owner_name',
-owner_surname = '$doc_owner_surname',
-owner_fathername = '$doc_owner_fathername',
-owner_date = '$doc_date',
-foto_1 = '$res5',
-foto_2 = '$res6',
-tex_passport = '$tex_passport',
-tex_pass_date = '$tex_date',
-foto_3 = '$res7',
-foto_4 = '$res8',
-insurance_type = '$insurance_type',
-ins_date = '$insurance_expire_date',
-foto_5 = '$insurance_photo1',
-foto_6 = '$insurance_photo2',
-gas_akt = '$gas_akt',
-gas_date = '$gas_check_date',
-foto_7 = '$res9',
-foto_8 = '$res10',
-renta = '$rental_deal_number',
-renta_date = '$rental_expire_date',
-foto_9 = '$res11',
-foto_10 = '$res12',
-trust_name = '$warrant_name',
-trust_surname = '$warrant_surname',
-trust_fathername = '$warrant_fathername',
-trust_type = '$warrant_type',
-trust_date = '$warrant_expire_date',
-foto_11 = '$res13',
-foto_12 = '$res14'
+owner_name = :owner_name,
+owner_surname = :owner_surname,
+owner_fathername = :owner_fathername,
+owner_date = :owner_date, 
+foto_1 = :foto_1, 
+foto_2 = :foto_2,
+tex_passport = :tex_passport,
+tex_pass_date = :tex_pass_date,
+foto_3 = :foto_3,
+foto_4 = :foto_4,
+insurance_type = :insurance_type,
+ins_date = :ins_date,
+foto_5 = :foto_5,
+foto_6 = :foto_6,
+gas_akt = :gas_akt,
+gas_date = :gas_date,
+foto_7 = :foto_7,
+foto_8 = :foto_8,
+renta = :renta,
+renta_date = :renta_date,
+foto_9 = :foto_9,
+foto_10 = :foto_10,
+trust_name = :trust_name,
+trust_surname = :trust_surname,
+trust_fathername = :trust_fathername,
+trust_type = :trust_type,
+trust_date = :trust_date,
+foto_11 = :foto_11,
+foto_12 = :foto_12
 WHERE id='$id'";
 
-if ($connect->query($sendDoc) === TRUE) {
-    echo "Documents updated successfully";
-} else {
-    echo "Error: " .$sendDoc. "<br>" . $connect->error;
-}
-?>
 
-<?php
+$parameters = array(
+':owner_name' => $doc_owner_name,
+':owner_surname' => $doc_owner_surname,
+':owner_fathername' => $doc_owner_fathername,
+':owner_date' => $doc_date,
+':foto_1' => $doc_photo1,
+':foto_2' => $doc_photo2,
+':tex_passport' => $tex_passport,
+':tex_pass_date' => $tex_date,
+':foto_3' => $tex_photo1,
+':foto_4' => $tex_photo2,
+':insurance_type' => $insurance_type,
+':ins_date' => $insurance_expire_date,
+':foto_5' => $insurance_photo1,
+':foto_6' => $insurance_photo2,
+':gas_akt' => $gas_akt,
+':gas_date' => $gas_check_date,
+':foto_7' => $gas_photo1,
+':foto_8' => $gas_photo2,
+':renta' => $rental_deal_number,
+':renta_date' => $rental_expire_date,
+':foto_9' => $rent_photo1,
+':foto_10' => $rent_photo2,
+':trust_name' => $warrant_name,
+':trust_surname' => $warrant_surname,
+':trust_fathername' => $warrant_fathername,
+':trust_type' => $warrant_type,
+':trust_date' => $warrant_expire_date,
+':foto_11' => $warrant_photo1,
+':foto_12' => $warrant_photo2);
+
+$stmt = $connect->prepare($sendDoc);
+
+if ($stmt->execute($parameters) === TRUE) {
+    $totalQueries += 1;
+} else {
+    echo "Error";
+}
+
 $send = "UPDATE region SET 
-corp = '$prov_company',
-province = '$prov_region',
-city = '$prov_city',
-given_date = '$prov_given_date'
+corp = :corp,
+province = :province,
+city = :city,
+given_date = :given_date
 WHERE id='$id'";
 
-if ($connect->query($send) === TRUE) {
-    echo "Region updated successfully";
+$parameters = array(':corp' => $prov_company, ':province' => $prov_region, ':city' => $prov_city, ':given_date' => $prov_given_date);
+
+$stmt = $connect->prepare($send);
+
+if ($stmt->execute($parameters) === TRUE) {
+    $totalQueries += 1;
 } else {
-    echo "Error: " .$send. "<br>" . $connect->error;
+    echo "Error";
 }
-?>
 
-
-<?php
 $send = "UPDATE persons SET
-driver_name =  '$person_name',
-driver_surname =  '$person_surname',
-driver_fathername =  '$person_fathername',
-d_given_date =  '$person_given_date',
-d_phone_1 =  '$person_tel1',
-d_phone_2 =  '$person_tel2',
-foto_1 =  '$res15',
-foto_2 =  '$res16',
-respons_name =  '$respons_name',
-respons_surname =  '$respons_surname',
-respons_fathername =  '$respons_father',
-r_given_date =  '$respons_given_date',
-r_phone_1 = '$respons_tel1',
-r_phone_2 = '$respons_tel2'
+driver_name = :driver_name, 
+driver_surname = :driver_surname, 
+driver_fathername = :driver_fathername, 
+d_given_date = :d_given_date, 
+d_phone_1 = :d_phone_1, 
+d_phone_2 = :d_phone_2, 
+foto_1 = :foto_1, 
+foto_2 = :foto_2, 
+respons_name = :respons_name, 
+respons_surname = :respons_surname, 
+respons_fathername = :respons_fathername, 
+r_given_date = :r_given_date, 
+r_phone_1 = :r_phone_1, 
+r_phone_2 = :r_phone_2
 WHERE id='$id'";
 
-if ($connect->query($send) === TRUE) {
-    echo "persons update successfully";
+$parameters = array(
+':driver_name' => $person_name, 
+':driver_surname' => $person_surname, 
+':driver_fathername' => $person_fathername, 
+':d_given_date' => $person_given_date, 
+':d_phone_1' => $person_tel1, 
+':d_phone_2' => $person_tel2, 
+':foto_1' => $person_photo, 
+':foto_2' => $respons_photo, 
+':respons_name' => $respons_name, 
+':respons_surname' => $respons_surname, 
+':respons_fathername' => $respons_father, 
+':r_given_date' => $respons_given_date, 
+':r_phone_1' => $respons_tel1, 
+':r_phone_2' => $respons_tel2
+);
+
+$stmt = $connect->prepare($send);
+
+if ($stmt->execute($parameters) === TRUE) {
+    $totalQueries += 1;
 } else {
-    echo "Error: " .$send. "<br>" . $connect->error;
+    echo "Error";
 }
-?>
 
-
-<?php
-$send = "UPDATE purchase SET 
-buyer_name =  '$purchase_name',
-buyer_surname = '$purchase_surname',
-buyer_fathername = '$purchase_fathername',
-buy_date = '$purchase_date',
-phone = '$purchase_tel',
-price = '$purchase_price',
-comment = '$purchase_comment'
+$send = "UPDATE purchase SET
+buyer_name = :buyer_name, 
+buyer_surname = :buyer_surname,
+buyer_fathername = :buyer_fathername,
+buy_date = :buy_date,
+phone = :phone,
+price = :price,
+comment = :comment
 WHERE id='$id'";
 
-if ($connect->query($send) === TRUE) {
-    echo "purchase updated successfully";
+
+$parameters = array(
+':buyer_name' => $purchase_name, 
+':buyer_surname' => $purchase_surname,
+':buyer_fathername' => $purchase_fathername,
+':buy_date' => $purchase_date,
+':phone' => $purchase_tel,
+':price' => $purchase_price,
+':comment' => $purchase_comment
+);
+
+$stmt = $connect->prepare($send);
+
+if ($stmt->execute($parameters) === TRUE) {
+    $totalQueries += 1;
 } else {
-    echo "Error: " .$send. "<br>" . $connect->error;
+    echo "Error";
 }
-?>
 
-
-<?php
 $send = "UPDATE sale SET
-respons_name = '$sale_respons_name',
-respons_surname = '$sale_respons_surname',
-respons_fathername = '$sale_respons_fathername',
-phone = '$sale_phone',
-start_price = '$sale_price',
-sold_price = '$sold_price',
-start_date = '$sale_date',
-sold_date = '$sold_date',
-comment = '$sale_comment'
+respons_name = :respons_name,
+respons_surname = :respons_surname,
+respons_fathername = :respons_fathername,
+phone = :phone,
+start_price = :start_price,
+sold_price = :sold_price,
+start_date = :start_date,
+sold_date = :sold_date,
+comment = :comment
 WHERE id='$id'";
 
-if ($connect->query($send) === TRUE) {
-    echo "sale updated successfully";
-} else {
-    echo "Error: " .$send. "<br>" . $connect->error;
-}
-?>
 
-<?php
+$parameters = array(
+':respons_name' => $sale_respons_name,
+':respons_surname' => $sale_respons_surname,
+':respons_fathername' => $sale_respons_fathername,
+':phone' => $sale_phone,
+':start_price' => $sale_price,
+':sold_price' => $sold_price,
+':start_date' => $sale_date,
+':sold_date' => $sold_date,
+':comment' => $sale_comment
+);
+
+$stmt = $connect->prepare($send);
+
+if ($stmt->execute($parameters) === TRUE) {
+    $totalQueries += 1;
+} else {
+    echo "Error";
+}
+
 $send = "UPDATE status SET
-status = '$status',
-start_date = '$status_start_date',
-stop_date = '$status_stop_date',
-price = '$status_price',
-comment = '$status_comment'
+status = :status,
+start_date = :start_date,
+stop_date = :stop_date,
+price = :price,
+comment = :comment
 WHERE id='$id'";
 
-if ($connect->query($send) === TRUE) {
-    echo "status updated successfully";
+
+$parameters = array(
+':status' => $status,
+':start_date' => $status_start_date,
+':stop_date' => $status_stop_date,
+':price' => $status_price,
+':comment' => $status_comment
+);
+
+$stmt = $connect->prepare($send);
+
+if ($stmt->execute($parameters) === TRUE) {
+    $totalQueries += 1;
 } else {
-    echo "Error: " .$send. "<br>" . $connect->error;
+    echo "Error";
+}
+
+$send = "UPDATE fine SET
+fine_type = :fine_type,
+fine_start = :fine_start,
+fine_stop = :fine_stop,
+fine_price = :fine_price,
+fine_comment = :fine_comment
+WHERE id='$id'";
+
+
+$parameters = array(
+':fine_type' => $fine,
+':fine_start' => $fine_start,
+':fine_stop' => $fine_stop,
+':fine_price' => $fine_price,
+':fine_comment' => $fine_comment
+);
+
+$stmt = $connect->prepare($send);
+
+if ($stmt->execute($parameters) === TRUE) {
+    $totalQueries += 1;
+} else {
+    echo "Error";
+}
+
+if($totalQueries == 8){
+    echo '<script type="text/javascript">
+           window.location = "../sections/update/sent"
+      </script>';
+}
+
 }
 ?>
-
-<?php
-$send = "UPDATE fine SET
-fine_type = '$fine',
-fine_start = '$fine_start',
-fine_stop = '$fine_stop',
-fine_price = '$fine_price',
-fine_comment = '$fine_comment'
-WHERE id='$id'";
-
-if ($connect->query($send) === TRUE) {
-    echo "fine updated successfully";
-} else {
-    echo "Error: " .$send. "<br>" . $connect->error;
-}
-
-}
