@@ -95,7 +95,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -168,7 +168,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -243,7 +243,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -318,7 +318,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -393,7 +393,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -468,7 +468,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -543,7 +543,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -618,7 +618,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                 <a href="tel:'.$row["d_number"].'">
+                 <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -693,7 +693,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -768,7 +768,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -843,7 +843,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                 <a href="tel:'.$row["d_number"].'">
+                 <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -918,7 +918,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -993,7 +993,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -1068,7 +1068,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
@@ -1143,7 +1143,7 @@ if ($stmt->fetchColumn() > 0) {
               </div>
                 
                 <div class="col-1 py-4 pl-2">
-                  <a href="tel:'.$row["d_number"].'">
+                  <a href="tel:'.$row["d_phone_1"].'">
                   <img class="mb-3 mr-lg-4" src="styles/icons/call-notif.svg" alt="call">
                   </a>
                 </div>
