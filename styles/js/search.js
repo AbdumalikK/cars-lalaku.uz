@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
    $("#search").keyup(function() {
 
        var name = $('#search').val();
@@ -6,17 +7,16 @@ $(document).ready(function() {
        if (name == "") {
            $("#display").html("");
        } else {
-
            $.ajax({
                type: "POST",
-               url: "../../search_ajax.php",
-               data: name,
+               url: "search_ajax",
+               data: "search="+name,
                success: function(data) {
                    $("#display").html(data).show();
-               }
-
-           });
-
+                   console.log(data);
+                }
+                
+            });
        }
 
    });

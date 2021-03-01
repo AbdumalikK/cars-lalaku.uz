@@ -5,26 +5,23 @@ include 'includes/header.php';
 
 <head>
 	<link rel="stylesheet" href="./styles/css/search.css">
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="styles/js/search.js"></script>
 </head>
 
 
 <div class="container-lg mx-lg-auto py-3 mb-4 bg-white">
 	<div class="row">
 		<div class="col-12 px-4">
-			<form action="search_ajax.php">
+			<form action="search_ajax">
 				<div class="search-input">
-					<input type="text" name="search" id="search" class="search-control" placeholder="Qidirish" autofocus><a href=""><img class="search-img" src="styles/icons/search icon.svg" alt=""></a>
+					<input type="text" name="search" id="search" class="search-control" placeholder="Qidirish" autofocus autocomplete="off"><img class="search-img" src="styles/icons/search icon.svg" alt="">
 				</div>
 			</form>
-	        <div id="display"></div>
+	        <div id="display" class="mt-2"></div>
 		</div>
 	</div>
 
-		<form action="search-general.php">
+		<form action="search-general">
 							<div class="row p-2">
-
 											<div class="col-4 p-0 pl-2">
 												<label class="mt-4 ml-3 search-option-title" for="marka">marka</label>		
 												<select class="search-option" name="marka" id="marka">
@@ -118,7 +115,7 @@ include 'includes/header.php';
 							</div>
 		<div class="row">
 			<div class="col-12 text-center mt-4">
-				<a href="search-result.php"><img src="styles/icons/search-icon.svg" alt="qidiruv"></a>
+				<a href="search-result"><img src="styles/icons/search-icon.svg" alt="qidiruv"></a>
 			</div>
 		</div>
 		</form>
@@ -131,3 +128,4 @@ include 'includes/header.php';
 </div>
 
 <?php include "includes/footer.php"; ?>
+<script src="styles/js/search.js"></script>
