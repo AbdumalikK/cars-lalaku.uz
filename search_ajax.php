@@ -15,7 +15,7 @@ if (isset($_POST['search'])) {
 <ul>
 <div class="list-group">
    <li style="list-style-type: none;" onclick='fill("<?php echo $Result["driver_name"]; ?>")'>
-       <a href="action/user-view?id=<?php echo $Result['id'];?>" class="list-group-item list-group-item-action" style="color: rgba(88, 88, 88, 0.6);"><?php echo $Result['driver_name']; ?></a>
+       <a href="action/user-view?id=<?php echo $Result['id'];?>" class="list-group-item list-group-item-action" style="color: black;"><?php echo $Result['driver_name']; ?></a>
    </li>
 </div>
 

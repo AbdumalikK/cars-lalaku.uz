@@ -20,7 +20,7 @@ include 'includes/header.php';
 		</div>
 	</div>
 
-		<form action="search-general">
+		<!-- <form action="search-general">
 							<div class="row p-2">
 											<div class="col-4 p-0 pl-2">
 												<label class="mt-4 ml-3 search-option-title" for="marka">marka</label>		
@@ -118,7 +118,7 @@ include 'includes/header.php';
 				<a href="search-result"><img src="styles/icons/search-icon.svg" alt="qidiruv"></a>
 			</div>
 		</div>
-		</form>
+		</form> -->
 
 
 
