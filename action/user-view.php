@@ -460,7 +460,7 @@ if(isset($_SESSION["loggedin"])) {
                          </div>
                                     <!-- Province shadow -->
                                     <div class="col-12 p-0">
-                                        <img class="province-shadow" src="./styles/icons/province-shadow.svg" alt="province-shadow">
+                                        <img class="province-shadow" src="../styles/icons/province-shadow.svg" alt="province-shadow">
                                     </div>
                                     <!-- end -->
                             <!-- end -->
@@ -578,13 +578,13 @@ if(isset($_SESSION["loggedin"])) {
                 <!-- Persons -->
                 <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/persons.php'?>
                 <!-- Purchase -->
-                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/purchase.php'?>
+                <?php //include $_SERVER['DOCUMENT_ROOT'].'/sections/view/purchase.php'?>
                 <!-- Sell -->
-                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/sell.php'?>
+                <?php //include $_SERVER['DOCUMENT_ROOT'].'/sections/view/sell.php'?>
                 <!-- Status -->
-                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/status.php'?>
+                <?php //include $_SERVER['DOCUMENT_ROOT'].'/sections/view/status.php'?>
                 <!-- Fine -->
-                <?php include $_SERVER['DOCUMENT_ROOT'].'/sections/view/fine.php' ?>
+                <?php //include $_SERVER['DOCUMENT_ROOT'].'/sections/view/fine.php' ?>
             </div>
             </div>
             </div>

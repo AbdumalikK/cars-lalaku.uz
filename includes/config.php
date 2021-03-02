@@ -27,13 +27,14 @@ if(in_array($_SERVER['REMOTE_ADDR'], $localWhiteList)){
 	//   }
 } else {
 	// server connect
-	$currentUrl = 'https://' . $_SERVER['SERVER_PROTOCOL'] . $_SERVER['REQUEST_URI'];
-	$homeUrl = 'https://'.$_SERVER['SERVER_NAME'];
+	$currenturl = 'https://' . $_SERVER['SERVER_PROTOCOL'] . $_SERVER['REQUEST_URI'];
+	$homeurl = 'https://'.$_SERVER['SERVER_NAME'].'/';
+
 
 	$DB_SERVER = 'localhost';
-	$DB_USERNAME = 'root';
-	$DB_PASSWORD = '';
-	$DB_NAME = 'lalaku-cars';
+	$DB_USERNAME = 'u562342975_cars';
+	$DB_PASSWORD = 'Lalaku2020';
+	$DB_NAME = 'u562342975_cars';
 	// try {
 	// 	$connect = new PDO("mysql:host=$DB_SERVER;dbname=lalaku-cars", $DB_USERNAME, $DB_PASSWORD);
 	// 	// set the PDO error mode to exception

@@ -22,9 +22,6 @@ include '../includes/config.php';
     <link rel="stylesheet" href="../styles/fonts/TITILLIUM-THIN.OTF">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <!-- JS Files -->
-    <script src="../styles/js/darkmode-js.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript" src="../styles/js/search-edit.js"></script>
 </head>
 
 <body>
@@ -58,17 +55,17 @@ include '../includes/config.php';
 
     <div class="row">
         <div class="col-12 px-4 pt-4">
-			<form action="../ajax.php">
+			<form action="../search_ajax">
 				<div class="search-input">
-					<input type="text" name="search" id="search" class="search-control" placeholder="Qidirish" autofocus><a href=""><img class="search-img" src="styles/icons/search icon.svg" alt=""></a>
+					<input type="text" autocomplete="off" name="search" id="search_update" class="search-control" placeholder="Qidirish" autofocus><img class="search-img" src="../styles/icons/search icon.svg" alt="qidiruv">
 				</div>
 			</form>
-	        <div id="display2"></div>
+	        <div id="display"></div>
 		</div>
     </div>
 
 
-    <form action="search-general.php">
+    <form action="search-general">
                             <div class="row p-2">
 
                                             <div class="col-4 p-0 pl-2">
@@ -270,3 +267,4 @@ include '../includes/config.php';
 
         <!-- end add information section -->
     <?php include '../includes/footer.php'; ?>
+    <script type="text/javascript" src="../styles/js/search.js"></script>

@@ -93,8 +93,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="../styles/source/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/css/image.css">
+    <!-- Styles css-->
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/source/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/css/style.css">
+    <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/css/image.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; margin: 0 auto; }
@@ -125,6 +127,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <!-- <p>Don't have an account? <a href="register.php">Sign up now</a>.</p> -->
         </form>
     </div>    
-<script src="../styles/js/loader.js"></script>
+
+    <script src="<?php echo $homeurl; ?>styles/source/jquery.min.js"></script>
+	<script src="<?php echo $homeurl; ?>styles/js/loader.js"></script>
+
 </body>
 </html>
