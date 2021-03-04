@@ -13,8 +13,6 @@ include '../includes/config.php';
     <link rel="stylesheet" href="../styles/css/style.css">
     <link rel="stylesheet" href="../styles/css/search.css">
     <link rel="stylesheet" href="../styles/css/image.css">
-    <link rel="stylesheet" href="../styles/css/dark-mode.css">
-    <link rel="stylesheet" href="../styles/js/dropzonejs/dropzone.css">
     <!-- Fonts -->
     <link rel="stylesheet" href="../styles/fonts/18VAGROUNDEDMBOLD_0.TTF">
     <link rel="stylesheet" href="../styles/fonts/TITILLIUM-BOLD.OTF">

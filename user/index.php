@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +28,12 @@
     </div>
 </div>
 
-<?php include "../includes/footer.php"; ?>
+<?php 
+include "../includes/footer.php";
+
+} else {
+    echo "Accountingizga kiring!";
+} ?>
+
 </body>
 </html>
