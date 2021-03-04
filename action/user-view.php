@@ -61,7 +61,7 @@ if(isset($_SESSION["loggedin"])) {
  ?>
 
 
-                <a href="./search">
+                <a href="../search">
                     <img class="search" src="<?php echo $homeurl; ?>styles/icons/search.svg" alt="Qidirish">
                 </a>
 

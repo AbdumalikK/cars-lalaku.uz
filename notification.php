@@ -7,11 +7,13 @@ include_once 'includes/header.php';
 <div class="container-lg mx-lg-auto text-center mt-4 bg-yellow">
 	<div class="row">
 		<div class="col-6">
-			<a class="text-decoration-none" href="notification.php"><div class="reminder tasks-border ml-4">
+			<a class="text-decoration-none" href="notification"><div class="reminder tasks-border ml-4">
 					<h2 class="m-0 pt-2">
 						<?php 
-						$totalNotif = mysqli_query($connect, "SELECT count(*) FROM documents WHERE item_status = 0"); 
-						$totalCount = $totalNotif->fetch_row()[0];
+						$sql = "SELECT count(*) FROM documents WHERE item_status = 0";
+						$totalNotif = $connect->prepare($sql); 
+						$totalNotif->execute();
+						$totalCount = $totalNotif->fetchColumn();
 						echo $totalCount;
 						?> 
 						</h2>
@@ -19,11 +21,13 @@ include_once 'includes/header.php';
 				</div></a>
 		</div>
 		<div class="col-6">
-			<a class="text-decoration-none" href="notification_extended.php"><div class="finished ml-4">
+			<a class="text-decoration-none" href="notification_extended"><div class="finished ml-4">
 					<h2 class="m-0 pt-2">
 					<?php 
-						$totalNotif = mysqli_query($connect, "SELECT count(*) FROM documents WHERE item_status = 1"); 
-						$totalCount = $totalNotif->fetch_row()[0];
+						$sql = "SELECT count(*) FROM documents WHERE item_status = 1";
+						$totalNotif = $connect->prepare($sql); 
+						$totalNotif->execute();
+						$totalCount = $totalNotif->fetchColumn();
 						echo $totalCount;
 					?> 
 					</h2>
@@ -54,12 +58,14 @@ include_once 'includes/header.php';
 	 LEFT JOIN documents ON documents.id = persons.id
 	 /*WHERE documents.item_status = 0*/
 	";
-  $result = mysqli_query($connect, $sql);
-  
+  $result = $connect->prepare($sql);
+  $result->execute();
+
   function RenderItem($title, $date_diff, $notif_id, $notif_driver_name, $notif_driver_surname, $notif_phone, $bageColor, $connect) { 
 	
 	$addStatus = "UPDATE documents SET item_status = 0 WHERE id = '$notif_id'";
-	mysqli_query($connect, $addStatus); ?>
+	$statusSql = $connect->prepare($addStatus);
+	$statusSql->execute(); ?>
 			
 			<div class="content-bordered">
 			<div class="row">
@@ -107,9 +113,9 @@ include_once 'includes/header.php';
 <?php } ?>
 
 <?php
-while ($notif = mysqli_fetch_assoc($result)) {
+while ($notif = $result->fetch()) {
 	
-	$notif_id = $notif['id'];
+$notif_id = $notif['id'];
 $notif_driver_name = $notif['driver_name'];
 $notif_driver_surname = $notif['driver_surname'];
 $notif_phone = $notif['d_phone_1'];

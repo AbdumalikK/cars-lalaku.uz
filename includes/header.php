@@ -43,6 +43,7 @@
 <?php 
 if(isset($_SESSION["loggedin"])) {
     $totalNotif = $connect->prepare("SELECT count(*) FROM documents WHERE item_status = 0"); 
+    $totalNotif->execute();
     $totalCount = $totalNotif->fetchColumn();
     
     echo '<a class="notification"  href="./notification">
