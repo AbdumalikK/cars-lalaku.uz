@@ -1,6 +1,7 @@
 <?php 
 include 'includes/config.php';
 include 'includes/header.php'; 
+if(isset($_SESSION["loggedin"])) {
 ?>
 
 <!-- Reminder and made tasks -->
@@ -71,7 +72,7 @@ function RenderItem($title, $date_diff, $notif_id, $notif_driver_name, $notif_dr
 						<div class="info">
 							<span class="badge badge-pill <?php echo $bageColor; ?> badge-content-img d-inline-block content-img-size"><?php $titleStatus = substr($title, 0, 1); echo $titleStatus; ?></span>
 							<h5 class="d-inline-block content-border ml-1 mb-0">
-								<a href="action/update.php?id=<?php echo $notif_id; ?>">
+								<a href="action/update?id=<?php echo $notif_id; ?>">
 									<?php echo $title; ?>
 								</a>
 							</h5>
@@ -187,4 +188,8 @@ if ($date) {
 <!-- end -->
 
 
-<?php include 'includes/footer.php'; ?>
+<?php include 'includes/footer.php'; 
+} else {
+	header("location: user/login");
+}
+?>

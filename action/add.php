@@ -1,3 +1,7 @@
+<?php 
+if(isset($_SESSION["loggedin"])) {
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,3 +83,8 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/sections/sql_query_add.php';
 <script src="../styles/js/app.js"></script>
 <!-- <script src="../styles/js/dropzonejs/dropzone.js"></script> -->
 
+<?php 
+} else {
+	header("location: ../user/login");
+}
+?>

@@ -1,5 +1,6 @@
 <?php 
 include '../includes/config.php';
+if(isset($_SESSION["loggedin"])) {
 ?>
 
 <!DOCTYPE html>
@@ -264,5 +265,9 @@ include '../includes/config.php';
 
 
         <!-- end add information section -->
-    <?php include '../includes/footer.php'; ?>
+    <?php include '../includes/footer.php'; 
+    } else {
+        header("location: ../user/login");
+    }
+    ?>
     <script type="text/javascript" src="../styles/js/search.js"></script>

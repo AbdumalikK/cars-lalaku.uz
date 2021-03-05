@@ -4,7 +4,7 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: ../index.php");
+    header("location: ../index");
     exit;
 }
  
@@ -109,7 +109,7 @@ if(isset($_REQUEST['login']))	//button name is "btn_login"
     <div class="wrapper text-center">
         <h2>Kirish</h2>
         <p>Bildirishnomani ko'rish uchun Ism va Parolingizni kiriting.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Ism</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
