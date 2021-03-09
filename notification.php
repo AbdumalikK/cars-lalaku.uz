@@ -1,6 +1,7 @@
 <?php
 include_once 'includes/config.php';
 include_once 'includes/header.php'; 
+
 if(isset($_SESSION["loggedin"])) {
 ?>
 
@@ -197,6 +198,10 @@ if ($date) {
 <!-- end -->
 <?php include 'includes/footer.php'; 
 } else {
-	header("location: user/login");
+	?>
+	<script>
+	window.location.replace("user/login");
+	</script>
+	<?php
 }
 ?>

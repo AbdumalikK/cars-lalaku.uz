@@ -1,3 +1,6 @@
+<?php
+if(isset($_SESSION["loggedin"])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,4 +34,12 @@
     </div>
 </div>
 <div class="mt-5"></div>
-<?php include "../includes/footer.php"; ?>
+<?php include '../includes/footer.php'; 
+} else {
+	?>
+	<script>
+	window.location.replace("../user/login");
+	</script>
+	<?php
+}
+?>

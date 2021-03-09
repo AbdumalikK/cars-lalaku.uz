@@ -50,6 +50,10 @@ if(isset($_SESSION["loggedin"])) {
         <img src="styles/icons/notification.svg" alt="Bildirishnoma">
         <span class="badge badge-pill badge-danger ntf count">'.$totalCount.'</span>
         </a>';
+} else {
+    echo '<a class="notification"  href="./user/login">
+    <img src="styles/icons/user.png" width="28" height="28" alt="Kirish">
+    </a>';
 }
  ?>
         <a href="./search">

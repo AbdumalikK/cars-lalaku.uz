@@ -1,3 +1,6 @@
+<?php
+if(isset($_SESSION["loggedin"])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,3 +96,12 @@ include_once '../sections/update/sql_query_update.php';
     <!-- JS Files -->
     <?php include '../includes/footer.php'; ?>
     <script src="../styles/js/search.js"></script>
+<?php
+    } else {
+?>
+	<script>
+	    window.location.replace("../user/login");
+	</script>
+<?php
+}
+?>
