@@ -5,7 +5,7 @@
 // define(DB_PASSWORD, 'root');
 // define(DB_NAME, 'lalaku-cars');
 
-$localWhiteList = array('127.0.0.1', 'lalaku-cars.uz');
+$localWhiteList = array('127.0.0.1', 'cars-lalaku.uz', 'localhost');
 $protocol = strtolower(substr($_SERVER['SERVER_PROTOCOL'],0,strpos($_SERVER["SERVER_PROTOCOL"],'/'))).'://';
 
 if(in_array($_SERVER['REMOTE_ADDR'], $localWhiteList)){
@@ -15,7 +15,7 @@ if(in_array($_SERVER['REMOTE_ADDR'], $localWhiteList)){
 
 	$DB_SERVER = 'localhost';
 	$DB_USERNAME = 'root';
-	$DB_PASSWORD = 'root';
+	$DB_PASSWORD = '';
 	$DB_NAME = 'lalaku-cars';
 	// try {
 	// 	$connect = new PDO("mysql:host=$DB_SERVER;dbname=lalaku-cars", $DB_USERNAME, $DB_PASSWORD);

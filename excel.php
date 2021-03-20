@@ -27,7 +27,7 @@ if (isset($_POST['export_excel'])) {
 					<th></th>
 					<th></th>
 				</tr>
-		'
+		';
 	}
 }
 
