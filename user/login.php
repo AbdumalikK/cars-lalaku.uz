@@ -61,8 +61,9 @@ if(isset($_REQUEST['login']))	//button name is "btn_login"
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kirish</title>
     <!-- Styles css-->
     <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/source/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/css/style.css">
