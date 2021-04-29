@@ -517,3 +517,7 @@ function downloadimage() {
                 link.click();
             });
         }
+
+        $('.user-popup').click(function() {
+            $('.dropdown-menu').toggle();
+        });

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/css/style.css">
     <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/css/search.css">
     <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/css/image.css">
-    <!-- <link rel="stylesheet" href="styles/source/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Fonts -->
     <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/fonts/18VAGROUNDEDMBOLD_0.TTF">
     <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/fonts/TITILLIUM-BOLD.OTF">
@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="<?php echo $homeurl; ?>styles/fonts/TITILLIUM-THIN.OTF">
     <link rel="icon" href="<?php echo $homeurl; ?>favicon.ico" type="image/x-icon">
     <!-- JS Files -->
-    <!-- <script src="styles/source/jquery.min.js"></script>
-    <script src="styles/source/bootstrap.min.js"></script>
-    <script src="styles/source/popper.min.js"></script>
-    <script src="styles/js/app.js"></script> -->
-	<!-- <script src="styles/js/search.js"></script> -->
+    <!-- <script src="../styles/source/jquery.min.js"></script> -->
+    <!-- <script src="../styles/source/bootstrap.min.js"></script>
+    <script src="../styles/source/popper.min.js"></script>
+    <script src="../styles/js/app.js"></script>
+	<script src="styles/js/search.js"></script> -->
 </head>
 <body>
 <!-- Container -->
@@ -539,3 +539,18 @@ if(isset($_SESSION["loggedin"])) {
    <!--  <script>
         new Darkmode().showWidget();
     </script> -->
+
+<?php if(isset($_SESSION["loggedin"])) { ?>
+<span class="user-popup">
+<div class="btn-group dropright">
+<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<i class="far fa-user  fa-lg"></i>
+</button>
+<div class="dropdown-menu ml-2">
+        <a href="" class="d-block p-1 text-dark">Profil</a>
+        <a href="" class="d-block p-1 text-dark">Parol alishtirish</a>
+        <a href="user/logout" class="d-block p-1 text-dark">Chiqish</a>
+</div>
+</div>
+</span>
+<?php } ?>

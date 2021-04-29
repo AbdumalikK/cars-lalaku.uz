@@ -56,8 +56,8 @@ if(isset($_SESSION["loggedin"])) {
 
 
 <?php 
-  $sql = "SELECT persons.id, persons.driver_name, persons.driver_surname, persons.d_phone_1, documents.tex_pass_date, documents.ins_date, documents.gas_date, documents.renta_date, documents.trust_date FROM persons
-	 LEFT JOIN documents ON documents.id = persons.id
+  $sql = "SELECT p.id, p.driver_name, p.driver_surname, p.d_phone_1, d.tex_pass_date, d.ins_date, d.gas_date, d.renta_date, d.trust_date FROM persons p
+	 LEFT JOIN documents d ON d.id = p.id
 	 /*WHERE documents.item_status = 0*/
 	";
   $result = $connect->prepare($sql);

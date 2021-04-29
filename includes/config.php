@@ -15,7 +15,7 @@ if(in_array($_SERVER['REMOTE_ADDR'], $localWhiteList)){
 
 	$DB_SERVER = 'localhost';
 	$DB_USERNAME = 'root';
-	$DB_PASSWORD = '';
+	$DB_PASSWORD = 'root';
 	$DB_NAME = 'lalaku-cars';
 	// try {
 	// 	$connect = new PDO("mysql:host=$DB_SERVER;dbname=lalaku-cars", $DB_USERNAME, $DB_PASSWORD);

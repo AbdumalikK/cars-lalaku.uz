@@ -605,8 +605,22 @@ input:checked + .btn-purchase-title {
 .bageRed {
   background-color: red !important;
 }
-.content-border-bottom {
-  border-bottom: 1px solid rgba(112, 112, 112, 0.6)!important;
-  padding-bottom: 7px!important;
+
+.user-popup {
+  display: none;
 }
+
+@media screen and (max-width: 700px) {
+  .user-popup {
+    display: block;
+    position: fixed;
+    bottom: 15%;
+    left: 5%;
+    padding: 0px;
+    border: 1px solid #ffff00;
+    border-radius: 8px;
+    background-color: #ffff00;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

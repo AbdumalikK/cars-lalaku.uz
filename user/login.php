@@ -41,12 +41,12 @@ if(isset($_REQUEST['login']))	//button name is "btn_login"
 					}
 					else
 					{
-						$errorMsg[]="wrong password";
+						$errorMsg[]="Not'g'ri parol";
 					}
 				}
 				else
 				{
-					$errorMsg[]="wrong username";
+					$errorMsg[]="Not'g'ri foydalanuvchi";
 				}
 			}
 		}
@@ -102,9 +102,6 @@ if(isset($_REQUEST['login']))	//button name is "btn_login"
         <?php
 		}
 		?>   
-
-
-
 
 
     <div class="wrapper text-center">
